@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Ändra kort</h1>
+<div mat-dialog-content>
+	<form class="form" #cardForm="ngForm">
+
+		<div class="container">
+			<div class="preview">
+				<app-view-card [card]="data.card" [deck]="data.deck" [print]="true" class="preview-card"/>
+
+			</div>
+			<div class="editor-container">
+                @for (field of cardType!.fields; track field) {
+                    <app-card-field-edit [card]="data.card" [field]="field">
+
+                    </app-card-field-edit>
+
+                }
+			</div>
+		</div>
+
+	</form>
+
+
+</div>
+<div mat-dialog-actions>
+    @if (data.card.id) {
+        <button mat-raised-button color="primary" (click)="saveCard()"
+            [disabled]="!cardForm.form.valid">Spara</button>
+        <button mat-raised-button color="primary" (click)="deleteCard()">Ta
+            bort</button>
+
+    } 
+    @else {
+        <button mat-raised-button color="primary" (click)="addCard()"
+            [disabled]="!cardForm.form.valid">Lägg till</button>
+
+    }
+	<button mat-raised-button (click)="cancel()">Avbryt</button>
+</div>

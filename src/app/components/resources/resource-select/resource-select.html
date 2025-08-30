@@ -1,0 +1,45 @@
+<mat-form-field class="resource-select" [class.image-selector]="type == 'image'" [class.symbol-selector]="type == 'symbol'">
+	<mat-label>{{name}}</mat-label>
+	<div class="input-section">
+		<div class="value-row">
+			<div>
+				<input matInput [matAutocomplete]="auto" [formControl]="pathCtrl">
+			</div>
+            @if (path) {
+                <div>
+                    @if (type == 'symbol') {
+                        <img [src]="'http://localhost:8080/api/resources/' + path" class="symbol-select">
+
+                    }
+                    @if (type == 'image') {
+                        <img [src]="'http://localhost:8080/api/resources/' + path" class="image-select">
+                    }
+                </div>
+            }
+		</div>
+	</div>
+	<mat-autocomplete #auto="matAutocomplete" [panelWidth]="'300px'">
+        @if (resources | async; as resourceList) {
+            @for (resource of resourceList; track resource) {
+                <mat-option [value]="resource.path" 
+                    (onSelectionChange)="resourceSelected(resource)">
+                    <div class="option-row">
+                        <span>{{resource.path}}</span>
+                        <div>
+                            @if (resource && resource!.type == 'symbol') {
+                                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="symbol-preview">
+
+                            }
+
+                            @if (resource && resource!.type == 'image') {
+                                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="image-preview">
+                            }
+                        </div>
+                    </div>
+                </mat-option>
+
+            }
+
+        }
+	</mat-autocomplete>
+</mat-form-field>

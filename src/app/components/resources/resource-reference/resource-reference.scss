@@ -1,0 +1,23 @@
+
+.symbol-preview {
+  height: 100px;
+}
+.image-preview {
+  height: 50vh;
+}
+
+.preview {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid darkgray;
+}
+
+.symbol-thumb {
+  height: 30px;
+}
+.image-thumb {
+  height: 100px;
+}

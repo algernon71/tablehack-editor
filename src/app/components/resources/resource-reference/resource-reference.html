@@ -1,0 +1,30 @@
+@if (resource) {
+<div>
+
+
+    @if (resource!.type == 'symbol' && resource!.path) {
+        <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="symbol-thumb" 
+            (mouseenter)="preview = !preview" (mouseleave)="preview = !preview">
+
+    }
+    @if (resource!.type == 'image' && resource!.path) {
+        <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="image-thumb" 
+            (mouseenter)="preview = !preview" (mouseleave)="preview = !preview">
+    }
+    @if (preview) {
+        <div class="preview">
+            @if (resource!.type == 'symbol' && resource!.path) {
+                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="symbol-preview">
+            }
+            @if (resource!.type == 'image' && resource!.path) {
+                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="image-preview">
+            }
+        </div>
+    }
+
+</div>
+}
+@else 
+{
+    No resource found    
+}

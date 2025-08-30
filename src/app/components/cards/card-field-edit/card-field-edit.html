@@ -1,0 +1,134 @@
+@switch (fieldType) {
+    @case ('icon') {
+        <div>
+
+            <app-resource-select [type]="'symbol'" [(path)]="value" (pathChange)="valueChanged($event)">
+            </app-resource-select>
+        </div>
+    }
+    @case ('html') {
+        <div>
+            <mat-form-field>
+                <mat-label>HTML</mat-label>
+                <textarea [formControl]="control"></textarea>
+            <div [innerHTML]="control.value"></div>
+            </mat-form-field>
+        </div>
+    }
+    @case ('card-reference') {
+        <div>
+            <mat-form-field>
+                <mat-label>Referens</mat-label>
+                <input matInput [(ngModel)]="card!.reference" name="card-reference">
+            </mat-form-field>
+        </div>
+    }
+    @case ('card-level') {
+        <div>
+            <mat-form-field>
+                <mat-label>Level</mat-label>
+                <input matInput [(ngModel)]="card!.level" name="card-level">
+            </mat-form-field>
+        </div>
+    }
+    @case ('name') {
+        <div>
+            <mat-form-field>
+                <mat-label>Namn</mat-label>
+                <input matInput [(ngModel)]="card!.name" name="name" required>
+            </mat-form-field>
+        </div>
+    }
+    @case ('description') {
+        <div>
+            <mat-form-field>
+                <mat-label>Text</mat-label>
+                <textarea matInput [(ngModel)]="card!.description" name="description" rows="8" width="20"></textarea>
+            </mat-form-field>
+        </div>
+    }
+    @case ('orientation') {
+        <div>
+            <mat-checkbox [(ngModel)]="card!.horizontal" name="horizontal">Horizontellt
+                kort</mat-checkbox>
+        </div>
+    }
+    @case ('bio') {
+
+        <div>
+            <mat-form-field>
+                <mat-label>Ras</mat-label>
+                <input matInput [(ngModel)]="card!.data!['race']" name="race" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Yrke</mat-label>
+                <input matInput [(ngModel)]="card!.data!['class']" name="class" required>
+            </mat-form-field>
+        </div>
+    }
+    @case ('symbol') {
+        <div>
+            <app-resource-select [type]="'symbol'" [(path)]="card!.data!['symbol']" (pathChange)="valueChanged($event)">
+
+            </app-resource-select>
+        </div>
+
+    }
+    @case ('image') {
+        <div>
+            <app-resource-select [type]="'image'" [(path)]="card!.data!['image']" [name]="'Bild'"
+                (pathChange)="valueChanged($event)">
+
+            </app-resource-select>
+        </div>
+    }
+    @case ('actions') {
+        <div>
+            @for (action of value; track action) {
+                <div>
+                    <app-action-field-edit [card]="card" [field]="field" [action]="action"
+                        *ngIf="action.actionType =='action'"></app-action-field-edit>
+                    <app-attack-field-edit [card]="card" [field]="field" [attack]="action"
+                        *ngIf="action.actionType =='attack'"></app-attack-field-edit>
+                    <button mat-raised-button color="primary" (click)="removeFieldRow(value, action)">Ta
+                        bort</button>
+                </div>
+
+            }
+            <button mat-raised-button color="primary" (click)="addFieldRow({ actionType: 'action'})">Lägg till handling</button>
+            <button mat-raised-button color="primary" (click)="addFieldRow({ actionType: 'attack'})">Lägg till attack</button>
+        </div>
+    }
+    @case ('stats') {
+        <div>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'str'"
+                [statName]="'Styrka'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'agi'"
+                [statName]="'Smidighet'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'health'"
+                [statName]="'Hälsa'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'mana'"
+                [statName]="'Mana'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'per'"
+                [statName]="'Uppmärksamhet'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'luck'"
+                [statName]="'Tur'"></app-upgradeable-stat-field>
+            <app-upgradeable-stat-field [card]="card" [field]="field" [statId]="'actions'"
+                [statName]="'Handlingar'"></app-upgradeable-stat-field>
+        </div>
+
+    }
+    @case ('mstats') {
+        <div>
+            <app-mstats-field-edit [card]="card" [field]="field" [mstats]="card!.data!['mstats']"></app-mstats-field-edit>
+        </div>        
+    }
+}
+
+
+
+
+
+
+
+

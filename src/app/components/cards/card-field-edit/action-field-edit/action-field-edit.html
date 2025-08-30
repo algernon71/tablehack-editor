@@ -1,0 +1,31 @@
+
+<mat-form-field>
+	<mat-label>Effekt</mat-label>
+	<mat-select [value]="action.type.id">
+		@for (type of actionTypes; track type) {
+			<mat-option [value]="type.id" 
+				(onSelectionChange)="typeChanged(action, type, $event)"> {{type.name}}</mat-option>
+			
+		}
+	</mat-select>
+</mat-form-field>
+@if (action.type.id == 'move') {
+	<mat-form-field>
+		<mat-label></mat-label>
+		<mat-select [value]="action.type.moveType">
+			@for (type of moveTypes; track type) {
+				<mat-option [value]="type.id" (onSelectionChange)="moveTypeChanged(action, type, $event)"> {{type.name}}</mat-option>		
+			}
+			</mat-select>
+
+
+	</mat-form-field>
+
+}
+
+	<app-expression-field-edit [(expression)]="action.value" [name]="action.type.valueName"></app-expression-field-edit>
+@if (action.type.valueType == 'deck-reference') {
+	<div>
+		<app-deck-select [type]="'treasure'" [(deckReference)]="action.value"></app-deck-select>
+	</div>
+}

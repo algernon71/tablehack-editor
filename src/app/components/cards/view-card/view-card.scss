@@ -1,0 +1,118 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.preview {
+  transform: scale(50%, 50%);
+}
+
+.card-side {
+  background-color: white;
+  border-radius: 5mm;
+  border: 1mm solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.small-card {
+  width: 58mm;
+  height: 88mm;
+}
+
+
+.large-card {
+  width: 150mm;
+  height: 210mm;
+}
+
+.horizontal-small {
+  height: 58mm;
+  width: 88mm;
+  transform: rotate(-90deg) translate(-13mm, -14mm);
+}
+
+.vertical-small {
+}
+
+.horizontal-large {
+  height: 140mm;
+  width: 180mm;
+  transform: rotate(-90deg) translate(-30mm, -30mm);
+}
+
+.vertical-large {
+}
+
+
+.card-inner-frame-front {
+  margin: 1mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.card-inner-frame-back {
+  margin: 2mm;
+  margin-bottom: 2mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.front-top {
+  font-size: 8mm;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 7mm;
+}
+
+.back-top {
+  font-size: 8mm;
+  font-weight: bold;
+  line-height: 9mm;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 7mm;
+  flex-grow: 1;
+  word-wrap: break-word;
+
+}
+
+.back-description {
+  font-size: 4mm;
+  text-align: center;
+  flex-grow: 1;
+
+}
+
+.vfold {
+  width: 10mm;
+  background-color: black;
+}
+.vcut {
+  width: 1mm;
+  background-color: black;
+}
+
+.back-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.back-symbol {
+  height: 20mm;
+  padding-bottom: 10mm;
+}
+.back-logo {
+  height: 7mm;
+}

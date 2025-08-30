@@ -1,0 +1,46 @@
+@if (front || back ) {
+    <div class="card" [class.preview]="!print">
+        @if (front) {
+            <div class="card-side" 
+                [class.small-card]="type!.size! == 'small'" 
+                [class.large-card]="type!.size! == 'large'">
+                <div class="card-inner-frame-front"
+                    [class.horizontal]="card!.horizontal" 
+                    [class.vertical]="!card!.horizontal">
+                    @for (entry of type!.frontEntries; track entry) {
+                        <app-view-card-entry [card]="card" [entry]="entry" [deck]="deck" [type]="type" class="card-entry"> 
+                                
+                        </app-view-card-entry>
+                    }
+                </div>
+
+            </div>
+        }
+
+        @if (front && back) {
+            <div class="vfold">
+            </div>
+        }
+        @if (back) {
+            <div class="card-side"
+                [class.small-card]="type!.size! == 'small'" 
+                [class.large-card]="type!.size! == 'large'">
+                <div class="card-inner-frame-back" 
+                    [class.horizontal-small]="card!.horizontal && type!.size! == 'small'" 
+                    [class.vertical-small]="!card!.horizontal && type!.size! == 'small'" 
+                    [class.horizontal-large]="card!.horizontal && type!.size! == 'large'" 
+                    [class.vertical-large]="!card!.horizontal && type!.size! == 'large'">
+                    @for (entry of type!.entries; track entry) {
+                        <app-view-card-entry [card]="card" [entry]="entry" class="card-entry">
+                        </app-view-card-entry>
+                    }
+
+
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+}

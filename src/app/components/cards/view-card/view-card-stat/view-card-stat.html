@@ -1,0 +1,19 @@
+@if (value) {
+    <div class="stat-entry">
+        <div>
+            @if (statIcon) {
+                <img [src]="'/public/images/symbols/' + statIcon" class="stat-icon">
+            }
+
+        </div>
+        <div class="stat-header">
+            {{statName}}
+        </div>
+        @for ( cost of value!.upgradeCosts! ; track cost) {
+            <app-upgrade-dot  [cost]="cost">
+
+            </app-upgrade-dot>
+
+        }
+    </div>
+}

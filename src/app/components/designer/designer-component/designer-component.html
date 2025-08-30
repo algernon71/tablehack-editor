@@ -1,0 +1,41 @@
+<mat-toolbar class="example-header">
+	<span class="spacer"></span>
+	    <img class="thlogo" src="/public/images/symbols/tablehack_logo_hz.svg">
+	    	<span class="spacer"></span>
+
+</mat-toolbar>
+@if (cardTypes) {
+    <div>
+        <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav mode="side" opened>
+                <h3>Kortlekar</h3>
+    			<mat-nav-list>
+                
+                    @for (cardType of cardTypes; track cardType.id) {
+                        <a mat-list-item [routerLink]="'/designer/' + cardType.id + '/decks'" 
+                            [attr.activated]="false">
+                            {{cardType.namePlural}}</a>
+                    }
+                </mat-nav-list>
+                <h3>Resurser</h3>
+                <mat-nav-list>
+                    <a mat-list-item [routerLink]="'/designer/symbol/resources'" 
+                        [attr.activated]="false">
+                        Symboler</a>
+                    <a mat-list-item [routerLink]="'/designer/image/resources'" 
+                        [attr.activated]="false">
+                        Bilder</a>
+                </mat-nav-list>
+
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <mat-tab-nav-panel #editorTabs>
+                    <router-outlet></router-outlet>
+                </mat-tab-nav-panel>
+
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+
+
+    </div>
+}

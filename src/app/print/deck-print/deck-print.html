@@ -1,0 +1,82 @@
+@if (deck) {
+    <div>
+        @for (page of pages; track page) {
+            <div class="page-wrapper">
+
+                @if (page.grid.length > 0) {
+                    <div class="page-side">
+                        <div [style]="'height:' + frontTopPad + 'mm'"></div>
+                        <div class="print-page">
+                            <div class="print-page-content">
+
+                                <div class="print-page-cards">
+                                    @for (row of page.grid; track row) {
+                                        <div class="print-row">
+                                            <div [style]="'width:' + frontLeftPad + 'mm'"></div>
+                                            @for (card of row; track card) {
+                                                <div class="print-card">
+                                                    <app-view-card [deck]="deck" [card]="card.card" [front]="true" [back]="!doubleSided"></app-view-card>
+
+                                                </div>
+
+                                            }
+
+                                        </div>
+
+                                    }
+                                </div>
+                                @if (footers) {
+                                    <div class="footer">
+                                        Kortlek: {{cardType?.namePlural}} - {{deck.name}} / Sida:{{page.page + 1}}/{{pages.length}} / {{page.cardCount}} kort
+
+                                    </div>
+
+                                }
+                            </div>
+
+
+                        </div>
+                        <p class="pagebreak">
+                        </p>
+                    </div>
+
+                }
+                @if (doubleSided) {
+                    <div class="page-side">
+                        <div class="print-page back-page">
+                            <div class="back-page-top-pad"></div>
+                            <div class="print-page-content">
+                                <div class="print-page-cards">
+                                    @for (row of page.grid; track row) {
+                                        <div class="print-row-reverse">
+                                            @for (card of row; track card) {
+                                                <div class="print-card">
+                                                    <app-view-card [deck]="deck" [card]="card.card" [front]="false" [back]="true"></app-view-card>
+
+                                                </div>
+
+                                            }
+                                        </div>
+
+                                    }
+                                </div>
+                                @if (footers) {
+                                    <div class="footer">
+                                        Kortlek: {{deck.name}} / Baksida:{{page.page + 1}}/{{pages.length}} / {{page.cardCount}} kort
+
+                                    </div>
+
+                                }
+                            </div>
+
+                        </div>
+                        <p class="pagebreak">
+                        </p>
+                    </div>
+                }
+                
+            </div>
+        }
+
+    </div>
+}

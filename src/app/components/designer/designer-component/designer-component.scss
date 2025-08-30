@@ -1,0 +1,28 @@
+.sidenav-container {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  height: 95vh;
+}
+.thlogo {
+  height: 80%;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: lightgray;
+  border-bottom: 1px solid;
+}
+
+.mat-sidenav {
+  background-color: lightgray;
+  border-right: 1px solid;
+  padding: 10px;
+  
+}

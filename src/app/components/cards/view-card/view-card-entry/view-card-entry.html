@@ -1,0 +1,226 @@
+
+@switch (entry!.type) {
+    @case ('thlogo') {
+        <div class="thlogo-entry">
+            <img class="thlogo" src="/public/images/symbols/tablehack_logo_hz.png">
+        </div>
+
+    }
+    @case ('html') {
+        <div class="type-html">
+            HTML!
+        </div>
+    }
+    @case ('deck-type') {
+        <div class="type-entry">
+            {{type!.name}}
+        </div>
+    }
+    @case ('card-level') {
+        <div class="level-entry">
+            Level {{card!.level}}
+        </div>
+    }
+    @case ('deck-name') {
+        <div class="deck-name-entry">
+            {{deck!.name}}
+        </div>
+    }
+    @case ('deck-reference') {
+        <div class="reference-entry">
+            {{deck!.reference}}
+        </div>
+    }
+    @case ('card-reference') {
+        <div class="reference-entry">
+            {{card!.reference}}
+        </div>
+    }
+    @case ('deck-symbol') {
+        <div class="symbol-entry">
+            @if (deck!.symbol) {
+                <img class="back-symbol" [src]="'http://localhost:8080/api/resources/' + deck!.symbol!" class="symbol">
+            }
+        </div>
+    }
+    @case ('deck-image') {
+        <div class="image-entry">
+            @if (deck!.image) {
+                <img class="back-symbol" [src]="'http://localhost:8080/api/resources/' + deck!.image!" class="symbol">
+            }
+        </div>
+    }
+    @case ('name') {
+        <div class="name-entry">
+            {{card!.name}}
+        </div>
+    }
+    @case ('name-large') {
+        <div class="name-entry-large">
+            {{card!.name}}
+        </div>
+    }
+    @case ('bio') {
+        <div class="bio-entry">
+            {{card!.data.race}}
+            {{card!.data.class}}
+        </div>
+    }
+    @case ('mstats') {
+        <div class="mstats-entry">
+            <div class="mstats-row">
+                <div class="mstats-column">
+                    <img class="thlogo" src="/public/images/symbols/stat_health.svg" class="mstats-icon">
+                    {{card!.data.mstats.health}}
+                </div>
+                <div class="mstats-column">
+                    <img class="thlogo" src="/public/images/symbols/shield.svg" class="mstats-icon">
+                    {{card!.data.mstats.defence}}
+                </div>
+                <div class="mstats-column">
+                    <img class="thlogo" src="/public/images/symbols/star.svg" class="mstats-icon">
+                    {{card!.data.mstats.difficulty}}
+                </div>
+            </div>
+        </div>        
+    }
+    @case ('resistences') {
+        <div class="resistences-entry">
+                @if (card!.data.mstats.resistances) {
+                <div class="mstats-row">
+                    @if (card!.data.mstats.resistances.poison != 0) {
+                        <div class="mstats-column">
+                            <img class="thlogo" src="/public/images/symbols/poison.svg" class="resistence-icon">
+                            {{card!.data.mstats.resistances.poison}}
+                        </div>
+                    }
+                    @if (card!.data.mstats.resistances.fire != 0) {
+                        <div class="mstats-column">
+                            <img class="thlogo" src="/public/images/symbols/fire.svg" class="resistence-icon">
+                            {{card!.data.mstats.resistances.fire}}
+                        </div>
+                    }
+                    @if (card!.data.mstats.resistances.cold != 0) {
+                        <div class="mstats-column">
+                            <img class="thlogo" src="/public/images/symbols/snowflake.svg" class="resistence-icon">
+                            {{card!.data.mstats.resistances.cold}}
+                        </div>
+                    }
+                    @if (card!.data.mstats.resistances.magic != 0) {
+                        <div class="mstats-column">
+                            <img class="thlogo" src="/public/images/symbols/magic.png" class="resistence-icon">
+                            {{card!.data.mstats.resistances.magic}}
+                        </div>
+                    }
+                    @if (card!.data.mstats.resistances.nmagic != 0) {
+                        <div class="mstats-column">
+                            <img class="thlogo" src="/public/images/symbols/sword.png" class="resistence-icon">
+                            {{card!.data.mstats.resistances.nmagic}}
+                        </div>
+                    }
+                </div>
+
+            }
+        </div>
+
+    }
+    @case ('description') {
+        <div class="description-entry">
+            <app-expressionview [expression]="card!.description"></app-expressionview>
+        </div>
+    }
+    @case ('columns') {
+        <div class="columns-entry">
+            @for (column of entry!.columns; track column) {
+                <div>
+                    @for (columnEntry of column; track columnEntry) {
+                        <app-view-card-entry [entry]="columnEntry" [card]="card" [type]="type" [deck]="deck"/>		
+                    }
+                </div>
+            }
+        </div>
+
+    }
+    @case ('levels') {
+        <div class="levels-entry">
+            <app-level-upgrade-entry></app-level-upgrade-entry>
+        </div>
+    }
+    @case ('stats') {
+        <div class="stats-entry">
+            <div class="stats-title">
+                Grundegenskaper
+            </div>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.str" statIcon="stat_str.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.upp" statIcon="stat_upp.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.agi" statIcon="stat_agility.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.per" statIcon="stat_upp.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.luck" statIcon="stat_luck.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.health" statIcon="stat_health.svg"/>
+                
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.mana" statIcon="stat_mana.svg"/>
+            <app-view-card-stat [card]="card" [value]="card!.data.stats.actions" statIcon="actions.svg"/>
+                
+        </div>
+    }
+    @case ('symbol') {
+        <div class="symbol-entry">
+            @if (card!.data['symbol']) {
+                <img [src]="'http://localhost:8080/api/resources/' + card!.data['symbol']" class="symbol">
+
+            }
+        </div>
+
+    }
+    @case ('actions') {
+        <div class="actions-entry">
+            @for (action of card!.data['actions']; track action) {
+                <div class="action-entry">
+                    @if (action.actionType == 'action') {
+                        <div class="action-row">
+                            {{action.type.name}} <app-expressionview [expression]="action.value"></app-expressionview>
+                        </div>
+                    }
+                    @if (action.actionType == 'attack') {
+                        <div>
+                            <table class="attack-table">
+                                <tr class="attack-header">
+                                    <th>Attack</th>
+                                    <th>Skada</th>
+                                    <th>Räckvidd</th>
+                                </tr>
+                                <tr class="attack-row">
+                                    <td>{{action.name}}</td>
+                                    <td><app-expressionview [expression]="action.value"></app-expressionview></td>
+                                    <td>{{action.range}}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    }
+
+                </div>
+
+            }
+
+        </div>
+    }
+    @case ('image') {
+        <div class="image-entry">
+            @if (card!.data['image']) {
+                <img [src]="'http://localhost:8080/api/resources/' + card!.data['image']" class="image">
+            }
+        </div>
+    }
+    @case ('big-image') {
+        <div class="big-image-entry">
+            @if (card!.data['image']) {
+                <img [src]="'http://localhost:8080/api/resources/' + card!.data['image']" class="big-image">
+            }
+        </div>
+    }
+    @case ('description') {
+    }
+}
+
+

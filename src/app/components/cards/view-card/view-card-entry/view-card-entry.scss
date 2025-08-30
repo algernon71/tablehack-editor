@@ -1,0 +1,166 @@
+.thlogo-entry {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 4mm;
+
+}
+
+.thlogo {
+	height: 7mm;
+}
+
+.symbol-entry {
+	height: 20mm;
+	padding-top: 3mm;
+	padding-bottom: 3mm;
+
+}
+
+.action-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 50mm;
+	justify-content: center;
+	gap: 5mm;
+}
+
+.image-entry {
+	display: block;
+	height: 25mm;
+	border-radius: 5mm;
+	overflow: hidden;
+
+}
+
+.symbol {
+	height: 20mm;
+
+}
+
+.image {
+	height: 25mm;
+
+}
+.big-image {
+	height: 90mm;
+
+}
+
+.mstats-entry {
+}
+
+.stats-entry {
+	border: 1mm solid gray;
+	border-radius: 5mm;
+	padding: 3mm;
+	width: 120mm;
+	margin-top: 5mm;
+	gap: 5mm;
+}
+.levels-entry {
+	border: 1mm solid gray;
+	border-radius: 5mm;
+	padding: 3mm;
+	width: 120mm;
+	margin-top: 5mm;
+}
+
+.stats-title {
+	font-size: 6mm;
+	font-weight: bold;
+	padding-bottom: 4mm;
+}
+.mstats-row {
+	display: flex;
+	justify-content: space-around;
+	gap: 5mm;
+}
+
+.columns-entry {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 5mm;
+	padding-top: 5mm;
+}
+
+.mstats-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mstats-icon {
+	height: 8mm;
+}
+.resistence-icon {
+	height: 6mm;
+}
+.resistences-entry {
+	padding-top: 2mm;
+	padding-bottom: 2mm;
+	
+}
+
+.description-entry {
+	font-size: 7mm;
+	line-height: 8mm;
+	text-align: center;
+	padding-top: 2mm;
+	padding-bottom: 2mm;
+	padding-left: 3mm;
+	padding-right: 3mm;
+}
+
+.deck-name-entry {
+	color: black;
+	font-size: 6mm;
+	line-height: 10mm;
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.level-entry {
+	color: black;
+	font-size: 6mm;
+	line-height: 6mm;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 1mm;
+}
+
+.type-entry {
+	color: black;
+	font-size: 8mm;
+	line-height: 10mm;
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.reference-entry {
+	padding-bottom: 1mm;
+	font-size: 6mm;
+	font-weight: bold;
+}
+
+.name-entry {
+	padding-bottom: 1mm;
+	font-size: 7mm;
+	line-height: 8mm;
+	font-weight: bold;
+	text-align: center;
+}
+
+.name-entry-large {
+	padding-bottom: 1mm;
+	font-size: 16mm;
+	line-height: 16mm;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 5mm;
+	padding-bottom: 5mm;
+}

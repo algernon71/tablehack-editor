@@ -1,0 +1,41 @@
+<div class="level-rows">
+
+	<table>
+		<tr>
+			<td class="level-label">Level</td>
+            @for (level of levels; track level) {
+                <td align="center"> 
+                    <div class="level">
+                        {{level.nr}}
+                        </div>
+                </td>
+
+            }
+						
+		</tr>
+		<tr>
+			<td class="xp-label">XP</td>
+            @for (level of levels; track level) {
+                <td align="center"> 
+                    <div class="xp" [class.filled]="level.xp === 0">
+                        {{level.xp}}
+
+                    </div>
+                </td>
+            }
+						
+		</tr>
+		<tr>
+			<td class="up-label">UP</td>
+            @for (level of levels; track level) {
+                <td align="center"> 
+                    <div class="up">
+                        {{level.up}}
+                    </div>
+                </td>
+            }
+		</tr>
+
+	</table>
+
+</div>

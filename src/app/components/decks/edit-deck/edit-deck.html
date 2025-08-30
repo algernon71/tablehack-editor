@@ -1,0 +1,150 @@
+@if (deck) {
+    
+
+    <div>
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title>Kortlek</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+        <form class="form" #cardForm="ngForm">
+
+            <div class="container">
+
+                @if (type) {
+                    <div class="container">
+                        @for (deckField of type!.deckFields; track deckField.id) {
+                            <div>
+                                @switch(deckField.type) {
+                                    @case('reference') {
+                                        <mat-form-field>
+                                            <mat-label>Referens</mat-label>
+                                            <input matInput [(ngModel)]="deck.reference" name="reference">
+                                        </mat-form-field>
+
+                                    }
+                                    @case('name') {
+                                        <mat-form-field>
+                                            <mat-label>Name</mat-label>
+                                            <input matInput [(ngModel)]="deck.name" name="name" required>
+                                        </mat-form-field>
+                                    }
+                                    @case('symbol') {
+                                        <app-resource-select [type]="'symbol'" [(path)]="deck.symbol" />
+                                    }
+                                    @case('image') {
+                                        <app-resource-select [type]="'image'" [(path)]="deck.image" />
+                                    }
+                                    @case('description') {
+                                        <mat-form-field>
+                                            <mat-label>Textarea</mat-label>
+                                            <textarea matInput [(ngModel)]="deck.description" name="description"></textarea>
+                                        </mat-form-field>
+                                    }
+                                }
+
+                            </div>
+                        }
+                    </div>
+                }
+                @else {
+                    <div class="container">
+                        No type
+                    </div>
+
+                }
+
+
+
+
+            <table mat-table [dataSource]="deck.entries" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Kort </th>
+                    <td mat-cell *matCellDef="let entry; let idx = index">
+                        <app-card-info [cardId]="entry.cardId" [deck]="deck" />
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="card-preview">
+                <th mat-header-cell *matHeaderCellDef> Preview </th>
+                <td mat-cell *matCellDef="let entry">
+                    <app-view-card [cardId]="entry.cardId" [deck]="deck"></app-view-card>
+                </td>
+                </ng-container>
+                <ng-container matColumnDef="level">
+                    <th mat-header-cell *matHeaderCellDef> Level </th>
+                    <td mat-cell *matCellDef="let entry">
+                        @if (entry.card) {
+                            <div >{{(entry.card.level)|| ''}}</div>
+                        }
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="card-reference">
+                    <th mat-header-cell *matHeaderCellDef> Referens </th>
+                    <td mat-cell *matCellDef="let entry">
+                        @if (entry.card) {
+                            <div>{{(entry.card.reference)|| ''}}</div>
+                        }
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="cardCount">
+                    <th mat-header-cell *matHeaderCellDef> Antal </th>
+                    <td mat-cell *matCellDef="let entry; let idx = index">
+                        @if (idx !== inlineIdx) {
+                          {{entry.count}}
+                        } 
+                        @else {
+                            <mat-form-field>
+                                @if (inlineForm) {
+                                    <input matInput type="text" [formControl]="$any(inlineForm!.get('count'))" [(ngModel)]="entry.count">
+                                }
+                            </mat-form-field>
+
+                        }
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let entry">
+                        <button mat-raised-button color="primary" (click)="removeEntry(entry)">Ta bort</button>
+
+                    </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let entry; let idx = index; columns: displayedColumns;"
+                (click)="inlineEdit(idx, entry)"></tr>
+            </table>
+
+
+            <div class="actions">
+                @if (deck.id) {
+                    <button mat-raised-button color="primary" (click)="addCard()" [disabled]="!cardForm.form.valid">Lägg till kort</button>
+                    <button mat-raised-button color="primary" (click)="saveDeck()" [disabled]="!cardForm.form.valid">Spara</button>
+                    <button mat-raised-button color="primary" (click)="deleteDeck()">Ta bort</button>
+                }
+                @else {
+                    <button mat-raised-button color="primary" (click)="addDeck()" [disabled]="!cardForm.form.valid">Lägg till</button>
+
+                }
+                <button mat-raised-button (click)="cancel()">Avbryt</button>
+                <a mat-raised-button color="primary" [href]="'/print/decks/' + deck.id">Skriv ut</a>
+
+            </div>
+
+
+            </div>
+
+        </form>
+        </mat-card-content>
+    </mat-card>
+
+
+    </div>
+}

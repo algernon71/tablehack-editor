@@ -1,0 +1,59 @@
+.level-rows {
+}
+.level-row {
+}
+
+.level-column {
+}
+
+.level-label {
+	font-size: 6mm;
+	font-weight: bold;
+	height: 10mm;
+}
+.xp-label {
+	font-size: 5mm;
+	font-weight: bold;
+	height: 9mm;
+}
+.up-label {
+	font-size: 5mm;
+	font-weight: bold;
+	height: 9mm;
+}
+
+.level {
+	text-align: center;
+	line-height: 7mm;
+	font-weight: bold;
+	font-size: 5mm;
+	
+}
+
+.xp {
+	height: 9mm;
+	width: 9mm;	
+	border-radius: 20%;
+	border: 1mm solid black;
+	color: black;
+	text-align: center;
+	line-height: 9mm;
+	font-weight: bold;
+	font-size: 4mm;
+}
+
+.filled {
+	background-color: black;
+}
+
+.up {
+	height: 10mm;
+	width: 10mm;	
+	border-radius: 50%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	line-height: 10mm;
+	font-weight: bold;
+	font-size: 7mm;
+}

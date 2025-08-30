@@ -1,0 +1,15 @@
+.stat-entry {
+	display: flex;
+	flex-direction: row;
+	gap: 1mm;
+	align-items: center;
+}
+
+.stat-header {
+	padding-left: 2mm;
+	padding-right: 2mm;
+}
+
+.stat-icon {
+	width: 6mm;
+}

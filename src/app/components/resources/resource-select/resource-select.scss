@@ -1,0 +1,43 @@
+
+.mat-autocomplete {
+}
+
+.symbol-preview {
+  height: 15px;
+}
+.image-preview {
+  height: 50px;
+}
+
+.symbol-select {
+  height: 30px;
+}
+.image-select {
+  height: 100px;
+}
+
+.image-selector {
+  width: 300px;
+}
+.symbol-selector {
+  width: 200px;
+}
+.input-section {
+  display: flex;
+  flex-direction: row;
+  gaP: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.value-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

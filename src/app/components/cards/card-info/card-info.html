@@ -1,0 +1,12 @@
+@if (card) {
+    <button mat-button color="primary" (click)="editCard()" (mouseenter)="preview = !preview"
+        (mouseleave)="preview = !preview">{{card!.name}} </button>
+
+}
+
+@if (preview) {
+    <div class="preview">
+        <app-view-card [card]="card" [deck]="deck" [print]="false">
+        </app-view-card>
+    </div>
+}

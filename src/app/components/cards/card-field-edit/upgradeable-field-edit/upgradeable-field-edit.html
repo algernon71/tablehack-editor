@@ -1,0 +1,6 @@
+
+<mat-form-field>
+	<mat-label>{{statName}}</mat-label>
+	<input matInput [(ngModel)]="value" name="value"  (keyup)="valueChanged($event)" required>
+
+</mat-form-field>
