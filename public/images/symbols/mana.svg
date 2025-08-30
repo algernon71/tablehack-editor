@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with EazyDraw for Mac ( http://www.eazydraw.com/ ) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="18.509638mm"
+   height="23.187386mm"
+   viewBox="0 0 69.957754 87.63736"
+   preserveAspectRatio="none"
+   id="svg2"
+   sodipodi:docname="mana.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="856"
+     id="namedview76"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="0.5"
+     inkscape:cx="-202.87928"
+     inkscape:cy="408.65913"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     inkscape:document-units="mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs_A8262DBE" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 38.302031,2.9661404 c -5.1415,3.60407 -10.103203,7.6529296 -14.304703,11.6690796 -4.6674,4.47402 -8.4683,8.81723 -11.8606,13.57251 -1.1852,1.66141 -3.3349995,5.04963 -4.2259995,6.67179 -7.84710005,14.27239 -7.95340005,27.31508 -0.2861,38.00956 1.2343,1.72682 3.3922995,4.1993 4.2423995,4.85341 0.2288,0.17659 0.8174,0.58867 1.3078,0.92226 9.8988,6.68488 22.863003,8.7322 34.004303,5.38323 7.2586,-2.17815 13.054,-6.42324 16.6833,-12.212 1.6838,-2.68179 3.0898,-6.08963 3.662,-8.8303 0.3269,-1.56329 0.376,-2.00153 0.425,-3.69564 0.1962,-6.17468 -2.395,-11.813 -8.6972,-18.93611 -1.1526,-1.29511 -2.8528,-3.10696 -5.7954,-6.15505 -6.245,-6.46902 -8.542,-9.20314 -10.7735,-12.84646 -2.5503,-4.15352 -3.7274,-7.80992 -3.8582,-11.9372696 -0.065,-2.30896 0.1309,-4.12081 0.7112,-6.41669 0.1389,-0.54944 0.237,-1.00732 0.2207,-1.0204 -0.024,-0.013 -0.6785,0.42517 -1.455,0.96808 z"
+     id="043DAB01"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.99664283;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;opacity:0.91" />
+  <g
+     id="layer_Top etch"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     transform="matrix(1.3322143,0,0,1.3322143,-419.00713,4.6267804)" />
+  <rect
+     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.52650166;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     id="rect1007"
+     x="1256.5038"
+     y="-357950.47"
+     width="232.80421"
+     height="9.8120813" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Top etch"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Top cut"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Middle"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Bottom"
+     transform="translate(-70.532439,-107.60571)" />
+</svg>

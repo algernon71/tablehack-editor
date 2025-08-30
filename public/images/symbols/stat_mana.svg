@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 188.97656 188.97637"
+   preserveAspectRatio="none"
+   id="svg2"
+   sodipodi:docname="stat_mana.svg"
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="856"
+     id="namedview76"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="111.22011"
+     inkscape:cy="110.71789"
+     inkscape:window-x="1674"
+     inkscape:window-y="391"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     inkscape:document-units="mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs_A8262DBE" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 98.363922,8.9125566 C 87.817709,16.305207 77.64029,24.610204 69.022196,32.84811 59.44845,42.025196 51.652065,50.933965 44.693797,60.687969 c -2.431076,3.407876 -6.840732,10.357774 -8.668346,13.68514 -16.09593,29.275451 -16.313972,56.028541 -0.586847,77.965001 2.531789,3.54205 6.958265,8.61359 8.701986,9.95529 0.469313,0.36222 1.676646,1.20748 2.682552,1.89174 20.304366,13.71199 46.896469,17.91144 69.749448,11.04205 14.88881,-4.46781 26.7763,-13.17532 34.2207,-25.04919 3.4538,-5.50087 6.33778,-12.49102 7.51147,-18.11266 0.67054,-3.20661 0.77125,-4.10553 0.87176,-7.58048 0.40245,-12.66547 -4.91261,-24.23076 -17.83965,-38.841647 -2.36421,-2.656522 -5.85165,-6.372979 -11.88749,-12.625205 -12.80971,-13.269219 -17.52131,-18.877431 -22.09855,-26.35059 -5.23116,-8.519678 -7.645624,-16.019666 -7.913928,-24.485662 -0.13332,-4.736126 0.268514,-8.452583 1.458818,-13.1618804 0.28491,-1.127009 0.48614,-2.06621 0.4527,-2.093039 -0.0492,-0.02667 -1.391734,0.872106 -2.984498,1.98572 z"
+     id="043DAB01"
+     style="opacity:0.91;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:8.19789;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+  <g
+     id="layer_Top etch"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     transform="matrix(1.3322143,0,0,1.3322143,-419.00713,4.6267804)" />
+  <rect
+     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.5265;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     id="rect1007"
+     x="1256.5038"
+     y="-357950.47"
+     width="232.80421"
+     height="9.8120813" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Top etch"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Top cut"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Middle"
+     transform="translate(-70.532439,-107.60571)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Bottom"
+     transform="translate(-70.532439,-107.60571)" />
+</svg>
