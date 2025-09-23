@@ -7,6 +7,8 @@ import { CardFieldEdit } from '../card-field-edit/card-field-edit';
 import { ViewCard } from '../view-card/view-card';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 export class EditData {
 	deck?: Deck;
@@ -15,7 +17,7 @@ export class EditData {
 }
 @Component({
   selector: 'app-card-edit-dialog',
-  imports: [CardFieldEdit, ViewCard, FormsModule, MatButtonModule],
+  imports: [CardFieldEdit, ViewCard, FormsModule, MatButtonModule, MatFormFieldModule, MatInputModule],
   templateUrl: './card-edit-dialog.html',
   styleUrl: './card-edit-dialog.scss'
 })
@@ -39,6 +41,7 @@ export class CardEditDialog {
 		console.info('card edit dialog init, card:', this.data.card);
 		this.cardType = this.cardsService.getCardType(this.data.card.type);
 		console.info('card edit dialog init, card type:', this.cardType);
+		
 		if (!this.data.card.id) {
 			this.newCard(this.data.card!.type);
 		}
@@ -83,6 +86,6 @@ export class CardEditDialog {
 	newCard(type: string) {
 		console.info('newCard:', type);
 		this.cardType = this.cardsService.getCardType(type);
-		this.data.card = { name: '', type: type, horizontal: false, description: '', data: {} };
+		// this.data.card = { name: '', type: type, horizontal: false, description: '', data: {} };
 	}
 }

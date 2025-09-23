@@ -1,1 +1,47 @@
-<p>mstats-field-edit works!</p>
+<mat-form-field class="icon-field">
+	<mat-label><img class="thlogo" src="/public/images/symbols/heart.svg" class="field-label-icon"> </mat-label>
+	<input matInput [(ngModel)]="mstats.health" name="health">
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/shield.svg" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.defence" name="defence">
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/star.svg" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.difficulty" name="difficulty" >
+</mat-form-field>
+
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/poison.svg" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.resistances.poison" name="resistances.poison" >
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/fire.svg" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.resistances.fire" name="resistances.fire" >
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/snowflake.svg" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.resistances.cold" name="resistances.cold" >
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/magic.png" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.resistances.magic" name="resistances.magic" >
+</mat-form-field>
+<mat-form-field class="icon-field">
+	<mat-label style="width: 40px">
+		<img class="thlogo" src="/public/images/symbols/sword.png" class="field-label-icon">
+	</mat-label>
+	<input matInput [(ngModel)]="mstats.resistances.nmagic" name="resistances.nmagic" >
+</mat-form-field>

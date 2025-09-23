@@ -1,1 +1,6 @@
-<p>expression-field-edit works!</p>
+
+    <mat-form-field>
+		<mat-label>{{name}}</mat-label>
+		<input matInput [(ngModel)]="expression" name="expression" required>
+		<app-expressionview [expression]="expression()"></app-expressionview>
+	</mat-form-field>

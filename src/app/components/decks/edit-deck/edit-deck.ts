@@ -130,10 +130,14 @@ export class EditDeck {
 			count: 1
 		};
 
-
 		let card: Card = {
 			name: '',
-			type: this.typeId!
+			type: this.typeId!,
+			horizontal: false, 
+			description: '',
+			data: { 
+				mstats: {}
+			}
 		};
 		const dialogRef = this.dialog.open(CardEditDialog, {
 			data: {card: card, deck: this.deck }

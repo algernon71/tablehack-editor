@@ -1,10 +1,12 @@
+
 @if (front || back ) {
-    <div class="card" [class.preview]="!print">
+       <div class="card" [class.preview]="!print">
         @if (front) {
             <div class="card-side" 
                 [class.small-card]="type!.size! == 'small'" 
                 [class.large-card]="type!.size! == 'large'">
-                <div class="card-inner-frame-front"
+
+                <div class="card-inner-frame-front" 
                     [class.horizontal]="card!.horizontal" 
                     [class.vertical]="!card!.horizontal">
                     @for (entry of type!.frontEntries; track entry) {

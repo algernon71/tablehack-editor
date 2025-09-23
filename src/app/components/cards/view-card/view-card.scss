@@ -22,7 +22,6 @@
   height: 88mm;
 }
 
-
 .large-card {
   width: 150mm;
   height: 210mm;
@@ -40,7 +39,7 @@
 .horizontal-large {
   height: 140mm;
   width: 180mm;
-  transform: rotate(-90deg) translate(-30mm, -30mm);
+  transform: rotate(-90deg) translate(-30mm, -15mm);
 }
 
 .vertical-large {

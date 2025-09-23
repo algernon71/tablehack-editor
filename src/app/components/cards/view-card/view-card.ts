@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Card, Cards, CardType } from 'src/app/services/cards';
 import { Deck } from 'src/app/services/decks';
 import { ViewCardEntry } from './view-card-entry/view-card-entry';
+import { InjectHTML } from 'src/app/directives/inject-html';
 
 @Component({
   selector: 'app-view-card',

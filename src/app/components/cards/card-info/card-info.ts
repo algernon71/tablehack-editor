@@ -54,7 +54,7 @@ export class CardInfo {
       console.info('Edit card...');
 		const dialogRef = this.dialog.open(CardEditDialog, {
 			  height: '1000px',
-        maxWidth: '2000px',
+        maxWidth: '2500px',
 			data: { card: this.card, deck: this.deck }
 		});
 

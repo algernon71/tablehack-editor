@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { Card, CardTypeField } from 'src/app/services/cards';
 
 @Component({
   selector: 'app-mstats-field-edit',
-  imports: [],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './mstats-field-edit.html',
   styleUrl: './mstats-field-edit.scss'
 })

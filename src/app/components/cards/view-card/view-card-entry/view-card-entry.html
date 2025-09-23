@@ -7,8 +7,8 @@
 
     }
     @case ('html') {
-        <div class="type-html">
-            HTML!
+        
+        <div class="type-html" [injectHTML]="card!.data!['html'] ">
         </div>
     }
     @case ('deck-type') {
@@ -164,12 +164,11 @@
         </div>
     }
     @case ('symbol') {
-        <div class="symbol-entry">
-            @if (card!.data['symbol']) {
-                <img [src]="'http://localhost:8080/api/resources/' + card!.data['symbol']" class="symbol">
-
-            }
-        </div>
+        @if (card!.data['symbol']) {
+            <div class="symbol-entry">
+                    <img [src]="'http://localhost:8080/api/resources/' + card!.data['symbol']" class="symbol">
+            </div>
+        }
 
     }
     @case ('actions') {

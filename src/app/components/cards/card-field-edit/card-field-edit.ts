@@ -15,18 +15,18 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-card-field-edit',
   imports: [
-	MatFormFieldModule, 
-	MatCheckboxModule,
-	MatButtonModule,
-	ResourceSelect, 
-	FormsModule, 
-	ReactiveFormsModule, 
-	ActionFieldEdit, 
-	UpgradeableFieldEdit, 
-	MstatsFieldEdit, 
-	ExpressionFieldEdit,  
-	AttackFieldEdit, 
-	MatInputModule],
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    ResourceSelect,
+    FormsModule,
+    ReactiveFormsModule,
+    ActionFieldEdit,
+    UpgradeableFieldEdit,
+    MstatsFieldEdit,
+    AttackFieldEdit,
+    MatInputModule
+],
 
   templateUrl: './card-field-edit.html',
   styleUrl: './card-field-edit.scss'
