@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { RenderMode, ServerRoute } from '@angular/ssr';
 import { ResourceList } from './components/resources/resource-list/resource-list';
 import { DesignerComponent } from './components/designer/designer-component/designer-component';
 import { CardList } from './components/cards/card-list/card-list';
@@ -52,7 +53,9 @@ export const routes: Routes = [
 			{ path: 'decks/add', component: EditDeck }
 		]
 	},
-	{ path: 'print/decks/:id', component: DeckPrint },
+	{ 
+		path: 'print/decks/:id', 
+		component: DeckPrint },
 	{
 		path: '',
 		redirectTo: 'designer',
