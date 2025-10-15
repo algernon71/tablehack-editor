@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ResourcesService } from 'src/app/services/resources.service';
+import { Resources } from 'src/app/services/resources';
 
 @Component({
   selector: 'app-upload-resources',
@@ -12,7 +12,7 @@ export class UploadResources {
 	type?: string;
 	
 	files?: File[];
-	constructor(public resourcesService: ResourcesService) {
+	constructor(public resourcesService: Resources) {
 	}
 
 	changeFiles(event: any) {
