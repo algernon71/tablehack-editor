@@ -1,0 +1,25 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.short {
+    width: 60px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    align-items: center;
+}
+
+.medium {
+    width: 100px;
+}

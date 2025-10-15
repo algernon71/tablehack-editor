@@ -8,11 +8,11 @@
             @if (path) {
                 <div>
                     @if (type == 'symbol') {
-                        <img [src]="'http://localhost:8080/api/resources/' + path" class="symbol-select">
+                        <img [src]="'http://localhost:8090/api/resources/' + path" class="symbol-select">
 
                     }
                     @if (type == 'image') {
-                        <img [src]="'http://localhost:8080/api/resources/' + path" class="image-select">
+                        <img [src]="'http://localhost:8090/api/resources/' + path" class="image-select">
                     }
                 </div>
             }
@@ -27,12 +27,12 @@
                         <span>{{resource.path}}</span>
                         <div>
                             @if (resource && resource!.type == 'symbol') {
-                                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="symbol-preview">
+                                <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="symbol-preview">
 
                             }
 
                             @if (resource && resource!.type == 'image') {
-                                <img [src]="'http://localhost:8080/api/resources/' + resource!.path" class="image-preview">
+                                <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="image-preview">
                             }
                         </div>
                     </div>

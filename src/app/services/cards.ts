@@ -52,7 +52,7 @@ export class CardTypeEntry {
   providedIn: 'root'
 })
 export class Cards {
-	baseUrl = 'http://localhost:8080/api';
+	baseUrl = 'http://localhost:8090/api';
 	cardTypes: CardType[] = [];
 	
 	cardTypeMap = new Map<string, CardType>();

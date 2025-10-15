@@ -39,14 +39,14 @@
     @case ('deck-symbol') {
         <div class="symbol-entry">
             @if (deck!.symbol) {
-                <img class="back-symbol" [src]="'http://localhost:8080/api/resources/' + deck!.symbol!" class="symbol">
+                <img class="back-symbol" [src]="'http://localhost:8090/api/resources/' + deck!.symbol!" class="symbol">
             }
         </div>
     }
     @case ('deck-image') {
         <div class="image-entry">
             @if (deck!.image) {
-                <img class="back-symbol" [src]="'http://localhost:8080/api/resources/' + deck!.image!" class="symbol">
+                <img class="back-symbol" [src]="'http://localhost:8090/api/resources/' + deck!.image!" class="symbol">
             }
         </div>
     }
@@ -166,7 +166,7 @@
     @case ('symbol') {
         @if (card!.data['symbol']) {
             <div class="symbol-entry">
-                    <img [src]="'http://localhost:8080/api/resources/' + card!.data['symbol']" class="symbol">
+                    <img [src]="'http://localhost:8090/api/resources/' + card!.data['symbol']" class="symbol">
             </div>
         }
 
@@ -207,14 +207,14 @@
     @case ('image') {
         <div class="image-entry">
             @if (card!.data['image']) {
-                <img [src]="'http://localhost:8080/api/resources/' + card!.data['image']" class="image">
+                <img [src]="'http://localhost:8090/api/resources/' + card!.data['image']" class="image">
             }
         </div>
     }
     @case ('big-image') {
         <div class="big-image-entry">
             @if (card!.data['image']) {
-                <img [src]="'http://localhost:8080/api/resources/' + card!.data['image']" class="big-image">
+                <img [src]="'http://localhost:8090/api/resources/' + card!.data['image']" class="big-image">
             }
         </div>
     }

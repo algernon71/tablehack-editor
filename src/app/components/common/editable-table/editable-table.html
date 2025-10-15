@@ -1,0 +1,81 @@
+
+<table class="container">
+    <tr class="header-row">
+        @for (field of fields(); track field.name) {
+            <th>{{field.label}} </th>
+        }
+    </tr>
+    @for (row of data(); track $index) {
+        <tr class="row">
+    @for (field of fields(); track field.name) {
+            <td width="10%"> 
+                @switch (field.type) {
+                    @case ('string') {
+                        @if (editingRow == row && field.editable) {
+                            <input type="text" [(ngModel)]="row[field.name]" />
+                        } @else {
+                            <div (click)="setEditing(row, field, true)">{{row[field.name]}}</div>
+                        }
+
+                    }
+                    @case ('text') {
+                        @if (editingRow == row && field.editable) {
+                            <textarea [(ngModel)]="row[field.name]" rows="3" cols="20">
+
+                            </textarea>
+                        } @else {
+                            <pre (click)="setEditing(row, field, true)">{{row[field.name]}}</pre>
+                        }
+
+                    }
+                    @case ('number') {
+                        @if (editingRow == row && field.editable) {
+                            <input type="number" [(ngModel)]="row[field.name]" class="number-input"/>
+                            
+                        } @else {
+                            <div (click)="setEditing(row, field, true)">{{row[field.name]}}</div>
+                        }
+
+                    }
+                    @case ('enum') {
+                        @if (editingRow == row && field.editable) {
+                            <mat-select [(ngModel)]="row[field.name]">
+                                @for (value of field.values; track $index) {
+                                <mat-option [value]="value">{{value}}</mat-option>
+                                }
+                            </mat-select>
+                        } @else {
+                            <div (click)="setEditing(row, field, true)">{{row[field.name]}}</div>
+                        }
+
+                    }
+                    @case ('boolean') {
+                        <div  (click)="setEditing(row, field, true)">
+
+                            <mat-checkbox [(ngModel)]="row[field.name]" [disabled]=" editingRow != row || !field.editable"></mat-checkbox>
+                        </div>
+                    }
+                    @case ('actions') {
+                        @if (editingRow == row) {
+                            <button matButton (click)="setEditing(row, field, false)" matTooltip="Save">
+                                <mat-icon class="toolbar-icon">check</mat-icon>
+                            </button>
+                        }
+                        <button matButton (click)="deleteEntry(row, field)" matTooltip="Delete">
+                            <mat-icon class="toolbar-icon">delete</mat-icon>
+                        </button>
+                        <button matButton (click)="editEntry(row, field)" matTooltip="Delete">
+                            <mat-icon class="toolbar-icon">edit</mat-icon>
+                        </button>
+
+                    }
+                }
+            </td>
+    }            
+        </tr>
+    }
+
+</table>
+<button matButton (click)="newRow()" matTooltip="Add">
+    <mat-icon class="toolbar-icon">add</mat-icon>
+</button>

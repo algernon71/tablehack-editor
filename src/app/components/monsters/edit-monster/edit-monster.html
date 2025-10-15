@@ -1,0 +1,77 @@
+@if (monster) {
+    <h1>Update monster</h1> 
+} 
+@else 
+{
+    <h1>New monster</h1> 
+}
+<div class="row">
+  <mat-form-field class="medium">
+    <mat-label>Reference</mat-label>
+    <input matInput #input maxlength="10"[(ngModel)]="monster!.reference" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <mat-select [(ngModel)]="monster!.type">
+      <mat-option value="Humanoid">Humanoid</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="row">
+
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'LEVEL'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.level"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'HEALTH'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.health"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_PHYSICAL'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.physicalDefence"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_FIRE'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.fireDefence"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_COLD'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.coldDefence"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_ELECTRICITY'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.electricityDefence"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_POISON'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.poisonDefence"   />
+  </mat-form-field>
+  <mat-form-field class="stat">
+    <mat-label><app-icon [type]="'DEFENCE_MAGIC'"/></mat-label>
+    <input matInput   size="3" [(ngModel)]="monster!.magicDefence"   />
+  </mat-form-field>
+</div>
+<div class="row">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput #input [(ngModel)]="monster!.name" />
+  </mat-form-field>
+</div>
+<div class="row">
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="monster!.description" rows="5" cols="40">
+    </textarea>
+  </mat-form-field>
+</div>
+<div class="row">
+</div>
+
+<button matButton (click)="save()">
+    Save
+</button>
+<button matButton (click)="cancel()">
+    Cancel
+</button>

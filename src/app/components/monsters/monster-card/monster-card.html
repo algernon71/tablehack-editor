@@ -1,0 +1,80 @@
+
+@if (front || back ) {
+       <div class="card" [class.preview]="!print">
+        @if (front) {
+            <div class="card-side">
+
+                <div class="card-inner-frame-front">
+                    {{monster?.reference}}
+                    {{monster?.name}}
+                </div>
+
+            </div>
+        }
+
+        @if (front && back) {
+            <div class="vfold">
+
+            </div>
+        }
+        @if (back) {
+            <div class="card-side">
+                <div class="card-inner-frame-back">
+                    {{monster?.reference}}
+                    {{monster?.name}}
+                    <div class="stats">
+                        <div class="stat">
+                            <app-icon [type]="'LEVEL'" [size]="'MEDIUM'"/>
+                            {{monster?.level}}
+                        </div>
+                        <div class="stat">
+                            <app-icon [type]="'HEALTH'" [size]="'MEDIUM'"/>
+                            {{monster?.health}}
+                        </div>
+                        @if (monster?.physicalDefence && monster?.physicalDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_PHYSICAL'" [size]="'MEDIUM'"/>
+                                {{monster?.physicalDefence}}
+                            </div>
+
+                        }
+                        @if (monster?.poisonDefence && monster?.poisonDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_POISON'" [size]="'MEDIUM'"/>
+                                {{monster?.poisonDefence}}
+                            </div>
+                        }
+                        @if (monster?.fireDefence && monster?.fireDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_FIRE'" [size]="'MEDIUM'"/>
+                                {{monster?.fireDefence}}
+                            </div>
+                        }
+                        @if (monster?.coldDefence && monster?.coldDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_COLD'" [size]="'MEDIUM'"/>
+                                {{monster?.coldDefence}}
+                            </div>
+                        }
+                        @if (monster?.electricityDefence && monster?.electricityDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_ELECTRICITY'" [size]="'MEDIUM'"/>
+                                {{monster?.electricityDefence}}
+                            </div>
+                        }
+                        @if (monster?.magicDefence && monster?.magicDefence != 0) {
+                            <div class="stat">
+                                <app-icon [type]="'DEFENCE_MAGIC'" [size]="'MEDIUM'"/>
+                                {{monster?.magicDefence}}
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+}

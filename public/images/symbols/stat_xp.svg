@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 -256 1.3513514 50"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="stat_xp.svg"
+   width="50"
+   height="50"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="976"
+     inkscape:window-height="582"
+     id="namedview8"
+     showgrid="false"
+     viewbox-y="-256"
+     inkscape:zoom="3.3682006"
+     inkscape:cx="7.570808"
+     inkscape:cy="20.040374"
+     inkscape:window-x="1118"
+     inkscape:window-y="179"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <polygon
+     points="1318.7182,758.1609 1324.6112,726.96008 1299.6516,704.8608 1334.1445,700.30816 1349.5687,671.91784 1364.9935,700.30816 1399.4862,704.8608 1374.5268,726.96008 1380.4196,758.1609 1349.5687,743.43147 "
+     id="5271CE51"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#1d1d1b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+     transform="matrix(0.47387231,0,0,0.54690338,-639.45556,-621.72934)" />
+</svg>

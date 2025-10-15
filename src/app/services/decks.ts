@@ -24,7 +24,7 @@ export class DeckEntry {
   providedIn: 'root'
 })
 export class Decks {
-	baseUrl = 'http://localhost:8080/api';
+	baseUrl = 'http://localhost:8090/api';
 
   	constructor(private http: HttpClient) { }
 

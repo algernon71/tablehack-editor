@@ -7,8 +7,13 @@ import { EditCard } from './components/cards/edit-card/edit-card';
 import { DeckList } from './components/decks/deck-list/deck-list';
 import { DeckPrint } from './print/deck-print/deck-print';
 import { EditDeck } from './components/decks/edit-deck/edit-deck';
+import { Monsters } from './components/monsters/monsters/monsters';
 
 export const routes: Routes = [
+	{
+		path: 'monsters',
+		component: Monsters
+	},
 	{
 		path: 'designer',
 		component: DesignerComponent,
@@ -58,7 +63,7 @@ export const routes: Routes = [
 		component: DeckPrint },
 	{
 		path: '',
-		redirectTo: 'designer',
+		redirectTo: 'monsters',
 		pathMatch: "full"
 	},
 

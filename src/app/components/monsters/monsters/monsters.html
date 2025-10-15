@@ -1,0 +1,25 @@
+
+<div class="table">
+<app-editable-table 
+    [data]="monsters!" 
+    [fields]="fields" 
+    (editRow)="editMonster($event)" 
+    (updatedRow)="saveMonster($event)"  
+    (addRow)="addMonster()" 
+    (deleteRow)="deleteMonster($event)" 
+    />
+    
+</div>
+
+@if (monster) {
+    
+<div class="edit-monster-pane">
+    <app-edit-monster 
+        [monster]="monster"
+        (saved)="editClosed()"
+        (closed)="editClosed()"/>
+        
+    <app-monster-card [monster]="monster"/>
+</div>
+}
+

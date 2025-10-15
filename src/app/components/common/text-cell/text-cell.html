@@ -1,0 +1,5 @@
+@if (editing) {
+    <input type="text" [(ngModel)]="value" />
+} @else {
+    <div (click)="setEditing(true, true)">{{value()}}</div>
+}

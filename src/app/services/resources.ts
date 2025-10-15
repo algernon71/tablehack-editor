@@ -17,7 +17,7 @@ export class ResourcePage {
 })
 export class Resources {
 
-	baseUrl = 'http://localhost:8080/api';
+	baseUrl = 'http://localhost:8090/api';
 
 	constructor(private http: HttpClient) { }
 	
