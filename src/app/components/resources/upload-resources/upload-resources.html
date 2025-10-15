@@ -1,1 +1,5 @@
-<p>upload-resources works!</p>
+
+
+<ngx-file-drag-drop class="drop-area" [multiple]="true" [displayFileSize]="true" (valueChanged)="changeFiles($event)"></ngx-file-drag-drop>
+	
+<button mat-raised-button color="primary" (click)="upload()" *ngIf="files">Ladda up</button>
