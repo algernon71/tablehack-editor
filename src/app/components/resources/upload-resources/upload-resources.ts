@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ResourcesService } from 'src/app/services/resources.service';
+import { NgxFileDragDropModule } from 'ngx-file-drag-drop';
 
 @Component({
   selector: 'app-upload-resources',
