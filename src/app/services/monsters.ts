@@ -10,6 +10,7 @@ export class Monster {
   name: string = '';
   level: number = 1;
   type: string = 'Humanoid';
+  image?: string;
   description: string = '';
   health: number = 1;
   physicalDefence: number = 0;

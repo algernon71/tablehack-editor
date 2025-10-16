@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Resources } from 'src/app/services/resources';
+import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
 @Component({
   selector: 'app-upload-resources',
@@ -17,7 +18,11 @@ export class UploadResources {
 
 	changeFiles(event: any) {
 		console.info('filechange:', event);
-		this.files = event;
+		this.files = event.target.files;
+    const file:File = event.target.files[0];
+		console.info('file:', file);
+    this.files = [file];
+
 		console.info('files:', this.files);
 	}
 

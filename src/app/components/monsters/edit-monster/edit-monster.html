@@ -16,6 +16,10 @@
       <mat-option value="Humanoid">Humanoid</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <input type="file" class="file-upload" 
+    (change)="uploadImage($event)">
+  <app-resource-reference [path]="monster!.image" />
 </div>
 <div class="row">
 

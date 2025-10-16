@@ -12,10 +12,20 @@ import { EditableField, EditableTable } from '../../common/editable-table/editab
 import { Monster, MonstersService } from 'src/app/services/monsters';
 import { EditMonster } from "../edit-monster/edit-monster";
 import { MonsterCard } from "../monster-card/monster-card";
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-monsters',
-  imports: [MatTableModule, MatSelectModule, MatFormFieldModule, MatIconModule, FormsModule, MatInputModule, TextCell, EditableTable, EditMonster, MonsterCard],
+  imports: [MatTableModule, 
+    MatSelectModule, 
+    MatFormFieldModule, 
+    MatIconModule, 
+    MatTabsModule,
+    FormsModule, 
+    MatInputModule, 
+    EditableTable, 
+    EditMonster, 
+    MonsterCard],
   templateUrl: './monsters.html',
   styleUrl: './monsters.scss'
 })
@@ -51,7 +61,15 @@ fields: EditableField[] = [
         values: ["Humanoid", "Magic", "Undead"]
       },
       {
+        name: 'image',
+        label: 'Image',
+        description: '',
+        type: 'image',
+        editable: true
+      },
+      {
         name: 'health',
+        icon: 'HEALTH',
         label: 'Health',
         description: '',
         type: 'number',
@@ -59,7 +77,50 @@ fields: EditableField[] = [
       },
       {
         name: 'level',
+        icon: 'LEVEL',
         label: 'Level',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'physicalDefence',
+        icon: 'DEFENCE_PHYSICAL',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'poisonDefence',
+        icon: 'DEFENCE_POISON',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'fireDefence',
+        icon: 'DEFENCE_FIRE',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'coldDefence',
+        icon: 'DEFENCE_COLD',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'electricityDefence',
+        icon: 'DEFENCE_ELECTRICITY',
+        description: '',
+        type: 'number',
+        editable: true
+      },
+      {
+        name: 'magicDefence',
+        icon: 'DEFENCE_MAGIC',
         description: '',
         type: 'number',
         editable: true

@@ -8,10 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { TextCell } from "../text-cell/text-cell";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Icon } from "../icon/icon";
+import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 
 
 export class EditableField {
-  label!: string;
+  label?: string;
+  icon?: string;
   description!: string;
   type!: string;
   name!: string;
@@ -26,13 +29,17 @@ export class editEvent {
 
 @Component({
   selector: 'app-editable-table',
-  imports: [MatTableModule, MatSelectModule, MatFormFieldModule, MatIconModule, FormsModule, MatInputModule, MatCheckboxModule, TextCell],
+  imports: [MatTableModule, MatSelectModule, MatFormFieldModule, MatIconModule, FormsModule, MatInputModule, MatCheckboxModule, TextCell, Icon, ResourceReference],
   templateUrl: './editable-table.html',
   styleUrl: './editable-table.scss'
 })
 export class EditableTable {
     
     fields = input<EditableField[]>([]);
+    
+    @Input()
+    editable = true;
+
     data = model<any[]>([]);
 
     addRow = output<any>();
@@ -68,7 +75,7 @@ export class EditableTable {
         this.deleteRow.emit(row);
       }
     }
-    editEntry(row: any, field: EditableField) {
+    editEntry(row: any, field?: EditableField) {
       if (this.editRow) {
         this.editRow.emit( row);
       }
@@ -96,4 +103,11 @@ export class EditableTable {
       } 
 
     }
+
+    rowClick(row: any) {
+      if (!this.editable) {
+        this.editEntry(row);
+      }
+    }
+
 }

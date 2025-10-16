@@ -1,5 +1,8 @@
 
 
-<ngx-file-drag-drop class="drop-area" [multiple]="true" [displayFileSize]="true" (valueChanged)="changeFiles($event)"></ngx-file-drag-drop>
+<input type="file" class="file-upload" 
+    (change)="changeFiles($event)">
 	
-<button mat-raised-button color="primary" (click)="upload()" *ngIf="files">Ladda up</button>
+@if (files) {
+<button mat-raised-button color="primary" (click)="upload()">Ladda up</button>    
+}

@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { Monster, MonstersService } from 'src/app/services/monsters';
 import { MatSelectModule } from '@angular/material/select';
 import { Icon, IconType, IconSize } from "../../common/icon/icon";
+import { Resources } from 'src/app/services/resources';
+import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 
 @Component({
   selector: 'app-edit-monster',
@@ -21,7 +23,8 @@ import { Icon, IconType, IconSize } from "../../common/icon/icon";
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    Icon
+    Icon,
+    ResourceReference
 ],
   templateUrl: './edit-monster.html',
   styleUrl: './edit-monster.scss'
@@ -32,10 +35,23 @@ export class EditMonster {
 
   saved = output<any>();
   closed = output<any>();
-
-  constructor(private monstersService: MonstersService) {
+  constructor(private monstersService: MonstersService, 
+    public resourcesService: Resources) {
   
   }
+  
+  uploadImage(event: any) {
+      console.info('uploadImage:', event);
+      const file:File = event.target.files[0];
+      const files = [file];
+      console.info('file:', file);
+      this.resourcesService.upload('image', files).subscribe(result => {
+        this.monster!.image = file.name;
+        console.info('upload:', result);
+      });
+    }
+
+    
   ngOnInit(		) {
     
   }

@@ -1,5 +1,5 @@
 .number-input {
-    width: 40px;
+    width: 10px;
 }
 .container {
     width: 100%;
@@ -12,4 +12,8 @@ table {
 }
 .row {
     border-bottom: solid 1px;
+}
+
+.selectable-row:hover {
+    background-color: lightgray;
 }

@@ -116,9 +116,20 @@ export class Resources {
 
 		const formData = new FormData();
 
+		console.info('Uploading files:', files);
 		files.forEach(file => {
 			formData.append("file", file);
 		});
+
+
+		return this.http.post<void>(this.baseUrl + '/resources/upload/' + type, formData);
+
+	}  
+	uploadFile(type: string, file: File) {
+
+		const formData = new FormData();
+
+		formData.append("file", file);
 
 
 		return this.http.post<void>(this.baseUrl + '/resources/upload/' + type, formData);

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { Monster } from 'src/app/services/monsters';
 import { Icon } from "../../common/icon/icon";
 
@@ -26,6 +26,11 @@ export class MonsterCard {
   
   @Input()
   back = true;
+
+  mainStatIconSize = 'LARGE';
+  statIconSize = 'SMALL';
+
+  click = output<Monster>();
 
   stats: Stat[] = [
     {

@@ -5,10 +5,11 @@ import { ResourceReference } from '../resource-reference/resource-reference';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatIcon } from '@angular/material/icon';
+import { UploadResources } from "../upload-resources/upload-resources";
 
 @Component({
   selector: 'app-resource-list',
-  imports: [ResourceReference, MatTableModule, MatToolbar, MatIcon ],
+  imports: [ResourceReference, MatTableModule, MatToolbar, MatIcon, UploadResources],
   templateUrl: './resource-list.html',
   styleUrl: './resource-list.scss'
 })
