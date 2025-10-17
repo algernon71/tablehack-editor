@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditableTableCell } from './editable-table-cell';
+import { TopBar } from './top-bar';
 
-describe('EditableTableCell', () => {
-  let component: EditableTableCell;
-  let fixture: ComponentFixture<EditableTableCell>;
+describe('TopBar', () => {
+  let component: TopBar;
+  let fixture: ComponentFixture<TopBar>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditableTableCell]
+      imports: [TopBar]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditableTableCell);
+    fixture = TestBed.createComponent(TopBar);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

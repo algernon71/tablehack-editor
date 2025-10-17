@@ -19,7 +19,7 @@ export class MonsterCard {
   monster?: Monster;
 
   @Input()
-  print = true;
+  print = false;
   
   @Input()
   front = true;

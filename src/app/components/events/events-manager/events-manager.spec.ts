@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextCell } from './text-cell';
+import { EventsManager } from './events-manager';
 
-describe('TextCell', () => {
-  let component: TextCell;
-  let fixture: ComponentFixture<TextCell>;
+describe('EventsManager', () => {
+  let component: EventsManager;
+  let fixture: ComponentFixture<EventsManager>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextCell]
+      imports: [EventsManager]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TextCell);
+    fixture = TestBed.createComponent(EventsManager);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

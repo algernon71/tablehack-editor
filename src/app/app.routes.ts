@@ -8,6 +8,10 @@ import { DeckList } from './components/decks/deck-list/deck-list';
 import { DeckPrint } from './print/deck-print/deck-print';
 import { EditDeck } from './components/decks/edit-deck/edit-deck';
 import { Monsters } from './components/monsters/monsters/monsters';
+import { TopBar } from './components/top-bar/top-bar';
+import { EventsManager } from './components/events/events-manager/events-manager';
+import { LootManager } from './components/loot/loot-manager/loot-manager';
+import { EncounterManager } from './components/encounters/encounter-manager/encounter-manager';
 
 export const routes: Routes = [
 	{
@@ -60,10 +64,41 @@ export const routes: Routes = [
 	},
 	{ 
 		path: 'print/decks/:id', 
-		component: DeckPrint },
+		component: DeckPrint 
+	},
+	{ 
+		path: 'main', 
+		component: TopBar ,
+		children: [
+			{
+				path: 'monsters',
+				component: Monsters,
+				children: [
+				]
+			},
+			{
+				path: 'encounters',
+				component: EncounterManager,
+				children: [
+				]
+			},
+			{
+				path: 'events',
+				component: EventsManager,
+				children: [
+				]
+			},
+			{
+				path: 'loot',
+				component: LootManager,
+				children: [
+				]
+			},
+		]
+	},
 	{
 		path: '',
-		redirectTo: 'monsters',
+		redirectTo: 'main',
 		pathMatch: "full"
 	},
 

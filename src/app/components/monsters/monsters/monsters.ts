@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource, MatHeaderCell, MatTableModule } from '@angular/material/table';
-import { MatCell } from "../../../../../node_modules/@angular/material/table/index";
-import { App } from 'src/app/app';
+import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { TextCell } from "../../common/text-cell/text-cell";
-import { EditableField, EditableTable } from '../../common/editable-table/editable-table';
+import { EditableField, EditableTable, RowData } from '../../common/editable-table/editable-table';
 import { Monster, MonstersService } from 'src/app/services/monsters';
 import { EditMonster } from "../edit-monster/edit-monster";
 import { MonsterCard } from "../monster-card/monster-card";
@@ -160,9 +157,9 @@ fields: EditableField[] = [
     });
   }
 
-  editMonster(monster: any) {
-    console.info('editMonster', monster);
-    this.monster = monster;
+  editMonster(event: RowData) {
+    console.info('editMonster', event);
+    this.monster = event.row;
   }
 
   editClosed() {
@@ -171,12 +168,11 @@ fields: EditableField[] = [
   }
 
   saveMonster(monster: Monster) {
-    console.info('saveMonster', monster);
     this.monstersService.updateMonster(monster).subscribe(response => {});
   }
-  deleteMonster(monster: Monster) {
-    console.info('saveMonster', monster);
-    this.monstersService.deleteMonster(monster).subscribe(response => {
+  deleteMonster(event: RowData) {
+    console.info('saveMonster', event);
+    this.monstersService.deleteMonster(event.row).subscribe(response => {
       this.refreshList();
     });
   }

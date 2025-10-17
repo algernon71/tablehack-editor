@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectCell } from './select-cell';
+import { LootManager } from './loot-manager';
 
-describe('SelectCell', () => {
-  let component: SelectCell;
-  let fixture: ComponentFixture<SelectCell>;
+describe('LootManager', () => {
+  let component: LootManager;
+  let fixture: ComponentFixture<LootManager>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectCell]
+      imports: [LootManager]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SelectCell);
+    fixture = TestBed.createComponent(LootManager);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

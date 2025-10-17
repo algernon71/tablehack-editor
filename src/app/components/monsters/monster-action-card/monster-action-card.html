@@ -1,0 +1,33 @@
+
+@if (front || back ) {
+       <div class="card" [class.preview]="!print" (click)="click.emit(action!)">
+        @if (front) {
+            <div class="card-side">
+
+                <div class="card-inner-frame-front">
+                    <div class="front-initiative">
+                        {{action?.initiative}}
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        @if (front && back) {
+            <div class="vfold">
+            </div>
+        }
+        @if (back) {
+            <div class="card-side">
+                <div class="card-inner-frame-back horizontal">
+                    <div class="row">
+ 
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+}
