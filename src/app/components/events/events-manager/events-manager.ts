@@ -10,31 +10,31 @@ import { GameEvent } from 'src/app/services/events-service';
 export class EventsManager {
   events: GameEvent[] = [
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Nothing'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Goblin patroll'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Stray goblin'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Goblin party!'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Goblin party!'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Goblin party!'
     },
     {
-      typeId: '1',
+      tokenId: '1',
       title: 'Goblin party!'
     },
   ];

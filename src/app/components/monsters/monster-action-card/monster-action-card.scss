@@ -1,0 +1,172 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.preview {
+  transform: scale(50%, 50%);
+}
+
+.card-side {
+  background-color: white;
+  border-radius: 5mm;
+  border: 1mm solid black;
+  width: 58mm !important;
+  height: 88mm !important;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+.card-inner-frame-front {
+  margin: 1mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+  height: 100%;
+}
+
+.horizontal {
+  height: 58mm;
+  width: 88mm;
+  transform: rotate(-90deg) translate(-15mm, -15mm);
+}
+
+.card-inner-frame-back {
+  margin: 1mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+  height: 100%;
+
+}
+
+.action-symbol {
+  height: 18mm;
+}
+.front-top-section {
+  padding-top: 3mm;
+  
+}
+.front-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size:7mm;
+  font-weight: bold;
+}
+
+.front-bottom-section {
+  padding-bottom: 10mm;
+}
+
+.back-top-section {
+  padding-top: 2mm;
+  font-size: 6mm;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.action-title {
+  font-size: 8mm;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 2mm;
+
+}
+.back-description {
+  font-size: 4mm;
+  text-align: center;
+  flex-grow: 1;
+
+}
+
+.action-steps {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5mm;
+  width: 100%;
+}
+.action-step {
+  border-top: dashed 0.5mm black;
+  margin-top: 3mm;
+  padding-top: 1mm;
+  font-size: 6mm;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2mm;
+  padding-right: 2mm;
+}
+
+.vfold {
+  width: 1mm;
+  background-color: black;
+}
+.vcut {
+  width: 1mm;
+  background-color: black;
+}
+
+.back-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.back-symbol {
+  height: 20mm;
+  padding-bottom: 10mm;
+}
+.back-logo {
+  height: 7mm;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2mm;
+    width: 100%;
+}
+
+.summary-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: solid 0.3mm black;
+    padding-right: 4mm;
+    padding-left: 2mm;
+    padding-top: 4mm;
+}
+.data-column {
+  padding-top: 5mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 5mm;
+    overflow: hidden;
+
+}
+
+.back-bottom-section {
+  padding-top: 4mm;
+}

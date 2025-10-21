@@ -1,33 +1,69 @@
+@if (front || back) {
+  <div class="card" [class.preview]="!print" (click)="click.emit(action!)">
+    @if (front) {
+      <div class="card-side">
+        <div class="card-inner-frame-front">
+          <div class="front-top-section">
+            <div>
+              <app-initiative-token [value]="'2'" />
+            </div>
+          </div>
+          <div class="front-middle-section">
+            <img src="/public/images/symbols/actions.svg" class="action-symbol" />
+          </div>
+          <div class="front-bottom-section">
+            <div class="front-description">
+              <div>
+                {{ monster?.reference }}
+              </div>
+              <div>{{ monster?.name }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
 
-@if (front || back ) {
-       <div class="card" [class.preview]="!print" (click)="click.emit(action!)">
-        @if (front) {
-            <div class="card-side">
-
-                <div class="card-inner-frame-front">
-                    <div class="front-initiative">
-                        {{action?.initiative}}
-                    </div>
+    @if (front && back) {
+      <div class="vfold"></div>
+    }
+    @if (back) {
+      <div class="card-side">
+        <div class="card-inner-frame-back">
+          <div class="back-top-section">
+            <div>
+              {{ monster?.reference }}
+            </div>
+            <div>{{ monster?.name }}</div>
+            <div class="action-title">{{ action?.title }}</div>
+          </div>
+          <div class="action-steps">
+            @for (step of action!.steps; track step) {
+              <div class="action-step">
+                <div class="step-name">
+                  {{ step.name }}
                 </div>
-
-            </div>
-        }
-
-        @if (front && back) {
-            <div class="vfold">
-            </div>
-        }
-        @if (back) {
-            <div class="card-side">
-                <div class="card-inner-frame-back horizontal">
-                    <div class="row">
- 
+                @switch (step.type) {
+                  @case ('ATTACK') {
+                    <div class="attack-damage">
+                      {{ step.damage }}
                     </div>
-                </div>
-
-            </div>
-        }
-
-
-    </div>
+                  }
+                  @default {
+                    <div class="move-range">
+                      {{ step.range }}
+                    </div>
+                  }
+                }
+              </div>
+            }
+          </div>
+          <div class="back-bottom-section">
+            @if (action?.attributes) {
+              <app-card-attributes [attributes]="action?.attributes!" />
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 }

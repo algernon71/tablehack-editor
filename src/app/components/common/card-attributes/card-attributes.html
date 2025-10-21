@@ -1,0 +1,5 @@
+<div class="card-attributes">
+  @for (pullRule of attributes.pullRules; track pullRule) {
+    <img [src]="imageUrl(pullRule)" class="attribute-symbol" />
+  }
+</div>

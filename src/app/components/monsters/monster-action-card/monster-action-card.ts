@@ -1,14 +1,23 @@
 import { Component, Input, output } from '@angular/core';
-import { MonsterAction } from 'src/app/services/monsters';
+import { Monster, MonsterAction } from 'src/app/services/monsters';
 import { Icon } from '../../common/icon/icon';
+import { TokenSymbol } from "../../common/token-symbol/token-symbol";
+import { EncounterToken } from "../../common/tokens/encounter-token/encounter-token";
+import { EventToken } from "../../common/tokens/event-token/event-token";
+import { InitiativeToken } from "../../common/tokens/initiative-token/initiative-token";
+import { DialogModule } from "@angular/cdk/dialog";
+import { CardAttributes } from "../../common/card-attributes/card-attributes";
 
 @Component({
   selector: 'app-monster-action-card',
-  imports: [Icon],
+  imports: [Icon, TokenSymbol, EncounterToken, EventToken, InitiativeToken, DialogModule, CardAttributes],
   templateUrl: './monster-action-card.html',
   styleUrl: './monster-action-card.scss'
 })
 export class MonsterActionCard {
+  @Input()
+  monster?: Monster;
+
   @Input()
   action?: MonsterAction;
 

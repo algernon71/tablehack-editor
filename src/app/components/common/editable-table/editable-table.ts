@@ -113,13 +113,15 @@ export class EditableTable {
 
 
 
-    rowClick(index: number, row: any) {
-      if (!this.editable) {
+  rowClick(index: number, row: any) {
+    if (!this.editing) {
         this.editEntry(index, row);
+        
       }
     }
 
-    startEditing() { 
+  startEditing() { 
+    console.info('Start editing');
       this.editing = true;
     }
     endEditing() { 

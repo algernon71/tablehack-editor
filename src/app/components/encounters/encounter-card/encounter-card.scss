@@ -1,0 +1,125 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.preview {
+  transform: scale(50%, 50%);
+}
+
+.card-side {
+  background-color: white;
+  border-radius: 5mm;
+  border: 1mm solid black;
+  width: 58mm !important;
+  height: 88mm !important;
+}
+
+.top-section {
+
+}
+
+
+
+
+.card-inner-frame-front {
+  margin: 1mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.horizontal {
+  height: 58mm;
+  width: 88mm;
+  transform: rotate(-90deg) translate(-15mm, -15mm);
+}
+
+.card-inner-frame-back {
+  margin: 1mm;
+  border-radius: 5mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+  height: 100%;
+}
+
+
+.front-top {
+  font-size: 8mm;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 7mm;
+}
+
+.back-top {
+  font-size: 8mm;
+  font-weight: bold;
+  line-height: 9mm;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 7mm;
+  flex-grow: 1;
+  word-wrap: break-word;
+
+}
+
+.back-description {
+  font-size: 4mm;
+  text-align: center;
+  flex-grow: 1;
+
+}
+
+.vfold {
+  width: 1mm;
+  background-color: black;
+}
+.vcut {
+  width: 1mm;
+  background-color: black;
+}
+
+
+.back-symbol {
+  height: 20mm;
+  padding-bottom: 10mm;
+}
+.back-top {
+  
+}
+
+.back-title {
+    padding-top: 3mm;
+    font-size: 8mm;
+}
+.back-description {
+    padding-top: 3mm;
+    font-size: 5mm;
+    font-style: italic;
+}
+.rows {
+    border-top: dashed black 0.4mm;
+    padding-top: 3mm;
+    margin-top: 3mm;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 4mm;
+    padding-left: 2mm;
+    padding-right: 2mm;
+}
+
+.back-bottom-section {
+  padding-top: 8mm;
+}

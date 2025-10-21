@@ -1,0 +1,51 @@
+@if (front || back) {
+  <div class="card" [class.preview]="!print" (click)="click.emit(loot!)">
+    @if (front) {
+      <div class="card-side">
+        <div class="card-inner-frame-front">
+          <div class="front-top-section">
+            <div>Loot</div>
+          </div>
+          <div class="front-middle-section">
+            <img src="/public/images/symbols/barrel.png" class="loot-symbol" />
+          </div>
+          <div class="front-bottom-section">
+            <div class="front-description">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (front && back) {
+      <div class="vfold"></div>
+    }
+    @if (back) {
+      <div class="card-side">
+        <div class="card-inner-frame-back">
+          <div class="back-top-section">
+            <div>
+              {{ loot?.title }}
+            </div>
+          </div>
+          <div class="loot-rows">
+            @for (row of loot!.rows; track row) {
+              <div class="loot-row">
+                <div class="loot-id">
+                  {{ row.itemId }}
+                </div>
+                <div class="loot-count">
+                  {{ row.count }}
+                </div>
+                <div class="loot-description">
+                  {{ row.description }}
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

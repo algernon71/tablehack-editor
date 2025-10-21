@@ -1,0 +1,36 @@
+.SMALL {
+    height: 10mm;
+}
+
+.MEDIUM {
+    width: 50px;
+}
+
+.LARGE {
+    width: 60px;
+}
+
+.token-symbol {
+  position: relative;
+  text-align: center;
+  color: blue;
+//   background-image: url("/public/images/symbols/initiative_symbol.svg");
+}
+.token-image {
+   //  width: 100%;
+   color: blue;
+   height: 14mm;
+}
+
+
+/* Bottom left text */
+.token-value {
+  position: relative;
+  color: white;
+  top: -15mm;
+  left: 3mm;
+  font-size: 12mm;
+}
+.spacer {
+  flex: 1 1 auto;
+}

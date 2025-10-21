@@ -14,6 +14,8 @@ import { ResourceReference } from "../../resources/resource-reference/resource-r
 import { EditableField, EditableTable, RowData } from "../../common/editable-table/editable-table";
 import { EditMonsterAction } from "../edit-monster-action/edit-monster-action";
 import { MonsterCard } from "../monster-card/monster-card";
+import { MonsterActionCard } from "../monster-action-card/monster-action-card";
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-edit-monster',
@@ -22,6 +24,7 @@ import { MonsterCard } from "../monster-card/monster-card";
     MatCardModule,
     MatFormFieldModule,
     MatTableModule,
+    MatTabsModule,
     ResourceSelect,
     MatSelectModule,
     FormsModule,
@@ -30,7 +33,8 @@ import { MonsterCard } from "../monster-card/monster-card";
     ResourceReference,
     EditableTable,
     EditMonsterAction,
-    MonsterCard
+    MonsterCard,
+    MonsterActionCard
 ],
   templateUrl: './edit-monster.html',
   styleUrl: './edit-monster.scss'
@@ -101,6 +105,9 @@ export class EditMonster {
   addAction() {
     console.info('addAction', this.monster);
     const action = new MonsterAction();
+    if (!this.monster?.actions) {
+      this.monster!.actions = [];
+    }
     this.monster?.actions?.push(action);
     console.info('addAction done', this.monster);
   }

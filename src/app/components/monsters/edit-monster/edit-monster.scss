@@ -32,3 +32,16 @@
 .medium {
     width: 100px;
 }
+
+
+.card-preview-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-preview-entry {
+  background-color: gray;
+  border: solid black;
+}

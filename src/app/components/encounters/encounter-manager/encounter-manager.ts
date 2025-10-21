@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { EncounterService, GameEncounter } from 'src/app/services/encounter-service';
 import { EditableField, EditableTable, RowData } from '../../common/editable-table/editable-table';
+import { EncounterCard } from "../encounter-card/encounter-card";
 
 
 @Component({
   selector: 'app-encounter-manager',
-  imports: [EditableTable],
+  imports: [EditableTable, EncounterCard],
   templateUrl: './encounter-manager.html',
   styleUrl: './encounter-manager.scss'
 })
@@ -35,11 +36,11 @@ export class EncounterManager {
       title: 'Nothing'
     },
     {
-      tokenId: '1',
+      tokenId: '2',
       title: 'Goblin patroll'
     },
     {
-      tokenId: '1',
+      tokenId: '3',
       title: 'Stray goblin'
     },
     {
@@ -62,12 +63,26 @@ export class EncounterManager {
   constructor(private encountersService: EncounterService) {
 
   }
+  ngOnInit(		) {
+    this.refreshList();
+  }
 
-  edit(row: RowData) {
+  refreshList() { 
+    this.encountersService.getEncounters().subscribe(response => {
+      this.encounters = response;
+      console.info('Loaded encounters:', response);
+    });
 
   }
 
-  delete(row: RowData) {
+  encounter?: GameEncounter;
+
+  edit(row: RowData) {
+    this.encounter = row.row
+    console.info('edit', this.encounter);
+  }
+
+  delete(encounter: any) {
 
   }
   add() { 

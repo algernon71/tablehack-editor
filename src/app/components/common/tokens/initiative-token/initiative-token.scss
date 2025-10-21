@@ -1,0 +1,30 @@
+.symbol-line {
+    fill: black;
+    stroke:#000000;
+    stroke-width:8;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+    stroke-dasharray:none;
+    stroke-opacity:1
+}
+.svg-text {
+    font-style:normal;
+    font-weight:bold;
+    font-size:60px;
+    font-family:'Arial';
+    text-align:center;
+    alignment-baseline: middle;
+    dominant-baseline: central;
+    writing-mode:lr-tb;
+    direction:ltr;
+    text-anchor:middle;
+    fill:white;
+    fill-opacity:1;
+    stroke:none;
+    stroke-width:62.2301;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+    stroke-dasharray:none;
+    stroke-opacity:1;
+    paint-order:markers fill stroke    
+}

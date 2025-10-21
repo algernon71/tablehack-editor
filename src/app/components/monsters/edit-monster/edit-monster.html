@@ -1,12 +1,9 @@
 <div class="container">
   <div class="column">
-
     @if (monster) {
-    <h1>Update monster</h1>
-    }
-    @else
-    {
-    <h1>New monster</h1>
+      <h1>Update monster</h1>
+    } @else {
+      <h1>New monster</h1>
     }
     <div class="row">
       <mat-form-field class="medium">
@@ -20,11 +17,10 @@
         </mat-select>
       </mat-form-field>
 
-      <input type="file" class="file-upload" (change)="uploadImage($event)">
+      <input type="file" class="file-upload" (change)="uploadImage($event)" />
       <app-resource-reference [path]="monster!.image" />
     </div>
     <div class="row">
-
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'LEVEL'" /></mat-label>
         <input matInput size="3" [(ngModel)]="monster!.level" />
@@ -65,36 +61,49 @@
       </mat-form-field>
     </div>
     <div class="row">
-
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <textarea matInput [(ngModel)]="monster!.description" rows="5" cols="40">
-      </textarea>
+        <textarea matInput [(ngModel)]="monster!.description" rows="5" cols="40"> </textarea>
       </mat-form-field>
     </div>
-    <div class="row">
-    </div>
+    <div class="row"></div>
     <div class="actions-list">
-
       <h2>Actions</h2>
       @if (action) {
-      <app-edit-monster-action [action]="action" (saved)="closeAction()" (closed)="closeAction()" />
+        <app-edit-monster-action
+          [action]="action"
+          (saved)="closeAction()"
+          (closed)="closeAction()"
+        />
       } @else {
-      <app-editable-table [(data)]="monster!.actions!" [fields]="actionFields" (addRow)="addAction()"
-        (deleteRow)="deleteAction($event)" [editable]="false" (editRow)="editAction($event)" />
-
+        <mat-tab-group>
+          <mat-tab label="Preview">
+            <div class="card-preview-list">
+              @for (action of monster!.actions; track action) {
+                <div class="card-preview-entry">
+                  <app-monster-action-card [action]="action" [monster]="monster" />
+                </div>
+              }
+            </div>
+          </mat-tab>
+          <mat-tab label="List">
+            <app-editable-table
+              [(data)]="monster!.actions!"
+              [fields]="actionFields"
+              (addRow)="addAction()"
+              (deleteRow)="deleteAction($event)"
+              [editable]="true"
+              (editRow)="editAction($event)"
+            />
+          </mat-tab>
+        </mat-tab-group>
       }
     </div>
 
-    <button matButton (click)="save()">
-      Save
-    </button>
-    <button matButton (click)="cancel()">
-      Cancel
-    </button>
+    <button matButton (click)="save()">Save</button>
+    <button matButton (click)="cancel()">Cancel</button>
   </div>
   <div class="column">
     <app-monster-card [monster]="monster" />
-
   </div>
 </div>

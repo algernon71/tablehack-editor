@@ -1,11 +1,62 @@
 import { Component } from '@angular/core';
+import { MonsterActionCard } from "../../monsters/monster-action-card/monster-action-card";
+import { Monster, MonsterAction } from 'src/app/services/monsters';
+import { CardPullRule, GameEncounter } from 'src/app/services/encounter-service';
+import { EncounterCard } from "../../encounters/encounter-card/encounter-card";
+import { GameLoot } from 'src/app/services/loot-service';
+import { LootCard } from "../loot-card/loot-card";
 
 @Component({
   selector: 'app-loot-manager',
-  imports: [],
+  imports: [MonsterActionCard, EncounterCard, LootCard],
   templateUrl: './loot-manager.html',
   styleUrl: './loot-manager.scss'
 })
 export class LootManager {
+  monster: Monster = {
+    reference: 'MG-1',
+    name: 'Goblin Warrior',
+    health: 5, 
+  };
 
+
+  action: MonsterAction = {
+    initiative: '2',
+    title: 'Charge!',
+    order: 1,
+    steps: [{
+      name: 'Move',
+      type: 'MOVE',
+      range: '5'
+    },
+    {
+      name: 'Slash',
+      type: 'ATTACK',
+      damage: 'PD:5'
+    }],
+    attributes: {
+      pullRules: [CardPullRule.LOST, CardPullRule.PULL_MORE, CardPullRule.SHUFFLE]
+    }
+  }
+
+  encounter: GameEncounter = {
+    title: 'Goblin patroll!',
+    description: 'You run into a patrol',
+    tokenId: '1',
+    rows: [{
+      monsterReference: 'MG-1',
+      count: 5
+    }],
+    attributes: {
+      pullRules: [CardPullRule.LOST, CardPullRule.PULL_MORE, CardPullRule.SHUFFLE]
+    }
+  };
+
+  loot: GameLoot = {
+    tokenId: '1',
+    title: 'Some food',
+    rows: []
+
+
+  };
 }

@@ -1,0 +1,49 @@
+@if (front || back) {
+  <div class="card" [class.preview]="!print" (click)="click.emit(encounter!)">
+    @if (front) {
+      <div class="card-side">
+        <div class="card-inner-frame-front">
+          <div class="top-section"></div>
+          <div class="middle-section">
+            <app-encounter-token [value]="encounter!.tokenId" />
+          </div>
+          <div class="bottom-section"></div>
+        </div>
+      </div>
+    }
+
+    @if (front && back) {
+      <div class="vfold"></div>
+    }
+    @if (back) {
+      <div class="card-side">
+        <div class="card-inner-frame-back">
+          <div class="back-title">
+            {{ encounter?.title }}
+          </div>
+          <div class="back-description">{{ encounter?.description }}</div>
+          @if (encounter?.rows) {
+            <div class="rows">
+              @for (row of encounter!.rows; track row) {
+                <div class="row">
+                  <div class="row-count">
+                    {{ row.count }}
+                  </div>
+                  <div class="row-count">x</div>
+                  <div class="row-reference">
+                    <app-monster-card-reference [reference]="row.monsterReference!" />
+                  </div>
+                </div>
+              }
+            </div>
+          }
+          <div class="back-bottom-section">
+            @if (encounter?.attributes) {
+              <app-card-attributes [attributes]="encounter!.attributes!" />
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

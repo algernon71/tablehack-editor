@@ -1,0 +1,18 @@
+<svg
+   version="1.1"
+   [attr.width]="width"
+   [attr.height]="width"
+   viewBox="0 0 100 100">
+   <path
+      class="symbol-line"
+      d="M 50,5 L 95,55 L 80,55 L 80,95 L 20,95 L 20,55 L 5,55 Z" />
+    <text
+       x="50"
+       y="60" 
+       textLength="50" 
+       lengthAdjust="spacingAndGlyphs" 
+       class="svg-text" >
+         {{value}}
+      </text>
+
+</svg>
