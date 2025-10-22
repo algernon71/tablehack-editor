@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { EncounterService, GameEncounter } from 'src/app/services/encounter-service';
 import { EditableField, EditableTable, RowData } from '../../common/editable-table/editable-table';
 import { EncounterCard } from "../encounter-card/encounter-card";
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @Component({
   selector: 'app-encounter-manager',
-  imports: [EditableTable, EncounterCard],
+  imports: [EditableTable, EncounterCard, MatTabsModule],
   templateUrl: './encounter-manager.html',
   styleUrl: './encounter-manager.scss'
 })
@@ -27,38 +28,17 @@ export class EncounterManager {
         type: 'string',
         editable: true
       },
+      {
+        name: 'description',
+        label: 'Description',
+        description: '',
+        type: 'string',
+        editable: true
+      },
   
     ];
 
-  encounters?: GameEncounter [] = [
-    {
-      tokenId: '1',
-      title: 'Nothing'
-    },
-    {
-      tokenId: '2',
-      title: 'Goblin patroll'
-    },
-    {
-      tokenId: '3',
-      title: 'Stray goblin'
-    },
-    {
-      tokenId: '1',
-      title: 'Goblin party!'
-    },
-    {
-      tokenId: '1',
-      title: 'Goblin party!'
-    },
-    {
-      tokenId: '1',
-      title: 'Goblin party!'
-    },
-    {
-      tokenId: '1',
-      title: 'Goblin party!'
-    },  ];
+  encounters?: GameEncounter [];
 
   constructor(private encountersService: EncounterService) {
 

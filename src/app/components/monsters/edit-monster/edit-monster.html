@@ -31,27 +31,27 @@
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_PHYSICAL'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.physicalDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.physical!" />
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_FIRE'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.fireDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.fire!" />
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_COLD'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.coldDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.cold!" />
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_ELECTRICITY'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.electricityDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.electricity!" />
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_POISON'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.poisonDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.poison!" />
       </mat-form-field>
       <mat-form-field class="stat">
         <mat-label><app-icon [type]="'DEFENCE_MAGIC'" /></mat-label>
-        <input matInput size="3" [(ngModel)]="monster!.magicDefence" />
+        <input matInput size="3" [(ngModel)]="monster!.data!.defence!.magic!" />
       </mat-form-field>
     </div>
     <div class="row">
@@ -67,6 +67,12 @@
       </mat-form-field>
     </div>
     <div class="row"></div>
+
+    <button matButton (click)="save()">Save</button>
+    <button matButton (click)="cancel()">Cancel</button>
+  </div>
+  <div class="column">
+    <app-monster-card [monster]="monster" />
     <div class="actions-list">
       <h2>Actions</h2>
       @if (action) {
@@ -77,18 +83,9 @@
         />
       } @else {
         <mat-tab-group>
-          <mat-tab label="Preview">
-            <div class="card-preview-list">
-              @for (action of monster!.actions; track action) {
-                <div class="card-preview-entry">
-                  <app-monster-action-card [action]="action" [monster]="monster" />
-                </div>
-              }
-            </div>
-          </mat-tab>
           <mat-tab label="List">
             <app-editable-table
-              [(data)]="monster!.actions!"
+              [(data)]="monster!.data!.actions!"
               [fields]="actionFields"
               (addRow)="addAction()"
               (deleteRow)="deleteAction($event)"
@@ -96,14 +93,17 @@
               (editRow)="editAction($event)"
             />
           </mat-tab>
+          <mat-tab label="Preview">
+            <div class="card-preview-list">
+              @for (action of monster!.data!.actions; track action) {
+                <div class="card-preview-entry">
+                  <app-monster-action-card [action]="action" [monster]="monster" />
+                </div>
+              }
+            </div>
+          </mat-tab>
         </mat-tab-group>
       }
     </div>
-
-    <button matButton (click)="save()">Save</button>
-    <button matButton (click)="cancel()">Cancel</button>
-  </div>
-  <div class="column">
-    <app-monster-card [monster]="monster" />
   </div>
 </div>

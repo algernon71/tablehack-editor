@@ -52,6 +52,8 @@ export class Icon {
         return "defence_magic.svg";
       case "LEVEL":
         return "star.svg";
+      case "INF":
+        return "infinity.svg";
 
       default:
         return "questionmark.svg";

@@ -10,7 +10,7 @@ export enum CardPullRule {
 }
 
 export class GameCardAttributes {
-  pullRules?: CardPullRule[];
+  pullRules?: string[];
 }
 
 export class GameEncounter {

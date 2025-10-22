@@ -80,55 +80,7 @@ fields: EditableField[] = [
         type: 'number',
         editable: true
       },
-      {
-        name: 'physicalDefence',
-        icon: 'DEFENCE_PHYSICAL',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'poisonDefence',
-        icon: 'DEFENCE_POISON',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'fireDefence',
-        icon: 'DEFENCE_FIRE',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'coldDefence',
-        icon: 'DEFENCE_COLD',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'electricityDefence',
-        icon: 'DEFENCE_ELECTRICITY',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'magicDefence',
-        icon: 'DEFENCE_MAGIC',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'actions',
-        label: '',
-        description: '',
-        type: 'actions',
-        editable: true
-      },
+      
     ];
   monsters?: Monster[];
 

@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with EazyDraw for Mac ( http://www.eazydraw.com/ ) -->
+
+<svg
+   version="1.1"
+   width="116.94865mm"
+   height="102.35241mm"
+   viewBox="0 0 442.01109 386.84374"
+   preserveAspectRatio="none"
+   id="svg2"
+   sodipodi:docname="cold_damage.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   inkscape:export-filename="/Users/kent/Documents/workspace/tablehack-tools/src/main/resources/images/symbols/warning_sign.png"
+   inkscape:export-xdpi="74.061569"
+   inkscape:export-ydpi="74.061569"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="846"
+     id="namedview76"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="0.43241424"
+     inkscape:cx="30.063765"
+     inkscape:cy="156.10032"
+     inkscape:window-x="10"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g8553"
+     inkscape:document-units="mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs_A8262DBE">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1783"
+       is_visible="true"
+       weight="5"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1808686944"
+       displace_x="5;2147483646"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7754"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7752"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;458397865"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7750"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="5"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7748"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1713755730"
+       displace_x="5;2075074848"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7746"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;525412748"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7744"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.5;2147483646"
+       displace_y="5;1583786881"
+       displace_x="5;887069866"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7742"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;454137092"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7740"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;251339164"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7738"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.5;443078561"
+       displace_y="5;2147483646"
+       displace_x="5;688445832"
+       segments="5"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7736"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1916248620"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7734"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7732"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1127654161"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7730"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7728"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1169580805"
+       displace_y="5;415043576"
+       displace_x="5;1159532193"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7726"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="2.7755576e-17;1"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="2"
+       max_segment_size="20"
+       method="size"
+       is_visible="true"
+       id="path-effect7690"
+       effect="roughen" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7498"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7496" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7476"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7474" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7198" />
+    </marker>
+    <inkscape:perspective
+       id="perspective7165"
+       inkscape:persp3d-origin="105.00001 : 98.999998 : 1"
+       inkscape:vp_z="210.00002 : 148.5 : 1"
+       inkscape:vp_y="0 : 999.99997 : 0"
+       inkscape:vp_x="0 : 148.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1808686944"
+       displace_x="5;2147483646"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7754-6"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7752-1"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;458397865"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7750-4"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="5"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7748-0"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="5;1713755730"
+       displace_x="5;2075074848"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7746-8"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;525412748"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7744-1"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.5;2147483646"
+       displace_y="5;1583786881"
+       displace_x="5;887069866"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7742-0"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;454137092"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7740-3"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;251339164"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7738-1"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.5;443078561"
+       displace_y="5;2147483646"
+       displace_x="5;688445832"
+       segments="5"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7736-1"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1916248620"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7734-5"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;2147483646"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7732-0"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1127654161"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7730-8"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1"
+       displace_y="10;1"
+       displace_x="10;1"
+       segments="2"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7728-4"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="0.4;1169580805"
+       displace_y="5;415043576"
+       displace_x="5;1159532193"
+       segments="6"
+       max_segment_size="10"
+       method="segments"
+       is_visible="true"
+       id="path-effect7726-9"
+       effect="roughen" />
+    <inkscape:path-effect
+       spray_tool_friendly="false"
+       fixed_displacement="false"
+       shift_nodes="true"
+       handles="along"
+       global_randomize="2.7755576e-17;1"
+       displace_y="5;1"
+       displace_x="5;1"
+       segments="2"
+       max_segment_size="20"
+       method="size"
+       is_visible="true"
+       id="path-effect7690-3"
+       effect="roughen" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7498-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7496-5" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7476-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7474-3" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="Arrow1Lstart-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7198-7" />
+    </marker>
+    <inkscape:perspective
+       id="perspective7165-8"
+       inkscape:persp3d-origin="105.00001 : 98.999998 : 1"
+       inkscape:vp_z="210.00002 : 148.5 : 1"
+       inkscape:vp_y="0 : 999.99997 : 0"
+       inkscape:vp_x="0 : 148.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer_Top etch"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     transform="matrix(1.3322143,0,0,1.3322143,-385.16068,87.521843)" />
+  <rect
+     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.52650166;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     id="rect1007"
+     x="1290.3502"
+     y="-357867.59"
+     width="232.80421"
+     height="9.8120813" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Top etch"
+     transform="translate(-36.685994,-24.710647)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Top cut"
+     transform="translate(-36.685994,-24.710647)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Middle"
+     transform="translate(-36.685994,-24.710647)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Bottom"
+     transform="translate(-36.685994,-24.710647)" />
+  <g
+     transform="matrix(2.8670115,0,0,2.8670115,363.24099,-39.97884)"
+     id="g8553">
+    <rect
+       style="fill:#ff00ff;stroke:#ff00ff;stroke-width:26.3657;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;paint-order:stroke fill markers;fill-opacity:1;stroke-opacity:1"
+       id="rect1"
+       width="93.568367"
+       height="93.56826"
+       x="-96.851646"
+       y="36.529873" />
+    <path
+       style="fill:#ffe6ff;fill-opacity:1;stroke:#ff43ff;stroke-width:0.821116;stroke-opacity:1"
+       d="m -53.409023,134.26051 c -0.899013,-0.52309 -1.011106,-1.38033 -1.011106,-7.7324 v -6.03628 l -3.637212,3.62779 c -2.000473,1.9953 -3.910618,3.72973 -4.244765,3.8543 -0.937956,0.34967 -1.776749,-0.13946 -3.775152,-2.20145 -1.937571,-1.9992 -2.237199,-2.61905 -1.729401,-3.57749 0.181007,-0.34165 3.267021,-3.5549 6.857815,-7.14057 l 6.528715,-6.51941 v -8.858743 c 0,-4.872315 -0.05268,-8.858745 -0.117152,-8.858745 -0.202635,0 -14.528159,8.495155 -14.77935,8.764275 -0.131489,0.14087 -1.28474,4.413123 -2.5628,9.493883 -2.007769,7.98168 -2.397648,9.30426 -2.867394,9.72682 -0.299008,0.26898 -0.709978,0.48905 -0.91326,0.48905 -0.203283,0 -1.587544,-0.334 -3.076119,-0.74224 -2.869948,-0.78706 -3.478772,-1.18062 -3.478772,-2.24878 0,-0.30358 0.589424,-2.80011 1.309821,-5.54788 0.720408,-2.74774 1.277564,-5.0282 1.238132,-5.06769 -0.03944,-0.0394 -0.653284,0.27967 -1.364113,0.70916 -6.556523,3.96164 -9.782588,5.72458 -10.4755,5.72458 -0.95267,0 -1.461872,-0.55201 -2.999931,-3.25218 -1.15501,-2.02769 -1.383168,-2.90133 -0.962951,-3.68727 0.114771,-0.21456 2.667056,-1.84226 5.671874,-3.6171 4.29424,-2.536466 5.37641,-3.263296 5.057244,-3.396658 -0.223339,-0.0933 -2.506956,-0.71156 -5.074723,-1.37385 -4.969061,-1.28164 -5.428688,-1.51097 -5.428688,-2.70861 0,-0.32933 0.290429,-1.71231 0.645407,-3.07329 0.66622,-2.554309 1.228436,-3.452605 2.160889,-3.452605 0.216394,0 4.423717,1.062464 9.349597,2.361035 l 8.95614,2.36103 7.692008,-4.563178 c 4.230609,-2.509758 7.664142,-4.584313 7.630073,-4.610153 -0.548603,-0.415951 -14.976684,-8.807624 -15.143248,-8.807624 -0.128603,0 -4.167889,1.027016 -8.976184,2.282262 -4.808282,1.255252 -9.095575,2.282274 -9.52729,2.282274 -1.28849,0 -1.626333,-0.476955 -2.370442,-3.34648 -0.738128,-2.846405 -0.719453,-3.840306 0.08177,-4.353394 0.26314,-0.168509 2.67705,-0.866794 5.364242,-1.551749 2.687204,-0.684955 4.956159,-1.306324 5.042132,-1.380827 0.08602,-0.07452 -2.245391,-1.549853 -5.180809,-3.278558 -2.935428,-1.728703 -5.521962,-3.378295 -5.747866,-3.66576 -0.710668,-0.90434 -0.522862,-1.650152 1.029122,-4.087067 2.447857,-3.843553 2.272761,-3.846387 8.983221,0.145302 2.806631,1.669513 5.13236,2.948873 5.168309,2.843031 0.03588,-0.105848 -0.477071,-2.255295 -1.140026,-4.776548 -0.662955,-2.521252 -1.205368,-4.816145 -1.205368,-5.099765 0,-1.102792 0.68968,-1.557902 3.481234,-2.297257 2.749177,-0.728117 3.575406,-0.737163 4.200343,-0.04592 0.188977,0.209026 1.373577,4.336019 2.632431,9.171099 1.258853,4.835082 2.360251,8.963929 2.447546,9.175225 0.08729,0.211292 3.529916,2.380385 7.650288,4.820209 l 7.491577,4.436043 0.05682,-8.728867 0.05682,-8.728868 -6.615323,-6.633253 c -3.638419,-3.648287 -6.717764,-6.909026 -6.842998,-7.246077 -0.125217,-0.337051 -0.170693,-0.84009 -0.101085,-1.117859 0.06958,-0.27777 1.095247,-1.457612 2.279112,-2.621871 2.951456,-2.902575 2.640269,-2.980759 7.508658,1.88641 l 3.741989,3.741054 0.06656,-6.470922 0.06656,-6.470921 0.609274,-0.524281 c 0.578919,-0.498184 0.755359,-0.524291 3.542912,-0.524291 1.686201,0 3.120081,0.09987 3.372062,0.234854 0.940518,0.503844 1.053076,1.331577 1.053076,7.743783 v 6.036366 l 3.754279,-3.753345 c 4.882417,-4.881183 4.568772,-4.802006 7.52097,-1.898707 1.183865,1.164259 2.209466,2.344101 2.279121,2.621871 0.06971,0.277769 0.02425,0.780808 -0.101047,1.117859 -0.125217,0.337051 -3.2046,3.597797 -6.843044,7.246102 l -6.615355,6.633285 0.05682,8.627396 0.05682,8.627395 7.4256,-4.399123 c 4.084079,-2.419519 7.485579,-4.459167 7.558889,-4.532552 0.07329,-0.07336 1.154567,-4.173457 2.402765,-9.111269 2.39987,-9.493741 2.583176,-9.979157 3.768182,-9.97845 0.307622,1.81e-4 1.683056,0.301019 3.056496,0.668523 2.723774,0.728823 3.47436,1.203297 3.47436,2.196287 0,0.33867 -0.542412,2.678613 -1.205358,5.199866 -0.662953,2.521252 -1.175963,4.655906 -1.140032,4.743677 0.03599,0.08777 2.459386,-1.261616 5.385453,-2.998635 5.6025296,-3.325882 6.2501756,-3.57536 7.1546452,-2.756046 0.2445684,0.221552 1.0311601,1.456239 1.7479703,2.743758 1.4323311,2.572686 1.6050453,3.437651 0.8475808,4.244724 -0.2506468,0.267056 -2.8340909,1.886746 -5.7409883,3.5993 -2.980328,1.755814 -5.172752,3.176123 -5.027252,3.256795 0.141919,0.0787 2.4404,0.707333 5.107746,1.397 2.7895513,0.721269 5.0726062,1.429442 5.374396,1.667068 0.6954563,0.547578 0.6754095,1.210034 -0.1292549,4.273075 -0.6933977,2.63952 -0.8758721,2.995806 -1.6936715,3.307038 -0.5563822,0.211735 -0.6703757,0.184811 -12.4491576,-2.940184 -3.420685,-0.907537 -6.386859,-1.650062 -6.591493,-1.650062 -0.204647,0 -3.728283,1.980682 -7.830322,4.401516 -5.639846,3.328384 -7.394645,4.461145 -7.197361,4.646092 0.143499,0.134516 3.584647,2.208673 7.646988,4.609245 l 7.386073,4.364669 9.117115,-2.38347 c 5.822226,-1.522094 9.3247953,-2.338967 9.6917656,-2.260318 0.9245521,0.198155 1.253563,0.770482 1.9329014,3.362328 0.7173287,2.7368 0.7453422,3.00747 0.3916502,3.78449 -0.3144575,0.69085 -0.9254956,0.91248 -6.3735492,2.31172 -2.388616,0.61348 -4.375881,1.147032 -4.416122,1.185672 -0.04024,0.0386 2.321542,1.495393 5.248415,3.237206 2.9268758,1.74181 5.5248657,3.4256 5.7732836,3.74174 0.7929672,1.00906 0.6616384,1.48992 -1.30276,4.77004 -1.0453986,1.74559 -1.6572854,2.26691 -2.660824,2.26691 -0.267411,0 -2.9716246,-1.46185 -6.0093526,-3.24855 -3.037743,-1.78669 -5.543361,-3.22831 -5.56804,-3.20363 -0.02476,0.0247 0.542321,2.2847 1.259992,5.02221 1.394508,5.31924 1.463454,6.15813 0.553691,6.73686 -0.696255,0.4429 -4.516582,1.43122 -5.532371,1.43122 -1.584361,0 -1.54216,0.10114 -4.175787,-9.99827 -1.3249,-5.08065 -2.488732,-9.317433 -2.586291,-9.415093 -0.09758,-0.0977 -3.439576,-2.105825 -7.426682,-4.462595 l -7.249289,-4.28502 -0.05682,8.802535 -0.05682,8.802513 6.719691,6.74515 c 4.218769,4.23475 6.772023,6.95889 6.860295,7.31946 0.202919,0.82889 -0.271928,1.57758 -2.213292,3.4897 -1.893823,1.86528 -2.578094,2.2373 -3.490141,1.8974 -0.328438,-0.12238 -2.233901,-1.85506 -4.234387,-3.85035 l -3.637219,-3.62779 v 6.0363 c 0,6.41212 -0.112556,7.23985 -1.053075,7.74369 -0.573586,0.30728 -6.090362,0.29786 -6.621708,-0.0115 z"
+       id="path1"
+       sodipodi:nodetypes="cscssssscsssssssssccsssssssssscscsssssssssssssscsssscccsssssccccssscssccsccccsssssssssssssssssssssscsssssssssssssssssscccssssscsscc"
+       inkscape:transform-center-x="-1.3058862"
+       inkscape:transform-center-y="-2.8323495" />
+  </g>
+</svg>

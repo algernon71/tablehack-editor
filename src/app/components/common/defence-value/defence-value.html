@@ -1,0 +1,10 @@
+@if (value && value != 0) {
+  <div class="defence-value">
+    <app-icon [type]="type" [size]="size" />
+    @if (value < -20) {
+      <app-icon [type]="'INF'" [size]="size" />
+    } @else {
+      {{ value }}
+    }
+  </div>
+}

@@ -49,6 +49,13 @@ export class EditMonster {
       editable: true
     },
     {
+      name: 'count',
+      label: '#',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
       name: 'title',
       label: 'Title',
       description: '',
@@ -105,16 +112,18 @@ export class EditMonster {
   addAction() {
     console.info('addAction', this.monster);
     const action = new MonsterAction();
-    if (!this.monster?.actions) {
-      this.monster!.actions = [];
+    if (!this.monster?.data) {
+      this.monster!.data! = {
+        actions: []
+      };
     }
-    this.monster?.actions?.push(action);
+    this.monster!.data!.actions!.push(action);
     console.info('addAction done', this.monster);
   }
 
   deleteAction(event: RowData) {
     console.info('deleteAction', event);
-    this.monster?.actions?.splice(event.index, 1);
+    this.monster!.data!.actions!.splice(event.index, 1);
   }
 
   editAction(event: RowData) {

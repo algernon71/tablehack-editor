@@ -1,13 +1,30 @@
 @if (!encounter) {
-  <app-editable-table
-    [(data)]="encounters!"
-    [fields]="encounterFields"
-    (addRow)="add()"
-    (deleteRow)="delete($event)"
-    [editable]="false"
-    (editRow)="edit($event)"
-    [editable]="true"
-  />
+  <mat-tab-group>
+    <mat-tab label="List">
+      <div class="table">
+        <app-editable-table
+          [(data)]="encounters!"
+          [fields]="encounterFields"
+          (addRow)="add()"
+          (deleteRow)="delete($event)"
+          [editable]="false"
+          (editRow)="edit($event)"
+          [editable]="true"
+        />
+      </div>
+    </mat-tab>
+    <mat-tab label="Cards">
+      <div class="card-preview-container">
+        <div class="card-preview-list">
+          @for (encounter of encounters; track encounter) {
+            <div class="card-preview-entry">
+              <app-encounter-card [encounter]="encounter" [print]="true" />
+            </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 } @else {
   <app-encounter-card [encounter]="encounter" />
 }

@@ -1,100 +1,92 @@
-@if (front || back ) {
-<div class="card" [class.preview]="!print" (click)="click.emit(monster!)">
+@if (front || back) {
+  <div class="card" [class.preview]="!print" (click)="click.emit(monster!)">
     @if (front) {
-    <div class="card-side">
-
+      <div class="card-side">
         <div class="card-inner-frame-front">
-            <div class="front-reference">
-                {{monster?.reference}}
-            </div>
-            <div class="front-name">
-                {{monster?.name}}
-            </div>
-            <div class="front-image-frame">
-                <img [src]="'http://localhost:8090/api/resources/' + monster?.image" class="front-image">
-            </div>
+          <div class="front-reference">
+            {{ monster?.reference }}
+          </div>
+          <div class="front-name">
+            {{ monster?.name }}
+          </div>
+          <div class="front-image-frame">
+            <img
+              [src]="'http://localhost:8090/api/resources/' + monster?.image"
+              class="front-image"
+            />
+          </div>
         </div>
-
-    </div>
+      </div>
     }
 
-    @if (front && back) {
-    <div class="vfold">
-    </div>
+    @if (front && back) {
+      <div class="vfold"></div>
     }
     @if (back) {
-    <div class="card-side">
+      <div class="card-side">
         <div class="card-inner-frame-back horizontal">
-            <div class="row">
-                <div class="summary-column">
-                    <div class="back-reference">
-                        {{monster?.reference}}
-                    </div>
-                    <div class="back-name">
-                        {{monster?.name}}
-                    </div>
-                    <div class="back-image-frame">
-                        <img [src]="'http://localhost:8090/api/resources/' + monster?.image" class="back-image">
-                    </div>
-                </div>
-                <div class="data-column">
-                    <div class="main-stats">
-                        <div class="stat">
-                            <app-icon [type]="'LEVEL'" [size]="mainStatIconSize" />
-                            {{monster?.level}}
-                        </div>
-                        <div class="stat">
-                            <app-icon [type]="'HEALTH'" [size]="mainStatIconSize" />
-                            {{monster?.health}}
-                        </div>
-                    </div>
-                    <div class="stats">
-                        @if (monster?.physicalDefence && monster?.physicalDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_PHYSICAL'" [size]="statIconSize" />
-                            {{monster?.physicalDefence}}
-                        </div>
-
-                        }
-                        @if (monster?.poisonDefence && monster?.poisonDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_POISON'" [size]="statIconSize" />
-                            {{monster?.poisonDefence}}
-                        </div>
-                        }
-                        @if (monster?.fireDefence && monster?.fireDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_FIRE'" [size]="statIconSize" />
-                            {{monster?.fireDefence}}
-                        </div>
-                        }
-                        @if (monster?.coldDefence && monster?.coldDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_COLD'" [size]="statIconSize" />
-                            {{monster?.coldDefence}}
-                        </div>
-                        }
-                        @if (monster?.electricityDefence && monster?.electricityDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_ELECTRICITY'" [size]="statIconSize" />
-                            {{monster?.electricityDefence}}
-                        </div>
-                        }
-                        @if (monster?.magicDefence && monster?.magicDefence != 0) {
-                        <div class="stat">
-                            <app-icon [type]="'DEFENCE_MAGIC'" [size]="statIconSize" />
-                            {{monster?.magicDefence}}
-                        </div>
-                        }
-                    </div>
-                </div>
-
+          <div class="row">
+            <div class="summary-column">
+              <div class="back-reference">
+                {{ monster?.reference }}
+              </div>
+              <div class="back-name">
+                {{ monster?.name }}
+              </div>
+              <div class="back-image-frame">
+                <img
+                  [src]="'http://localhost:8090/api/resources/' + monster?.image"
+                  class="back-image"
+                />
+              </div>
             </div>
+            <div class="data-column">
+              <div class="main-stats">
+                <div class="stat">
+                  <app-icon [type]="'LEVEL'" [size]="mainStatIconSize" />
+                  {{ monster?.level }}
+                </div>
+                <div class="stat">
+                  <app-icon [type]="'HEALTH'" [size]="mainStatIconSize" />
+                  {{ monster?.health }}
+                </div>
+              </div>
+              <div class="stats">
+                <app-defence-value
+                  [type]="'DEFENCE_PHYSICAL'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.physical"
+                />
+                <app-defence-value
+                  [type]="'DEFENCE_POISON'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.poison"
+                />
+                <app-defence-value
+                  [type]="'DEFENCE_FIRE'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.fire"
+                />
+                <app-defence-value
+                  [type]="'DEFENCE_COLD'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.cold"
+                />
+                <app-defence-value
+                  [type]="'DEFENCE_ELECTRICITY'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.electricity"
+                />
+                <app-defence-value
+                  [type]="'DEFENCE_MAGIC'"
+                  [size]="statIconSize"
+                  [value]="monster!.data?.defence?.magic"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-
-    </div>
+      </div>
     }
-
-
-</div>
+  </div>
 }

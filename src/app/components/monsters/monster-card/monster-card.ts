@@ -1,6 +1,7 @@
 import { Component, Input, output } from '@angular/core';
 import { Monster } from 'src/app/services/monsters';
 import { Icon } from "../../common/icon/icon";
+import { DefenceValue } from "../../common/defence-value/defence-value";
 
 export class Stat {
   name!: string;
@@ -10,7 +11,7 @@ export class Stat {
 
 @Component({
   selector: 'app-monster-card',
-  imports: [Icon],
+  imports: [Icon, DefenceValue],
   templateUrl: './monster-card.html',
   styleUrl: './monster-card.scss'
 })

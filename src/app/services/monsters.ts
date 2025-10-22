@@ -3,6 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 
+export class Defence {
+  physical: number = 0;
+	cold: number = 0;
+	fire: number = 0;
+	electricity: number = 0;
+	magic: number = 0;
+	poison: number = 0;
+}
+export class MonsterData {
+  actions?: MonsterAction[] = [];
+  defence?: Defence;
+}
+
 export class Monster {
   id?: number;
   reference: string = '';
@@ -13,21 +26,16 @@ export class Monster {
   image?: string;
   description?: string = '';
   health?: number = 1;
-  physicalDefence?: number = 0;
-	coldDefence?: number = 0;
-	fireDefence?: number = 0;
-	electricityDefence?: number = 0;
-	magicDefence?: number = 0;
-	poisonDefence?: number = 0;
 
+  data?: MonsterData;
   xp?: number = 1;
   properties?: any = {};
-  actions?: MonsterAction[] = [];
 
 }
 
 export class MonsterAction {
   order?: number;
+  count?: number;
   initiative: string = "1";
   title: string = "Move";
 

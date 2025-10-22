@@ -12,14 +12,19 @@ export class CardAttributes {
   attributes!: GameCardAttributes;
 
   basePath = '/public/images/symbols/';
-  imageUrl(rule: CardPullRule) {
+  imageUrl(rule: string) {
+        console.info('imageUrl', rule);
+
     switch (rule) {
-      case CardPullRule.LOST:
+      case 'LOST':
         return this.basePath + 'card_lost.svg';
-      case CardPullRule.PULL_MORE:
+      case 'PULL_MORE':
+      case 'PULL':
         return this.basePath + 'card-draw.svg';
-      case CardPullRule.SHUFFLE:
+      case 'SHUFFLE':
         return this.basePath + 'card_shuffle.svg';
+      default:
+        return '';
     }
   }
   

@@ -35,7 +35,7 @@ export class LootManager {
       damage: 'PD:5'
     }],
     attributes: {
-      pullRules: [CardPullRule.LOST, CardPullRule.PULL_MORE, CardPullRule.SHUFFLE]
+      pullRules: ["LOST"]
     }
   }
 
@@ -48,7 +48,7 @@ export class LootManager {
       count: 5
     }],
     attributes: {
-      pullRules: [CardPullRule.LOST, CardPullRule.PULL_MORE, CardPullRule.SHUFFLE]
+      pullRules: ["LOST"]
     }
   };
 
