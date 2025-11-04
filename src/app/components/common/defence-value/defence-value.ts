@@ -15,7 +15,7 @@ export class DefenceValue {
   size!: string;
 
   @Input()
-  value?: number;
+  value?: string;
 
 
 }

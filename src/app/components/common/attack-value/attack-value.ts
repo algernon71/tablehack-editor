@@ -15,5 +15,5 @@ export class AttackValue {
   size!: string;
 
   @Input()
-  value?: number;
+  value?: string;
 }

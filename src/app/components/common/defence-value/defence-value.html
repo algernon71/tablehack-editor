@@ -1,7 +1,7 @@
-@if (value && value != 0) {
+@if (value && value != '0') {
   <div class="defence-value">
     <app-icon [type]="type" [size]="size" />
-    @if (value < -20) {
+    @if (value == 'X') {
       <app-icon [type]="'INF'" [size]="size" />
     } @else {
       {{ value }}

@@ -19,5 +19,5 @@ export class EditDamageValue {
   tooltip?: string;
 
   size = 'SMALL';
-  value = model<number>();
+  value = model<string>();
 }
