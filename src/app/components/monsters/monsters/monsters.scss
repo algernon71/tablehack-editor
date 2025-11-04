@@ -35,3 +35,25 @@ table {
   width: 58mm !important;
   height: 88mm !important;
 }
+
+.file-drop-zone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(240, 233, 233);
+  border-radius: 30px;
+  border: dashed rgb(163, 145, 145) 1px;
+  margin: 20px;
+  color: gray;
+  width: 80%;
+  min-height: 200px;
+}
+
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}

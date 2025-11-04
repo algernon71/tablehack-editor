@@ -34,6 +34,9 @@
     width: 100px;
 }
 
+.small {
+    width: 60px;
+}
 
 .card-preview-list {
   display: flex;
@@ -46,3 +49,17 @@
   background-color: gray;
   border: solid black;
 }
+
+.action-row {
+    display: flex;
+    flex-direction: row;
+}
+.action-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-title {
+    width: 200px;
+}
+

@@ -1,5 +1,11 @@
 <div class="card-attributes">
-  @for (pullRule of attributes.pullRules; track pullRule) {
-    <img [src]="imageUrl(pullRule)" class="attribute-symbol" />
+  @if (attributes.lost) {
+    <app-icon [type]="'CARD_LOST'" />
+  }
+  @if (attributes.pull) {
+    <app-icon [type]="'CARD_PULL'" />
+  }
+  @if (attributes.shuffle) {
+    <app-icon [type]="'CARD_SHUFFLE'" />
   }
 </div>

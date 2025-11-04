@@ -1,0 +1,93 @@
+.custom-height {
+    height: 60px;
+    /* Set the height you desire */
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
+}
+
+.custom-height .mat-form-field-wrapper {
+    padding-bottom: 0;
+    padding-top: 0;
+    height: 100%;
+}
+
+.custom-height .mat-input-element {
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    line-height: 60px;
+}
+
+/* You can also directly target the element */
+mat-form-field {
+    height: 150px;
+}
+
+/* You can also directly target the element */
+mat-form-field {
+    height: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.mdc-text-field__input {
+    font-size: 5px important;
+    
+}
+
+ .mat-mdc-form-field-infix {
+    padding-top: 0px;
+}
+
+.action {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;    
+}
+
+.action-step {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;    
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 10px;
+    height: 90px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-range {
+    width: 60px;
+}
+
+.step-type {
+    width: 100px;
+}
+.step-subtype {
+    width: 100px;
+}
+.step-damage {
+}
+.step-description {
+    width: 300px;
+}
+
+.small {
+    width: 80px;
+}

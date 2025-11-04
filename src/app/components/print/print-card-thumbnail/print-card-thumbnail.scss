@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.preview-small {
+  position: relative;
+  left: 20px;
+  top: 40px;
+  z-index: 100;
+}
+
+.preview-large {
+  position: relative;
+  left: -350px;
+  z-index: 100;
+  transform: scale(50%, 50%);
+}
+    
+.container {
+    width: 30px;
+    height: 30px;
+}
+
+.thumbnail-icon {
+  width: 30px;
+  height: 45px;
+  border-radius: 10px;
+  border: solid black 4px;
+}
+
+.thumbnail-small {
+  width: 10px;
+  transform: scale(20%, 20%);
+}   
+
+.thumbnail-large {
+  height: 10px;
+  width: 10px;
+  transform: scale(20%, 20%);
+}   
+ 

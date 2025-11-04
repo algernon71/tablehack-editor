@@ -3,6 +3,9 @@
 
 @use '@angular/material' as mat;
 
+
+
+
 html {
   @include mat.theme(
     (
@@ -16,6 +19,15 @@ html {
     )
   );
 }
+
+:root {
+  @include mat.form-field-overrides((
+    disabled-input-text-placeholder-color: orange,
+    disabled-leading-icon-color: red,
+     outlined-container-shape: var(--mat-sys-corner-large) 
+  ));
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

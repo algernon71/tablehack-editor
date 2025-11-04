@@ -17,19 +17,23 @@ export class TopBar {
 
   items: TopBarItem[] = [
     {
-      label: "Monsters", 
+      label: "Characters",
+      path: "characters"
+    },
+    {
+      label: "Monsters",
       path: "monsters"
     },
     {
-      label: "Encounters", 
+      label: "Encounters",
       path: "encounters"
     },
     {
-      label: "Events", 
+      label: "Events",
       path: "events"
     },
     {
-      label: "Loot", 
+      label: "Loot",
       path: "loot"
     },
   ];
@@ -38,9 +42,9 @@ export class TopBar {
 
   activeItem?: TopBarItem;
 
-  constructor() { 
+  constructor() {
   }
-  ngOnInit() { 
+  ngOnInit() {
 
   }
 }

@@ -17,3 +17,42 @@ table {
 .selectable-row:hover {
     background-color: lightgray;
 }
+.selected-row {
+    background-color: wheat
+}
+
+.buttons-column {
+    width: 30px;
+}
+.column-number {
+    width: 20px;
+}
+.column-reference {
+    width: 30px;
+}
+.column-enum {
+    width: 120px;
+}
+.column-string {
+    width: 150px;
+}
+
+.column-image {
+    width: 120px;
+}
+.dropping {
+    animation: dropping-animation 2s infinite;
+}
+
+.editing-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes dropping-animation {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+}

@@ -26,7 +26,7 @@ export class CardPrintData {
 })
 export class DeckPrint {
   cardType?: CardType;
-  
+
   doubleSided = true;
 
   fetchedCard$!: Observable<any>;
@@ -39,10 +39,10 @@ export class DeckPrint {
   currentRow = 0;
   currentColumn = 0;
   flipPage = false;
-  footers = true; 
+  footers = true;
   rowsPerPage = 2;
   columnsPerPage = 5;
-  
+
   frontTopPad = 14;
   frontLeftPad = 3;
 
@@ -77,8 +77,8 @@ export class DeckPrint {
         this.preparePrintPages();
       });
     });
-    
-    
+
+
   }
 
   preparePrintPages() {
@@ -86,22 +86,22 @@ export class DeckPrint {
     console.info('preparePrintPages, deck:', this.deck);
     console.info('preparePrintPages, card type:', this.cardType);
 
-	switch (this.cardType?.size ) {
-    case 'small':
-		this.rowsPerPage = 2;
-		this.columnsPerPage = 5;
-		this.frontTopPad = 2;
-		this.frontLeftPad = 0;
-		this.doubleSided = true;
-      break;
-    case 'large':
-		this.rowsPerPage = 1;
-		this.columnsPerPage = 1;
-		this.frontTopPad = 0;
-		this.frontLeftPad = 0;
-		this.doubleSided = false;
-      break;
-  }
+    switch (this.cardType?.size) {
+      case 'small':
+        this.rowsPerPage = 2;
+        this.columnsPerPage = 5;
+        this.frontTopPad = 2;
+        this.frontLeftPad = 0;
+        this.doubleSided = true;
+        break;
+      case 'large':
+        this.rowsPerPage = 1;
+        this.columnsPerPage = 1;
+        this.frontTopPad = 0;
+        this.frontLeftPad = 0;
+        this.doubleSided = false;
+        break;
+    }
     this.deck?.entries.forEach(entry => {
       const card = this.findCard(entry);
       for (let i = 0; i < entry.count; ++i) {
@@ -114,7 +114,7 @@ export class DeckPrint {
     console.info('printList:', cardPrintList);
 
     cardPrintList.forEach(card => {
-        this.addCardToPrint(card);
+      this.addCardToPrint(card);
     });
     console.info('pages:', this.pages);
     this.pages = this.pages.filter(page => page.grid.length > 0);
@@ -124,7 +124,7 @@ export class DeckPrint {
     if (this.pages.length <= this.currentPage) {
       this.addPage();
     }
-    
+
 
     let page = this.pages[this.currentPage];
     if (page.grid.length <= this.currentRow) {
@@ -142,21 +142,21 @@ export class DeckPrint {
         this.currentPage++;
         this.addPage();
       }
-             
+
     }
-    
-    
+
+
   }
   addPage() {
-      let newPage: PrintPage = {
-        page: this.currentPage,
-        backPage: this.flipPage,
-        grid: [],
-        cardCount: 0
-      };
-      this.flipPage = !this.flipPage;
-      this.pages.push(newPage);
-    
+    let newPage: PrintPage = {
+      page: this.currentPage,
+      backPage: this.flipPage,
+      grid: [],
+      cardCount: 0
+    };
+    this.flipPage = !this.flipPage;
+    this.pages.push(newPage);
+
   }
   findCard(entry: DeckEntry): Card | undefined {
     return this.cards!.find(card => card.id == entry.cardId);

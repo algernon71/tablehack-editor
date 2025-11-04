@@ -1,20 +1,40 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
+import { Backend } from './backend';
 
 export class Defence {
-  physical: number = 0;
-	cold: number = 0;
-	fire: number = 0;
-	electricity: number = 0;
-	magic: number = 0;
-	poison: number = 0;
+  physical: string = "0";
+  cold: string = "0";
+  fire: string = "0";
+  electricity: string = "0";
+  magic: string = "0";
+  poison: string = "0";
+}
+
+export class Damage {
+  physical?: string = "0";
+  cold?: string = "0";
+  fire?: string = "0";
+  electricity?: string = "0";
+  life?: string = "0";
+  energy?: string = "0";
+  fear?: string = "0";
+  poison?: string = "0";
+  group?: string = "0";
+  area?: string = "0";
+  cone?: string = "0";
+  explosion?: string = "0";
+  range?: string = "0";
+  ray?: string = "0";
 }
 export class MonsterData {
   actions?: MonsterAction[] = [];
-  defence?: Defence;
+  defence?: Defence = new Defence();
 }
+
+
 
 export class Monster {
   id?: number;
@@ -27,7 +47,7 @@ export class Monster {
   description?: string = '';
   health?: number = 1;
 
-  data?: MonsterData;
+  data?: MonsterData = new MonsterData();
   xp?: number = 1;
   properties?: any = {};
 
@@ -35,48 +55,69 @@ export class Monster {
 
 export class MonsterAction {
   order?: number;
-  count?: number;
-  initiative: string = "1";
-  title: string = "Move";
+  count?: number = 1;
+  initiative: string = "2";
+  title?: string;
+  description?: string;
+  targettingId?: number;
 
   steps: MonsterActionStep[] = [];
-  attributes?: GameCardAttributes;
+  attributes?: GameCardAttributes = new GameCardAttributes();
 }
+
+export class MonsterActionTarget {
+  id!: number;
+  name!: string;
+  description!: string;
+}
+
 export class MonsterActionStep {
   name: string = "Move";
   type: string = "MOVE";
+  description?: string;
+  subtype?: string = "MOVE_WALK";
   range?: string;
-  damage?: string;
+  damage?: Damage;
+  defence?: Defence;
   attributes?: string;
   body?: string;
+  targettingId?: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonstersService {
-  baseUrl = 'http://localhost:8090/api';
-	
-	constructor(private http: HttpClient) { 
-	}
 
-  getMonsters(): Observable<Monster[]> {
-		return this.http.get<Monster[]>(this.baseUrl + '/monsters');
-	}
+  constructor(private http: HttpClient) {
+  }
+
+  getMonsters(monsterIds?: string): Observable<Monster[]> {
+    let params = new HttpParams();
+    if (monsterIds) {
+      console.info('getMonsters, set params:', monsterIds);
+      params = params.set('ids', monsterIds);
+    }
+    console.info('getMonsters, params:', params);
+
+    return this.http.get<Monster[]>(Backend.getBaseUrl() + '/monsters', {
+      params: params
+    });
+  }
   getMonster(id: number): Observable<Monster> {
-		return this.http.get<Monster>(this.baseUrl + '/monsters/'+ id);
-	}
+    return this.http.get<Monster>(Backend.getBaseUrl() + '/monsters/' + id);
+  }
   getMonsterByReference(reference: string): Observable<Monster> {
-		return this.http.get<Monster>(this.baseUrl + '/monsters/by-reference/'+ reference);
-	}
+    return this.http.get<Monster>(Backend.getBaseUrl() + '/monsters/by-reference/' + reference);
+  }
   addMonster(monster: Monster): Observable<Monster> {
-		return this.http.post<Monster>(this.baseUrl + '/monsters', monster);
-	}
+    return this.http.post<Monster>(Backend.getBaseUrl() + '/monsters', monster);
+  }
   updateMonster(monster: Monster): Observable<Monster> {
-		return this.http.put<Monster>(this.baseUrl + '/monsters/' + monster.id, monster);
-	}
+    return this.http.put<Monster>(Backend.getBaseUrl() + '/monsters/' + monster.id, monster);
+  }
   deleteMonster(monster: Monster): Observable<void> {
-		return this.http.delete<void>(this.baseUrl + '/monsters/' + monster.id);
-	}
- 
+    return this.http.delete<void>(Backend.getBaseUrl() + '/monsters/' + monster.id);
+  }
+
 }

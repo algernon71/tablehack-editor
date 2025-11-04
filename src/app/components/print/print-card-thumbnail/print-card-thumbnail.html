@@ -1,0 +1,29 @@
+@if (card) {
+  <div class="container">
+    @if (justIcon) {
+      <div
+        class="thumbnail-icon"
+        (mouseenter)="preview = true"
+        (mouseleave)="preview = false"
+      ></div>
+    } @else {
+      <div
+        class="label"
+        (mouseenter)="preview = true"
+        (mouseleave)="preview = false"
+        [class.thumbnail-large]="card.largeCard"
+        [class.thumbnail-small]="!card.largeCard"
+      >
+        <app-print-card [card]="card" [front]="false" [back]="true" />
+      </div>
+    }
+
+    @if (preview) {
+      <div [class.preview-large]="card.largeCard" [class.preview-small]="!card.largeCard">
+        <app-print-card [card]="card" [front]="true" [back]="true" />
+      </div>
+    }
+  </div>
+} @else {
+  No resource found
+}

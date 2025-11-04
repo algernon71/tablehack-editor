@@ -1,0 +1,26 @@
+<div class="attack-values">
+  @if (damage!.physical) {
+    <app-attack-value [type]="'ATTACK_PHYSICAL'" [size]="size" [value]="damage!.physical" />
+  }
+  @if (damage!.poison) {
+    <app-attack-value [type]="'ATTACK_POISON'" [size]="size" [value]="damage!.poison" />
+  }
+  @if (damage!.fire) {
+    <app-attack-value [type]="'ATTACK_FIRE'" [size]="size" [value]="damage!.fire" />
+  }
+  @if (damage!.cold) {
+    <app-attack-value [type]="'ATTACK_COLD'" [size]="size" [value]="damage!.cold" />
+  }
+  @if (damage!.electricity) {
+    <app-attack-value [type]="'ATTACK_ELECTRICITY'" [size]="size" [value]="damage!.electricity" />
+  }
+  @if (damage!.fear) {
+    <app-attack-value [type]="'ATTACK_FEAR'" [size]="size" [value]="damage!.fear" />
+  }
+  @if (damage!.life) {
+    <app-attack-value [type]="'ATTACK_LIFE'" [size]="size" [value]="damage!.life" />
+  }
+  @if (damage!.energy) {
+    <app-attack-value [type]="'ATTACK_ENERGY'" [size]="size" [value]="damage!.energy" />
+  }
+</div>

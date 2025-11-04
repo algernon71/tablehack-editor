@@ -1,4 +1,4 @@
-<table class="container">
+<table class="container" (appDragAndDrop)="dropFiles($event)">
   <tr class="header-row">
     @for (field of fields(); track field.name) {
       @if (field.icon) {
@@ -7,80 +7,138 @@
         <th>{{ field.label }}</th>
       }
     }
+    <th class="buttons-column">
+      @if (editable && !selectedRow()) {
+        @if (editMode) {
+          <button matButton (click)="endEditing()" matTooltip="Edit entries">
+            <mat-icon class="toolbar-icon">check</mat-icon>
+          </button>
+          <button matButton (click)="endEditing()" matTooltip="Edit entries">
+            <mat-icon class="toolbar-icon">cancel</mat-icon>
+          </button>
+        } @else {
+          <button matButton (click)="startEditing()" matTooltip="Delete">
+            <mat-icon class="toolbar-icon">edit</mat-icon>
+          </button>
+          <button matButton (click)="newRow()" matTooltip="Add">
+            <mat-icon class="toolbar-icon">add</mat-icon>
+          </button>
+        }
+      }
+    </th>
   </tr>
   @for (row of data(); track row) {
-    <tr class="row" (click)="rowClick($index, row)" [class.selectable-row]="!editing">
-      @for (field of fields(); track field.name) {
-        <td>
-          @switch (field.type) {
-            @case ('string') {
-              @if (editing) {
-                <input type="text" [(ngModel)]="row[field.name]" />
-              } @else {
-                <div>{{ row[field.name] }}</div>
+    @if (!selectedRow() || row == selectedRow()) {
+      <tr
+        class="row"
+        (click)="selectRow($index, row)"
+        [class.selectable-row]="!editing(row)"
+        [class.selected-row]="row == selectedRow()"
+      >
+        @for (field of fields(); track field.name) {
+          <td [className]="'column-' + field.type">
+            @switch (field.type) {
+              @case ('reference') {
+                @if (editing(row)) {
+                  <input
+                    type="text"
+                    [value]="columnValue(field, row)"
+                    (keyup)="columnValueChanged(field, row, $event.target.value)"
+                    (change)="columnValueChanged(field, row, $event.target.value)"
+                    size="8"
+                  />
+                } @else {
+                  <div>{{ columnValue(field, row) }}</div>
+                }
               }
-            }
-            @case ('text') {
-              @if (editing) {
-                <textarea [(ngModel)]="row[field.name]" rows="3" cols="20"> </textarea>
-              } @else {
-                <pre>{{ row[field.name] }}</pre>
+              @case ('string') {
+                @if (editing(row)) {
+                  <input
+                    type="text"
+                    [value]="columnValue(field, row)"
+                    (keyup)="columnValueChanged(field, row, $event.target.value)"
+                    (change)="columnValueChanged(field, row, $event.target.value)"
+                  />
+                } @else {
+                  <div>{{ columnValue(field, row) }}</div>
+                }
               }
-            }
-            @case ('number') {
-              @if (editing) {
-                <input type="text" [(ngModel)]="row[field.name]" class="number-input" size="2" />
-              } @else {
-                <div>{{ row[field.name] }}</div>
+              @case ('text') {
+                @if (editing(row)) {
+                  <textarea
+                    [value]="columnValue(field, row)"
+                    (input)="columnValueChanged(field, row, $event.target)"
+                    rows="3"
+                    cols="20"
+                  >
+                  </textarea>
+                } @else {
+                  <pre>{{ columnValue(field, row) }}</pre>
+                }
               }
-            }
-            @case ('enum') {
-              @if (editing) {
-                <mat-select [(ngModel)]="row[field.name]">
-                  @for (value of field.values; track $index) {
-                    <mat-option [value]="value">{{ value }}</mat-option>
-                  }
-                </mat-select>
-              } @else {
-                <div>{{ row[field.name] }}</div>
+              @case ('number') {
+                @if (editing(row)) {
+                  <div class="editing-column">
+                    @if (field.icon) {
+                      <app-icon [type]="field.icon" />
+                    }
+                    <input
+                      type="text"
+                      [value]="columnValue(field, row)"
+                      (keyup)="columnValueChanged(field, row, $event.target.value)"
+                      (change)="columnValueChanged(field, row, $event.target.value)"
+                      class="number-input"
+                      size="2"
+                    />
+                  </div>
+                } @else {
+                  <div>{{ columnValue(field, row) }}</div>
+                }
               }
-            }
-            @case ('image') {
-              @if (editing) {
-                <app-resource-reference [path]="row[field.name]" />
-              } @else {
-                <div>
+              @case ('enum') {
+                @if (editing(row)) {
+                  <mat-select
+                    [value]="columnValue(field, row)"
+                    (valueChange)="columnValueChanged(field, row, $event)"
+                  >
+                    @for (value of field.values; track $index) {
+                      <mat-option [value]="value">{{ value }}</mat-option>
+                    }
+                  </mat-select>
+                } @else {
+                  <div>{{ row[field.name] }}</div>
+                }
+              }
+              @case ('image') {
+                @if (editing(row)) {
                   <app-resource-reference [path]="row[field.name]" />
+                } @else {
+                  <div>
+                    <app-resource-reference [path]="row[field.name]" />
+                  </div>
+                }
+              }
+              @case ('boolean') {
+                <div>
+                  <mat-checkbox
+                    [(ngModel)]="row[field.name]"
+                    [disabled]="!editable || editingRow != row || !field.editable"
+                  ></mat-checkbox>
                 </div>
               }
+              @case ('actions') {}
             }
-            @case ('boolean') {
-              <div>
-                <mat-checkbox
-                  [(ngModel)]="row[field.name]"
-                  [disabled]="!editable || editingRow != row || !field.editable"
-                ></mat-checkbox>
-              </div>
-            }
-            @case ('actions') {}
-          }
-        </td>
-      }
-    </tr>
+          </td>
+        }
+      </tr>
+    }
   }
 </table>
-@if (editable) {
-  @if (editing) {
-    <button matButton (click)="endEditing()" matTooltip="Edit entries">
-      <mat-icon class="toolbar-icon">check</mat-icon>
-    </button>
-  } @else {
-    <button matButton (click)="startEditing()" matTooltip="Delete">
-      <mat-icon class="toolbar-icon">edit</mat-icon>
-    </button>
-  }
-}
 
-<button matButton (click)="newRow()" matTooltip="Add">
-  <mat-icon class="toolbar-icon">add</mat-icon>
-</button>
+@if (selectedRow()) {
+  <button matButton (click)="deleteRow(selectedRow())">Delete</button>
+  <button matButton (click)="saveRow(selectedRow())">Save</button>
+  <button matButton (click)="selectedRow.set(undefined)">Cancel</button>
+
+  <ng-content></ng-content>
+}

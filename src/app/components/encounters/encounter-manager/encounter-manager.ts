@@ -14,40 +14,40 @@ import { MatTabsModule } from '@angular/material/tabs';
 export class EncounterManager {
 
   encounterFields: EditableField[] = [
-      {
-        name: 'tokenId',
-        label: 'Token',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'title',
-        label: 'Title',
-        description: '',
-        type: 'string',
-        editable: true
-      },
-      {
-        name: 'description',
-        label: 'Description',
-        description: '',
-        type: 'string',
-        editable: true
-      },
-  
-    ];
+    {
+      name: 'tokenId',
+      label: 'Token',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'title',
+      label: 'Title',
+      description: '',
+      type: 'string',
+      editable: true
+    },
+    {
+      name: 'description',
+      label: 'Description',
+      description: '',
+      type: 'string',
+      editable: true
+    },
 
-  encounters?: GameEncounter [];
+  ];
+
+  encounters?: GameEncounter[];
 
   constructor(private encountersService: EncounterService) {
 
   }
-  ngOnInit(		) {
+  ngOnInit() {
     this.refreshList();
   }
 
-  refreshList() { 
+  refreshList() {
     this.encountersService.getEncounters().subscribe(response => {
       this.encounters = response;
       console.info('Loaded encounters:', response);
@@ -65,7 +65,7 @@ export class EncounterManager {
   delete(encounter: any) {
 
   }
-  add() { 
+  add() {
 
   }
 }

@@ -1,0 +1,10 @@
+<h2 mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  {{ data.title }}
+</h2>
+<mat-dialog-content>
+  {{ data.description }}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close (click)="close(false)">No</button>
+  <button matButton mat-dialog-close cdkFocusInitial (click)="close(true)">Yes</button>
+</mat-dialog-actions>

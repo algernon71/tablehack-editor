@@ -1,0 +1,83 @@
+.pagebreak {
+	page-break-after: always;
+	overflow: hidden;
+}
+@media print{@page {size: landscape}}
+@page {
+	size: landscape A4;
+	margin: 5mm;
+	print-color-adjust: exact;
+	body {-webkit-print-color-adjust: exact;}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.print-page-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.large-front {
+	padding-top: 6mm;
+}
+.print-page-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 1mm;
+	padding: 1mm;
+}
+
+.page-side {
+}
+
+.front-page-top-pad {
+	height: 14mm;
+}
+.footer {
+	font-size: 20px;
+}
+
+.print-page {
+	size: A4 landscape;
+	height: 210mm;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+
+.print-row {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 1mm;
+}
+
+.print-row-reverse {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+	gap: 1mm;
+}
+
+.back-page {
+	justify-content: flex-end;
+	align-items: flex-start;
+
+	transform: rotate(180deg);
+}
+
+.flip-large {
+
+	transform: rotate(-90deg);
+}
+
+.hcut {
+	height: 10mm;
+}

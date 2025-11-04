@@ -3,18 +3,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { Resource, Resources } from 'src/app/services/resources';
 
 @Component({
-  selector: 'app-resource-reference',
-  imports: [ ],
-  templateUrl: './resource-reference.html',
-  styleUrl: './resource-reference.scss'
+	selector: 'app-resource-reference',
+	imports: [],
+	templateUrl: './resource-reference.html',
+	styleUrl: './resource-reference.scss'
 })
 export class ResourceReference {
 	@Input()
 	path?: string;
-	
+
 	@Input()
 	resource?: Resource;
-	
+
+	@Input()
+	thumbnail = true;
+
 	preview = false;
 
 	constructor(

@@ -1,0 +1,65 @@
+@if (pages) {
+  <div>
+    @for (page of pages; track page) {
+      <div class="page-wrapper">
+        @if (page.grid.length > 0) {
+          <div class="page-side">
+            <div class="print-page" [class.large-front]="page.largeCards">
+              <div class="print-page-content" [class.flip-large]="page.largeCards">
+                <div [style]="'height:' + page.frontTopPad + 'mm'"></div>
+                <div class="print-page-cards">
+                  @for (row of page.grid; track $index) {
+                    <div class="print-row">
+                      <div [style]="'width:' + page.frontLeftPad + 'mm'"></div>
+                      @for (card of row; track card) {
+                        <div class="print-card">
+                          <app-print-card [card]="card" [front]="true" [back]="!doubleSided" />
+                        </div>
+                      }
+                      <div [style]="'width:' + page.frontRightPad + 'mm'"></div>
+                    </div>
+                  }
+                </div>
+                @if (footers) {
+                  <div class="footer">
+                    {{ title }} / Sida:{{ page.page + 1 }}/{{ pages.length }} /
+                    {{ page.cardCount }} kort
+                  </div>
+                }
+              </div>
+            </div>
+            <p class="pagebreak"></p>
+          </div>
+        }
+        @if (doubleSided) {
+          <div class="page-side">
+            <div class="print-page" [class.back-page]="!page.largeCards">
+              <div class="back-page-top-pad"></div>
+              <div class="print-page-content" [class.flip-large]="page.largeCards">
+                <div class="print-page-cards">
+                  @for (row of page.grid; track $index) {
+                    <div class="print-row-reverse">
+                      @for (card of row; track card) {
+                        <div class="print-card">
+                          <app-print-card [card]="card" [front]="false" [back]="true" />
+                        </div>
+                      }
+                      <div [style]="'width:' + page.backLeftPad + 'mm'"></div>
+                    </div>
+                  }
+                </div>
+                @if (footers) {
+                  <div class="footer">
+                    {{ title }} / Baksida:{{ page.page + 1 }}/{{ pages.length }} /
+                    {{ page.cardCount }} kort
+                  </div>
+                }
+              </div>
+            </div>
+            <p class="pagebreak"></p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+}

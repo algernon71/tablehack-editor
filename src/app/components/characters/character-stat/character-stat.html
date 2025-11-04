@@ -1,0 +1,20 @@
+@if (stat) {
+  <div class="stat-entry">
+    <div class="stat-header">
+      @if (icon) {
+        <img [src]="'/public/images/symbols/' + icon" class="stat-icon" />
+      } @else {
+        {{ name }}
+      }
+    </div>
+    @for (cost of stat.upgradeCosts; track $index) {
+      @if (cost == 0) {
+        <div class="filled-dot"></div>
+      } @else {
+        <div class="number-dot">
+          {{ cost }}
+        </div>
+      }
+    }
+  </div>
+}

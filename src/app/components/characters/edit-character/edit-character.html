@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="character!.description" rows="5" cols="40"> </textarea>
+    </mat-form-field>
+  </div>
+  @if (character!.data && character!.data!.actions) {
+    @for (action of character!.data!.actions!; track action) {
+      <div class="row">
+        <app-edit-character-action
+          [action]="action"
+          [character]="character!"
+          (remove)="deleteAction($index)"
+        />
+      </div>
+    }
+  }
+  <button matButton (click)="addAction()">Add action</button>
+
+  <button matButton [routerLink]="'/print/chars'" [queryParams]="{ ids: character!.id }">
+    Print
+  </button>
+  <button
+    matButton
+    [routerLink]="'/print/chars'"
+    [queryParams]="{ ids: character!.id, actions: true, characters: false }"
+  >
+    Print actions
+  </button>
+</div>

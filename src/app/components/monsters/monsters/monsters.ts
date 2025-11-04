@@ -5,127 +5,173 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { EditableField, EditableTable, RowData } from '../../common/editable-table/editable-table';
+import { DataPage, DataSource, EditableField, EditableTable, ImportRowData, RowData } from '../../common/editable-table/editable-table';
 import { Monster, MonstersService } from 'src/app/services/monsters';
 import { EditMonster } from "../edit-monster/edit-monster";
 import { MonsterCard } from "../monster-card/monster-card";
 import { MatTabsModule } from '@angular/material/tabs';
+import { DragAndDrop } from 'src/app/directives/drag-and-drop';
+import { Resources } from 'src/app/services/resources';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-monsters',
-  imports: [MatTableModule, 
-    MatSelectModule, 
-    MatFormFieldModule, 
-    MatIconModule, 
+  imports: [
+    DragAndDrop,
+    MatTableModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatIconModule,
     MatTabsModule,
-    FormsModule, 
-    MatInputModule, 
-    EditableTable, 
-    EditMonster, 
+    FormsModule,
+    MatInputModule,
+    EditableTable,
+    EditMonster,
     MonsterCard],
   templateUrl: './monsters.html',
   styleUrl: './monsters.scss'
 })
-export class Monsters {
-fields: EditableField[] = [
-      {
-        name: 'id',
-        label: 'Id',
-        description: '',
-        type: 'string',
-        editable: false
-      },
-      {
-        name: 'reference',
-        label: 'Refernce',
-        description: '',
-        type: 'string',
-        editable: true
-      },
-      {
-        name: 'name',
-        label: 'Name',
-        description: '',
-        type: 'string',
-        editable: true
-      },
-      {
-        name: 'type',
-        label: 'Type',
-        description: '',
-        type: 'enum',
-        editable: true,
-        values: ["Humanoid", "Magic", "Undead"]
-      },
-      {
-        name: 'image',
-        label: 'Image',
-        description: '',
-        type: 'image',
-        editable: true
-      },
-      {
-        name: 'health',
-        icon: 'HEALTH',
-        label: 'Health',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      {
-        name: 'level',
-        icon: 'LEVEL',
-        label: 'Level',
-        description: '',
-        type: 'number',
-        editable: true
-      },
-      
-    ];
+export class Monsters implements DataSource {
+  fields: EditableField[] = [
+    {
+      name: 'id',
+      label: 'Id',
+      description: '',
+      type: 'reference',
+      editable: false
+    },
+    {
+      name: 'reference',
+      label: 'R',
+      description: '',
+      type: 'reference',
+      editable: true
+    },
+    {
+      name: 'name',
+      label: 'Name',
+      description: '',
+      type: 'string',
+      editable: true
+    },
+    {
+      name: 'type',
+      label: 'Type',
+      description: '',
+      type: 'enum',
+      editable: true,
+      values: ["Humanoid", "Magic", "Undead"]
+    },
+    {
+      name: 'image',
+      label: 'Image',
+      description: '',
+      type: 'image',
+      editable: true
+    },
+    {
+      name: 'level',
+      icon: 'LEVEL',
+      label: 'Level',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'health',
+      icon: 'HEALTH',
+      label: 'Health',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'data.defence.physical',
+      icon: 'DEFENCE_PHYSICAL',
+      label: 'Defence ',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'data.defence.poison',
+      icon: 'DEFENCE_POISON',
+      label: 'Defence ',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'data.defence.fire',
+      icon: 'DEFENCE_FIRE',
+      label: 'Defence ',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+    {
+      name: 'data.defence.cold',
+      icon: 'DEFENCE_COLD',
+      label: 'Defence ',
+      description: '',
+      type: 'number',
+      editable: true
+    },
+  ];
   monsters?: Monster[];
 
   monster?: Monster;
 
-  constructor(private monstersService: MonstersService) {
+  constructor(private monstersService: MonstersService, private resourcesService: Resources) {
 
   }
-  ngOnInit(		) {
-    this.refreshList();
+  ngOnInit() {
   }
 
-  refreshList() { 
-    this.monstersService.getMonsters().subscribe(response => {
-      this.monsters = response;
-    });
 
-  }
-
-  addMonster() { 
+  addRow(): Observable<any> {
     const newMonster = new Monster();
 
-    this.monstersService.addMonster(newMonster).subscribe(response => {
-    this.refreshList();
+    return this.monstersService.addMonster(newMonster);
 
-    });
   }
 
-  editMonster(event: RowData) {
-    console.info('editMonster', event);
-    this.monster = event.row;
+  deleteRow(monster: Monster): Observable<void> {
+    return this.monstersService.deleteMonster(monster);
   }
 
-  editClosed() {
-    console.info('editClosed');
-    this.monster = undefined;
+  fetchRow(monster: Monster): Observable<any> {
+    return this.monstersService.getMonster(monster.id!);
   }
 
-  saveMonster(monster: Monster) {
-    this.monstersService.updateMonster(monster).subscribe(response => {});
+  fetchRows(page: number, pageSize: number): Observable<DataPage> {
+    return this.monstersService.getMonsters().pipe(map(response => {
+      const page: DataPage = {
+        content: response
+      };
+      return page;
+    }));
+
   }
-  deleteMonster(event: RowData) {
-    console.info('saveMonster', event);
-    this.monstersService.deleteMonster(event.row).subscribe(response => {
-      this.refreshList();
-    });
+
+  importRow(importData: ImportRowData): Observable<ImportRowData> {
+    const newMonster = new Monster();
+    newMonster.image = importData.image;
+    newMonster.name = importData.name!;
+    return this.monstersService.addMonster(newMonster).pipe(map(monster => {
+      const importedRow: ImportRowData = {
+        id: monster.id,
+        name: monster.name,
+        image: monster.image
+
+      };
+      return importedRow;
+    }));
+
+
   }
+  saveRow(monster: Monster): Observable<any> {
+    return this.monstersService.updateMonster(monster);
+  }
+
 }

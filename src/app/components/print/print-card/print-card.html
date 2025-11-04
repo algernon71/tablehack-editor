@@ -1,0 +1,31 @@
+@if (card.monster && !card.monsterAction) {
+  <app-monster-card [monster]="card.monster" [front]="front" [back]="back" [print]="true" />
+}
+
+@if (card.monsterAction) {
+  <app-monster-action-card
+    [action]="card.monsterAction"
+    [monster]="card.monster"
+    [front]="front"
+    [back]="back"
+    [print]="true"
+  />
+}
+
+@if (card.encounter) {
+  <app-encounter-card [encounter]="card.encounter" [front]="front" [back]="back" [print]="true" />
+}
+
+@if (card.character && !card.characterAction) {
+  <app-character-card [character]="card.character!" [front]="front" [back]="back" [print]="true" />
+}
+
+@if (card.characterAction) {
+  <app-character-action-card
+    [character]="card.character!"
+    [action]="card.characterAction"
+    [front]="front"
+    [back]="back"
+    [print]="true"
+  />
+}

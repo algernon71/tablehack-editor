@@ -1,31 +1,88 @@
-@if (action) {
-<h1>Update action</h1>
-}
-@else
-{
-<h1>New action</h1>
-}
-<div class="row">
-    <mat-form-field class="medium">
-        <mat-label>Initiative</mat-label>
-        <input matInput #input maxlength="10" [(ngModel)]="action!.initiative" />
-    </mat-form-field>
-    <mat-form-field class="medium">
+<div class="action">
+  <div class="column">
+    <div class="row">
+      <app-print-card-thumbnail [card]="card" />
+      <mat-form-field class="custom-height" appearance="outline">
+        <mat-label>Count</mat-label>
+        <input matInput #input [(ngModel)]="action!.count" />
+      </mat-form-field>
+      <div>X</div>
+      <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input matInput #input maxlength="10" [(ngModel)]="action!.title" />
-    </mat-form-field>
+        <input matInput #input class="action-title" [(ngModel)]="action!.title" />
+      </mat-form-field>
+      <mat-button-toggle-group [(ngModel)]="action!.initiative">
+        <mat-button-toggle [value]="'1'">1</mat-button-toggle>
+        <mat-button-toggle [value]="'2'">2</mat-button-toggle>
+        <mat-button-toggle [value]="'3'">3</mat-button-toggle>
+      </mat-button-toggle-group>
+      <button matButton (click)="remove.emit()">
+        <mat-icon class="toolbar-icon">delete</mat-icon>
+      </button>
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Order</mat-label>
+        <input matInput #input [(ngModel)]="action!.order" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput #input [(ngModel)]="action.description" cols="40" rows="1"></textarea>
+      </mat-form-field>
+      <app-edit-card-attributes [attributes]="action!.attributes!" />
+    </div>
+    @for (step of action!.steps; track step) {
+      <div class="action-step">
+        <div class="row">
+          <div>
+            {{ $index }}
+          </div>
+          <mat-form-field class="step-type" appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select [(ngModel)]="step.type">
+              <mat-option [value]="'MOVE'">Move</mat-option>
+              <mat-option [value]="'ATTACK'">Attack</mat-option>
+              <mat-option [value]="'DEFENCE'">Defence</mat-option>
+              <mat-option [value]="'OTHER'">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
 
+          @switch (step.type) {
+            @case ('MOVE') {
+              <mat-form-field class="step-subtype" appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select [(ngModel)]="step.subtype">
+                  <mat-option [value]="'MOVE_WALK'">Normal</mat-option>
+                  <mat-option [value]="'MOVE_FLY'">Flying</mat-option>
+                  <mat-option [value]="'MOVE_TELEPORT'">Teleport</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="step-range" appearance="outline">
+                <mat-label>Range</mat-label>
+                <input matInput #input [(ngModel)]="step.range" />
+              </mat-form-field>
+            }
+            @case ('ATTACK') {
+              <mat-form-field class="step-range" appearance="outline">
+                <mat-label>Range</mat-label>
+                <input matInput #input [(ngModel)]="step.range" />
+              </mat-form-field>
+              <app-edit-damage [damage]="step.damage!" />
+            }
+            @case ('DEFENCE') {
+              <app-edit-defence></app-edit-defence>
+            }
+          }
+          <mat-form-field class="step-description" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput #input [(ngModel)]="step.name" cols="20" rows="1"></textarea>
+          </mat-form-field>
+          <button matButton (click)="removeStep($index)">
+            <mat-icon class="toolbar-icon">delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    }
+    <button matButton (click)="addStep()">Add step</button>
+  </div>
 </div>
-<div class="row">
-
-
-</div>
-<div class="row">
-</div>
-
-<button matButton (click)="save()">
-    Save
-</button>
-<button matButton (click)="cancel()">
-    Cancel
-</button>

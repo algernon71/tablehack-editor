@@ -12,6 +12,9 @@ import { TopBar } from './components/top-bar/top-bar';
 import { EventsManager } from './components/events/events-manager/events-manager';
 import { LootManager } from './components/loot/loot-manager/loot-manager';
 import { EncounterManager } from './components/encounters/encounter-manager/encounter-manager';
+import { PrintMonsterCards } from './components/monsters/print-monster-cards/print-monster-cards';
+import { CharactersManager } from './components/characters/characters-manager/characters-manager';
+import { PrintCharacterCards } from './components/characters/print-character-cards/print-character-cards';
 
 export const routes: Routes = [
 	{
@@ -62,14 +65,28 @@ export const routes: Routes = [
 			{ path: 'decks/add', component: EditDeck }
 		]
 	},
-	{ 
-		path: 'print/decks/:id', 
-		component: DeckPrint 
+	{
+		path: 'print/decks/:id',
+		component: DeckPrint
 	},
-	{ 
-		path: 'main', 
-		component: TopBar ,
+	{
+		path: 'print/monsters',
+		component: PrintMonsterCards
+	},
+	{
+		path: 'print/chars',
+		component: PrintCharacterCards
+	},
+	{
+		path: 'main',
+		component: TopBar,
 		children: [
+			{
+				path: 'characters',
+				component: CharactersManager,
+				children: [
+				]
+			},
 			{
 				path: 'monsters',
 				component: Monsters,

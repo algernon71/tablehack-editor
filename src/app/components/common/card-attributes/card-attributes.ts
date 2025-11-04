@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { CardPullRule, GameCardAttributes } from 'src/app/services/encounter-service';
+import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-card-attributes',
-  imports: [],
+  imports: [Icon],
   templateUrl: './card-attributes.html',
   styleUrl: './card-attributes.scss'
 })
@@ -13,8 +14,6 @@ export class CardAttributes {
 
   basePath = '/public/images/symbols/';
   imageUrl(rule: string) {
-        console.info('imageUrl', rule);
-
     switch (rule) {
       case 'LOST':
         return this.basePath + 'card_lost.svg';
@@ -27,5 +26,5 @@ export class CardAttributes {
         return '';
     }
   }
-  
+
 }

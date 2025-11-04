@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Backend } from './backend';
 
 
 export enum CardPullRule {
@@ -10,7 +11,9 @@ export enum CardPullRule {
 }
 
 export class GameCardAttributes {
-  pullRules?: string[];
+  lost?: boolean = false;
+  pull?: boolean = false;
+  shuffle?: boolean = false;
 }
 
 export class GameEncounter {
@@ -34,23 +37,22 @@ export class GameEncounterRow {
   providedIn: 'root'
 })
 export class EncounterService {
-  baseUrl = 'http://localhost:8090/api/encounters';
 
-	
-	constructor(private http: HttpClient) { 
-	}
+
+  constructor(private http: HttpClient) {
+  }
 
   getEncounters(): Observable<GameEncounter[]> {
-		return this.http.get<GameEncounter[]>(this.baseUrl);
-	}
+    return this.http.get<GameEncounter[]>(Backend.getBaseUrl());
+  }
   addEncounter(encounter: GameEncounter): Observable<GameEncounter> {
-		return this.http.post<GameEncounter>(this.baseUrl, encounter);
-	}
+    return this.http.post<GameEncounter>(Backend.getBaseUrl(), encounter);
+  }
   updateEncounter(encounter: GameEncounter): Observable<GameEncounter> {
-		return this.http.put<GameEncounter>(this.baseUrl + '//' + encounter.id, encounter);
-	}
+    return this.http.put<GameEncounter>(Backend.getBaseUrl() + '//' + encounter.id, encounter);
+  }
   deleteEncounter(encounter: GameEncounter): Observable<void> {
-		return this.http.delete<void>(this.baseUrl + '/' + encounter.id);
-	}
-   
+    return this.http.delete<void>(Backend.getBaseUrl() + '/' + encounter.id);
+  }
+
 }

@@ -5,13 +5,11 @@
         <div class="card-inner-frame-front">
           <div class="front-top-section">
             <div>
-              <app-initiative-token [value]="'2'" />
+              <app-initiative-token [value]="action?.initiative" />
             </div>
           </div>
-          <div class="front-middle-section">
-            <img src="/public/images/symbols/actions.svg" class="action-symbol" />
-          </div>
           <div class="front-bottom-section">
+            <img src="/public/images/symbols/actions.svg" class="action-symbol" />
             <div class="front-description">
               <div>
                 {{ monster?.reference }}
@@ -30,27 +28,35 @@
       <div class="card-side">
         <div class="card-inner-frame-back">
           <div class="back-top-section">
-            <div>
-              {{ monster?.reference }}
-            </div>
             <div>{{ monster?.name }}</div>
             <div class="action-title">{{ action?.title }}</div>
+            <div class="action-description">{{ action?.description }}</div>
           </div>
           <div class="action-steps">
             @for (step of action!.steps; track step) {
               <div class="action-step">
-                <div class="step-name">
-                  {{ step.name }}
-                </div>
                 @switch (step.type) {
                   @case ('ATTACK') {
-                    <div class="attack-damage">
-                      {{ step.damage }}
+                    <div class="action-step-row">
+                      <div class="attack-name">{{ step.name }}</div>
+                    </div>
+                    <div class="action-step-row">
+                      @if (step.range) {
+                        <app-range-symbol [value]="step.range!" />
+                      }
+                      <div class="attack-damage">
+                        <app-attack-values [damage]="step.damage" />
+                      </div>
                     </div>
                   }
                   @default {
-                    <div class="move-range">
-                      {{ step.range }}
+                    <div class="action-step-row">
+                      <div class="move-type">
+                        <app-icon [type]="step.subtype!" />
+                      </div>
+                      <div class="move-range">
+                        {{ step.range }}
+                      </div>
                     </div>
                   }
                 }

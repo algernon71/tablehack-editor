@@ -1,0 +1,36 @@
+.stat-entry {
+	display: flex;
+	flex-direction: row;
+	gap: 1mm;
+	align-items: center;
+}
+
+.stat-header {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: left;
+	padding-left: 2mm;
+	padding-right: 2mm;
+}
+
+.stat-icon {
+	width: 6mm;
+}
+.filled-dot {
+	height: 6mm;
+	width: 6mm;	
+	border-radius: 50%;
+	background-color: black;
+}
+
+.number-dot {
+	height: 5mm;
+	width: 5mm;	
+	border-radius: 50%;
+	border: 1mm solid black;
+	color: black;
+	text-align: center;
+    font-size: 4mm;
+	font-weight: bold;
+    line-height: 5.5mm;
+}

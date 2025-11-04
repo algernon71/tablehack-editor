@@ -1,4 +1,5 @@
 import { Component, Input, input, output } from '@angular/core';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,15 +17,24 @@ import { EditMonsterAction } from "../edit-monster-action/edit-monster-action";
 import { MonsterCard } from "../monster-card/monster-card";
 import { MonsterActionCard } from "../monster-action-card/monster-action-card";
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { EditCardAttributes } from "../../common/edit-card-attributes/edit-card-attributes";
+import { RouterLink } from "@angular/router";
+import { CardPrintData } from '../../print/print-cards/print-cards';
+import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
+import { PrintCard } from "../../print/print-card/print-card";
 
 @Component({
   selector: 'app-edit-monster',
   imports: [
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatFormFieldModule,
     MatTableModule,
     MatTabsModule,
+    MatIconModule,
     ResourceSelect,
     MatSelectModule,
     FormsModule,
@@ -34,8 +44,12 @@ import { MatTabsModule } from '@angular/material/tabs';
     EditableTable,
     EditMonsterAction,
     MonsterCard,
-    MonsterActionCard
-],
+    MonsterActionCard,
+    EditCardAttributes,
+    RouterLink,
+    PrintCardThumbnail,
+    PrintCard
+  ],
   templateUrl: './edit-monster.html',
   styleUrl: './edit-monster.scss'
 })
@@ -68,32 +82,33 @@ export class EditMonster {
   @Input()
   monster?: Monster;
 
-  action?: MonsterAction;
+  card: CardPrintData = new CardPrintData();
+  previewCard = true;
 
   saved = output<any>();
   closed = output<any>();
-  constructor(private monstersService: MonstersService, 
+  constructor(private monstersService: MonstersService,
     public resourcesService: Resources) {
-  
+
   }
-  
+
   uploadImage(event: any) {
-      console.info('uploadImage:', event);
-      const file:File = event.target.files[0];
-      const files = [file];
-      console.info('file:', file);
-      this.resourcesService.upload('image', files).subscribe(result => {
-        this.monster!.image = file.name;
-        console.info('upload:', result);
-      });
-    }
-
-    
-  ngOnInit(		) {
-    console.info('Editing monster:', this.monster);
+    console.info('uploadImage:', event);
+    const file: File = event.target.files[0];
+    const files = [file];
+    console.info('file:', file);
+    this.resourcesService.upload('image', files).subscribe(result => {
+      this.monster!.image = file.name;
+      console.info('upload:', result);
+    });
   }
 
-  save() { 
+
+  ngOnInit() {
+    this.card.monster = this.monster;
+  }
+
+  save() {
     console.info("save", this.saved);
     this.monstersService.updateMonster(this.monster!).subscribe(response => {
       if (this.saved) {
@@ -104,7 +119,7 @@ export class EditMonster {
     });
   }
 
-  cancel() { 
+  cancel() {
     this.closed.emit("");
 
   }
@@ -121,17 +136,22 @@ export class EditMonster {
     console.info('addAction done', this.monster);
   }
 
-  deleteAction(event: RowData) {
+  deleteAction(index: number) {
     console.info('deleteAction', event);
-    this.monster!.data!.actions!.splice(event.index, 1);
+    this.monster!.data!.actions!.splice(index, 1);
   }
 
-  editAction(event: RowData) {
-    console.info('editAction', event);
-    this.action = event.row;
+  addStep(action: MonsterAction) {
+    action.steps.push({
+      type: 'MOVE',
+      name: '',
+      attributes: '',
+      damage: {},
+
+    });
+  }
+  removeStep(action: MonsterAction, index: number) {
+    action.steps.splice(index, 1);
   }
 
-  closeAction() {
-    this.action = undefined;
-  }
 }

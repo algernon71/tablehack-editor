@@ -16,7 +16,7 @@ export class LootManager {
   monster: Monster = {
     reference: 'MG-1',
     name: 'Goblin Warrior',
-    health: 5, 
+    health: 5,
   };
 
 
@@ -32,10 +32,14 @@ export class LootManager {
     {
       name: 'Slash',
       type: 'ATTACK',
-      damage: 'PD:5'
+      damage: {
+        physical: "5",
+        poison: "1",
+        range: "3"
+      }
     }],
     attributes: {
-      pullRules: ["LOST"]
+      lost: true
     }
   }
 
@@ -48,7 +52,8 @@ export class LootManager {
       count: 5
     }],
     attributes: {
-      pullRules: ["LOST"]
+      lost: true,
+      pull: true
     }
   };
 

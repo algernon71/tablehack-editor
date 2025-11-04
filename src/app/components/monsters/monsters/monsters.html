@@ -1,32 +1,11 @@
-@if (!monster) {
-  <mat-tab-group>
-    <mat-tab label="List">
-      <div class="table">
-        <app-editable-table
-          [data]="monsters!"
-          [fields]="fields"
-          [editable]="true"
-          (editRow)="editMonster($event)"
-          (updatedRow)="saveMonster($event)"
-          (addRow)="addMonster()"
-          (deleteRow)="deleteMonster($event)"
-        />
-      </div>
-    </mat-tab>
-    <mat-tab label="Cards">
-      <div class="card-preview-list">
-        @for (monster of monsters; track $index) {
-          <div class="card-preview-entry">
-            <app-monster-card [monster]="monster" [front]="true" [back]="true" [print]="true" />
-          </div>
-        }
-      </div>
-    </mat-tab>
-  </mat-tab-group>
-}
-
-@if (monster) {
-  <div class="edit-monster-pane">
-    <app-edit-monster [monster]="monster" (saved)="editClosed()" (closed)="editClosed()" />
-  </div>
-}
+<app-editable-table
+  [data]="monsters!"
+  [fields]="fields"
+  [editable]="true"
+  [dataSource]="this"
+  [(selectedRow)]="monster"
+>
+  @if (monster) {
+    <app-edit-monster [monster]="monster" />
+  }
+</app-editable-table>

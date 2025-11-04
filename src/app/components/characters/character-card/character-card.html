@@ -1,0 +1,78 @@
+@if (front || back) {
+  <div class="card" [class.preview]="!print">
+    @if (front) {
+      <div class="card-side">
+        <div class="card-inner-frame-front">
+          <div class="front-name">
+            {{ character?.name }}
+          </div>
+          <div class="front-image-frame">
+            '
+            <img
+              [src]="'http://localhost:8090/api/resources/' + character?.image"
+              class="front-image"
+            />'
+          </div>
+          <pre class="front-description">
+            {{ character?.description }}
+          </pre>
+        </div>
+      </div>
+    }
+
+    @if (front && back) {
+      <div class="vfold"></div>
+    }
+    @if (back) {
+      <div class="card-side">
+        <div class="card-inner-frame-back">
+          <div class="row">
+            <div class="stats-column">
+              <div class="back-name">
+                {{ character?.name }}
+              </div>
+              <div class="back-image-frame">
+                <img
+                  [src]="'http://localhost:8090/api/resources/' + character?.image"
+                  class="back-image"
+                />
+              </div>
+              <div class="stats">
+                <app-character-stat
+                  [stat]="character!.data.stats.strength"
+                  [icon]="'stat_str.svg'"
+                  [name]="'STR'"
+                />
+                <app-character-stat
+                  [stat]="character!.data.stats.agility"
+                  [icon]="'stat_agility.svg'"
+                  [name]="'AGI'"
+                />
+                <app-character-stat
+                  [stat]="character!.data.stats.perception"
+                  [icon]="'stat_uoo.svg'"
+                  [name]="'PER'"
+                />
+                <app-character-stat
+                  [stat]="character!.data.stats.health"
+                  [icon]="'stat_health.svg'"
+                  [name]="'HP'"
+                />
+                <app-character-stat
+                  [stat]="character!.data.stats.mana"
+                  [icon]="'stat_mana.svg'"
+                  [name]="'MANA'"
+                />
+                <app-character-stat
+                  [stat]="character!.data.stats.luck"
+                  [icon]="'stat_luck.svg'"
+                  [name]="'LUCK'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

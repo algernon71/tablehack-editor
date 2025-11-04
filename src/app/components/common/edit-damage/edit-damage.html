@@ -1,0 +1,58 @@
+<div class="container">
+  <app-edit-damage-value
+    [type]="'ATTACK_PHYSICAL'"
+    [(value)]="damage.physical"
+    [tooltip]="'Physical attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_POISON'"
+    [value]="damage.poison"
+    [tooltip]="'Poison attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_FIRE'"
+    [value]="damage.fire"
+    [tooltip]="'Fire attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_COLD'"
+    [value]="damage.cold"
+    [tooltip]="'Cold attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_ELECTRICITY'"
+    [value]="damage.electricity"
+    [tooltip]="'Electricity attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_FEAR'"
+    [value]="damage.fear"
+    [tooltip]="'Fear attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_LIFE'"
+    [value]="damage.life"
+    [tooltip]="'Life attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_ENERGY'"
+    [value]="damage.energy"
+    [tooltip]="'Energy attack value'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_GROUP'"
+    [value]="damage.energy"
+    [tooltip]="'Grouping value'"
+  />
+  <app-edit-damage-value [type]="'ATTACK_AREA'" [value]="damage.area" [tooltip]="'Attack area'" />
+  <app-edit-damage-value
+    [type]="'ATTACK_CONE'"
+    [value]="damage.cone"
+    [tooltip]="'Attack cone length'"
+  />
+  <app-edit-damage-value
+    [type]="'ATTACK_EXPLOSION'"
+    [value]="damage.ray"
+    [tooltip]="'Explosion attack'"
+  />
+</div>

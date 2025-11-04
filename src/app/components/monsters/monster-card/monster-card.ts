@@ -2,6 +2,7 @@ import { Component, Input, output } from '@angular/core';
 import { Monster } from 'src/app/services/monsters';
 import { Icon } from "../../common/icon/icon";
 import { DefenceValue } from "../../common/defence-value/defence-value";
+import { Image } from "../../common/image/image";
 
 export class Stat {
   name!: string;
@@ -11,7 +12,7 @@ export class Stat {
 
 @Component({
   selector: 'app-monster-card',
-  imports: [Icon, DefenceValue],
+  imports: [Icon, DefenceValue, Image],
   templateUrl: './monster-card.html',
   styleUrl: './monster-card.scss'
 })
@@ -21,10 +22,10 @@ export class MonsterCard {
 
   @Input()
   print = false;
-  
+
   @Input()
   front = true;
-  
+
   @Input()
   back = true;
 
@@ -66,16 +67,16 @@ export class MonsterCard {
       icon: 'DEFENCE_MAGIC',
       name: "magicDefence"
     },
-    
-    ];
 
-  ngOnInit() { 
+  ];
+
+  ngOnInit() {
     this.refresh();
   }
 
 
-  
-  refresh() { 
+
+  refresh() {
   }
 
 

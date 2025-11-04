@@ -1,30 +1,40 @@
 @if (resource) {
-<div>
-
-
+  <div>
     @if (resource!.type == 'symbol' && resource!.path) {
-        <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="symbol-thumb" 
-            (mouseenter)="preview = !preview" (mouseleave)="preview = !preview">
-
+      <img
+        [src]="'http://localhost:8090/api/resources/' + resource!.path"
+        [class.symbol-thumb]="thumbnail"
+        [class.symbol]="!thumbnail"
+        (mouseenter)="preview = !preview"
+        (mouseleave)="preview = !preview"
+      />
     }
     @if (resource!.type == 'image' && resource!.path) {
-        <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="image-thumb" 
-            (mouseenter)="preview = !preview" (mouseleave)="preview = !preview">
+      <img
+        [src]="'http://localhost:8090/api/resources/' + resource!.path"
+        [class.image-thumb]="thumbnail"
+        [class.image]="!thumbnail"
+        (mouseenter)="preview = !preview"
+        (mouseleave)="preview = !preview"
+      />
     }
     @if (preview) {
-        <div class="preview">
-            @if (resource!.type == 'symbol' && resource!.path) {
-                <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="symbol-preview">
-            }
-            @if (resource!.type == 'image' && resource!.path) {
-                <img [src]="'http://localhost:8090/api/resources/' + resource!.path" class="image-preview">
-            }
-        </div>
+      <div class="preview">
+        @if (resource!.type == 'symbol' && resource!.path) {
+          <img
+            [src]="'http://localhost:8090/api/resources/' + resource!.path"
+            class="symbol-preview"
+          />
+        }
+        @if (resource!.type == 'image' && resource!.path) {
+          <img
+            [src]="'http://localhost:8090/api/resources/' + resource!.path"
+            class="image-preview"
+          />
+        }
+      </div>
     }
-
-</div>
-}
-@else 
-{
-    No resource found    
+  </div>
+} @else {
+  No resource found
 }

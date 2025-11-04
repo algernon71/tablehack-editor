@@ -1,5 +1,5 @@
 .SMALL {
-    width: 20px;
+    width: 25px;
 }
 
 .MEDIUM {
@@ -8,4 +8,9 @@
 
 .LARGE {
     width: 50px;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
 }
