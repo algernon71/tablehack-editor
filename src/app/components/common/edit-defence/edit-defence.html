@@ -1,1 +1,17 @@
-<p>edit-defence works!</p>
+<div class="types">
+  @for (type of types; track type.fieldName) {
+    <div class="type">
+      <app-icon [type]="type.iconType"></app-icon>
+      <div>
+        <input
+          type="text"
+          [maxLength]="2"
+          class="value-input"
+          [value]="type.getValue(defence!)"
+          (change)="type.setValue(defence!, $event.target.value)"
+          (keyup)="type.setValue(defence!, $event.target.value)"
+        />
+      </div>
+    </div>
+  }
+</div>

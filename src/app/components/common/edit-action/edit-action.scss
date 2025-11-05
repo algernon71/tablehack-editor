@@ -1,29 +1,8 @@
-.custom-height {
-    height: 60px;
-    /* Set the height you desire */
+.count-field {
+    width: 50px;
 }
-
-:host ::ng-deep .mdc-text-field--outlined {
-  --mdc-outlined-text-field-container-shape: 28px;
-}
-
-.custom-height .mat-form-field-wrapper {
-    padding-bottom: 0;
-    padding-top: 0;
-    height: 100%;
-}
-
-.custom-height .mat-input-element {
-    height: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin: 0;
-    line-height: 60px;
-}
-
-/* You can also directly target the element */
-mat-form-field {
-    height: 150px;
+.order-field {
+    width: 50px;
 }
 
 /* You can also directly target the element */
@@ -67,6 +46,18 @@ mat-form-field {
     height: 90px;
 }
 
+.action-step {
+    border-radius: 10px;
+    background-color: lightblue;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    justify-content: space-between;
+    gap: 10px;
+    height: 90px;
+}
 .column {
     display: flex;
     flex-direction: column;

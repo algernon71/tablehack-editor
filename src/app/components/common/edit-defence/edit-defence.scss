@@ -1,0 +1,16 @@
+.types {
+    display: flex;
+    flex-direction: row;
+}
+
+.type {
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-input {
+    width: 10px;
+
+}

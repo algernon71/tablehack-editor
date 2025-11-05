@@ -1,5 +1,9 @@
 <div class="container">
-  <app-monster-action-card [action]="action" [monster]="monster" />
+  <app-action-card
+    [action]="action"
+    [actorName]="monster.name"
+    [actorReference]="monster.reference"
+  />
   <app-encounter-card [encounter]="encounter" />
   <app-loot-card [loot]="loot" />
 </div>

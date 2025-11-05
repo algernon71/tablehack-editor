@@ -12,9 +12,9 @@
             <img src="/public/images/symbols/actions.svg" class="action-symbol" />
             <div class="front-description">
               <div>
-                {{ monster?.reference }}
+                {{ actorReference }}
               </div>
-              <div>{{ monster?.name }}</div>
+              <div>{{ actorName }}</div>
             </div>
           </div>
         </div>
@@ -28,7 +28,6 @@
       <div class="card-side">
         <div class="card-inner-frame-back">
           <div class="back-top-section">
-            <div>{{ monster?.name }}</div>
             <div class="action-title">{{ action?.title }}</div>
             <div class="action-description">{{ action?.description }}</div>
           </div>
@@ -39,8 +38,6 @@
                   @case ('ATTACK') {
                     <div class="action-step-row">
                       <div class="attack-name">{{ step.name }}</div>
-                    </div>
-                    <div class="action-step-row">
                       @if (step.range) {
                         <app-range-symbol [value]="step.range!" />
                       }
@@ -49,11 +46,21 @@
                       </div>
                     </div>
                   }
-                  @default {
+                  @case ('DEFENCE') {
+                    <div class="action-step-row">
+                      <app-defence-values [defence]="step.defence" />
+                    </div>
+                  }
+                  @case ('MOVE') {
                     <div class="action-step-row">
                       <div class="move-type">
                         <app-icon [type]="step.subtype!" />
                       </div>
+                      <app-range-symbol [value]="step.range!" />
+                    </div>
+                  }
+                  @default {
+                    <div class="action-step-row">
                       <div class="move-range">
                         {{ step.range }}
                       </div>

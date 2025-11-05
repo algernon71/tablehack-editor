@@ -1,11 +1,12 @@
-@if (card.monster && !card.monsterAction) {
+@if (card.monster && !card.action) {
   <app-monster-card [monster]="card.monster" [front]="front" [back]="back" [print]="true" />
 }
 
-@if (card.monsterAction) {
-  <app-monster-action-card
-    [action]="card.monsterAction"
-    [monster]="card.monster"
+@if (card.action) {
+  <app-action-card
+    [action]="card.action"
+    [actorName]="card.monster?.name"
+    [actorReference]="card.monster?.reference"
     [front]="front"
     [back]="back"
     [print]="true"

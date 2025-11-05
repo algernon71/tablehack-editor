@@ -34,15 +34,8 @@ import { map, Observable } from 'rxjs';
 export class Monsters implements DataSource {
   fields: EditableField[] = [
     {
-      name: 'id',
-      label: 'Id',
-      description: '',
-      type: 'reference',
-      editable: false
-    },
-    {
       name: 'reference',
-      label: 'R',
+      label: '',
       description: '',
       type: 'reference',
       editable: true

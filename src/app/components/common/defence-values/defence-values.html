@@ -1,0 +1,5 @@
+<div class="types">
+  @for (type of types; track type.fieldName) {
+    <app-defence-value [type]="type.iconType" [value]="type.getValue(defence)" [size]="'SMALL'" />
+  }
+</div>

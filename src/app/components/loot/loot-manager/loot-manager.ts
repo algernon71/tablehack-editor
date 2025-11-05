@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MonsterActionCard } from "../../monsters/monster-action-card/monster-action-card";
-import { Monster, MonsterAction } from 'src/app/services/monsters';
+import { ActionCard } from "../../common/action-card/action-card";
+import { Monster, Action } from 'src/app/services/monsters';
 import { CardPullRule, GameEncounter } from 'src/app/services/encounter-service';
 import { EncounterCard } from "../../encounters/encounter-card/encounter-card";
 import { GameLoot } from 'src/app/services/loot-service';
@@ -8,7 +8,7 @@ import { LootCard } from "../loot-card/loot-card";
 
 @Component({
   selector: 'app-loot-manager',
-  imports: [MonsterActionCard, EncounterCard, LootCard],
+  imports: [ActionCard, EncounterCard, LootCard],
   templateUrl: './loot-manager.html',
   styleUrl: './loot-manager.scss'
 })
@@ -20,7 +20,7 @@ export class LootManager {
   };
 
 
-  action: MonsterAction = {
+  action: Action = {
     initiative: '2',
     title: 'Charge!',
     order: 1,

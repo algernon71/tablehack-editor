@@ -1,12 +1,9 @@
 <div class="action">
   <div class="column">
     <div class="row">
-      <app-print-card-thumbnail [card]="card" />
-      <mat-form-field class="custom-height" appearance="outline">
-        <mat-label>Count</mat-label>
+      <mat-form-field class="count-field" appearance="outline">
         <input matInput #input [(ngModel)]="action!.count" />
       </mat-form-field>
-      <div>X</div>
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
         <input matInput #input class="action-title" [(ngModel)]="action!.title" />
@@ -19,10 +16,11 @@
       <button matButton (click)="remove.emit()">
         <mat-icon class="toolbar-icon">delete</mat-icon>
       </button>
-      <mat-form-field class="small" appearance="outline">
-        <mat-label>Order</mat-label>
+      <mat-form-field class="order-field" appearance="outline">
+        <mat-label>#</mat-label>
         <input matInput #input [(ngModel)]="action!.order" />
       </mat-form-field>
+      <app-print-card-thumbnail [card]="card" />
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
@@ -31,24 +29,16 @@
       </mat-form-field>
       <app-edit-card-attributes [attributes]="action!.attributes!" />
     </div>
-    @for (step of action!.steps; track step) {
-      <div class="action-step">
-        <div class="row">
+    <div class="action-steps">
+      @for (step of action!.steps; track step) {
+        <div class="action-step">
           <div>
             {{ $index }}
           </div>
-          <mat-form-field class="step-type" appearance="outline">
-            <mat-label>Type</mat-label>
-            <mat-select [(ngModel)]="step.type">
-              <mat-option [value]="'MOVE'">Move</mat-option>
-              <mat-option [value]="'ATTACK'">Attack</mat-option>
-              <mat-option [value]="'DEFENCE'">Defence</mat-option>
-              <mat-option [value]="'OTHER'">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
 
           @switch (step.type) {
             @case ('MOVE') {
+              Move
               <mat-form-field class="step-subtype" appearance="outline">
                 <mat-label>Type</mat-label>
                 <mat-select [(ngModel)]="step.subtype">
@@ -63,6 +53,7 @@
               </mat-form-field>
             }
             @case ('ATTACK') {
+              Attack
               <mat-form-field class="step-range" appearance="outline">
                 <mat-label>Range</mat-label>
                 <input matInput #input [(ngModel)]="step.range" />
@@ -70,7 +61,8 @@
               <app-edit-damage [damage]="step.damage!" />
             }
             @case ('DEFENCE') {
-              <app-edit-defence></app-edit-defence>
+              Defence
+              <app-edit-defence [defence]="step.defence"></app-edit-defence>
             }
           }
           <mat-form-field class="step-description" appearance="outline">
@@ -81,8 +73,12 @@
             <mat-icon class="toolbar-icon">delete</mat-icon>
           </button>
         </div>
-      </div>
-    }
-    <button matButton (click)="addStep()">Add step</button>
+      }
+    </div>
+    <div class="row">
+      <button matButton="filled" (click)="addStep('MOVE')">+ Move</button>
+      <button matButton="filled" (click)="addStep('ATTACK')">+ Attack</button>
+      <button matButton="filled" (click)="addStep('DEFENCE')">+ Defence</button>
+    </div>
   </div>
 </div>

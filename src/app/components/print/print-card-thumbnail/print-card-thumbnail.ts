@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CardPrintData } from '../print-cards/print-cards';
-import { Monster, MonsterAction } from 'src/app/services/monsters';
+import { Monster } from 'src/app/services/monsters';
 import { GameEncounter } from 'src/app/services/encounter-service';
 import { PrintCard } from "../print-card/print-card";
 

@@ -77,6 +77,10 @@
 
 	transform: rotate(-90deg);
 }
+.flip-large-back {
+
+	transform: rotate(-90deg) translate(-1mm, 0);
+}
 
 .hcut {
 	height: 10mm;

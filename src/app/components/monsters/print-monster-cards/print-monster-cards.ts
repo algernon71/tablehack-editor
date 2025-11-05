@@ -52,7 +52,7 @@ export class PrintMonsterCards {
             for (let i = 0; i < count; ++i) {
               this.cards.push(
                 {
-                  monsterAction: action,
+                  action: action,
                   monster: monster
                 }
               );

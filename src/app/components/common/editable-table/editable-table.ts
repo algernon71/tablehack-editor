@@ -10,8 +10,10 @@ import { Icon } from "../icon/icon";
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 import { Resources } from 'src/app/services/resources';
 import { DragAndDrop } from "src/app/directives/drag-and-drop";
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 
 export class EditableField {
@@ -88,6 +90,7 @@ export class EditableTable {
 
   selectedRow = model<any>();
 
+  addingRow = false;
   editMode = false;
 
   editingRow?: any;
@@ -95,7 +98,7 @@ export class EditableTable {
 
   singleEdit = true;
 
-  constructor(private resourcesService: Resources) {
+  constructor(private resourcesService: Resources, private dialog: MatDialog) {
 
   }
 
@@ -104,12 +107,15 @@ export class EditableTable {
   }
 
   refreshList() {
-    this.dataSource?.fetchRows(0, 20).subscribe(page => {
-      console.info('fetchRows, response:', page);
-      this.data.set(page.content!);
-    });
+    this.loadList()?.subscribe(() => { });
   }
 
+  loadList() {
+    return this.dataSource?.fetchRows(0, 20).pipe(map(page => {
+      console.info('fetchRows, response:', page);
+      this.data.set(page.content!);
+    }));
+  }
   columnWidth(field: EditableField) {
     if (field.width) {
       return field.width;
@@ -165,10 +171,6 @@ export class EditableTable {
     row.updated = true;
   }
 
-  newRow() {
-    this.dataSource?.addRow().subscribe(() => { });
-  }
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
   }
@@ -191,17 +193,46 @@ export class EditableTable {
 
   }
 
-  saveRow(row: any) {
-    console.info('Save row', row);
-    this.dataSource?.saveRow(row).subscribe(() => {
-      console.info('Saved row', row);
+
+  new() {
+    this.dataSource?.addRow().subscribe((row) => {
+      this.loadList()?.subscribe(() => {
+        this.selectRow(0, row);
+        this.addingRow = true;
+
+      });
+    });
+  }
+
+  save() {
+    this.saveRow(this.selectedRow()).subscribe(() => {
+      this.addingRow = false;
       this.refreshList();
       this.selectedRow.set(undefined);
     });
   }
+  saveRow(row: any): Observable<any> {
+    return this.dataSource?.saveRow(row)!;
+  }
+  cancel() {
+    if (this.addingRow) {
+      this.doDelete();
+      this.addingRow = false;
+    }
+    this.selectedRow.set(undefined);
+  }
 
-  deleteRow(row: any) {
-    this.dataSource?.deleteRow(row).subscribe(() => {
+  delete() {
+    ConfirmationDialog.confirm(this.dialog, 'Delete?', 'Are you sure?', (confirmed) => {
+      if (confirmed) {
+        this.doDelete();
+      }
+    });
+
+  }
+  doDelete() {
+    this.dataSource?.deleteRow(this.selectedRow()).subscribe(() => {
+      this.addingRow = false;
       this.selectedRow.set(undefined);
       this.refreshList();
     });

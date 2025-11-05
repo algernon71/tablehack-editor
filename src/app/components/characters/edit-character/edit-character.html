@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
-    <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
+    <app-resource-reference [path]="character!.image" [thumbnail]="false" />
     <mat-form-field>
       <mat-label>Description</mat-label>
       <textarea matInput [(ngModel)]="character!.description" rows="5" cols="40"> </textarea>
     </mat-form-field>
+    <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
   </div>
+  <h1>Actions</h1>
   @if (character!.data && character!.data!.actions) {
     @for (action of character!.data!.actions!; track action) {
       <div class="row">

@@ -3,6 +3,7 @@ import { Monster } from 'src/app/services/monsters';
 import { Icon } from "../../common/icon/icon";
 import { DefenceValue } from "../../common/defence-value/defence-value";
 import { Image } from "../../common/image/image";
+import { DefenceValues } from "../../common/defence-values/defence-values";
 
 export class Stat {
   name!: string;
@@ -12,7 +13,7 @@ export class Stat {
 
 @Component({
   selector: 'app-monster-card',
-  imports: [Icon, DefenceValue, Image],
+  imports: [Icon, DefenceValue, Image, DefenceValues],
   templateUrl: './monster-card.html',
   styleUrl: './monster-card.scss'
 })

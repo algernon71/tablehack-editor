@@ -4,6 +4,22 @@ import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Backend } from './backend';
 
+export class DefenceType {
+
+  constructor(public iconType: string, public fieldName: string) { }
+
+  getValue(defence: any): any {
+    return defence[this.fieldName];
+  }
+  setValue(defence: any, value: any): any {
+
+    console.info('setValue', value);
+    return defence[this.fieldName] = value;
+  }
+
+}
+
+
 export class Defence {
   physical: string = "0";
   cold: string = "0";
@@ -11,6 +27,15 @@ export class Defence {
   electricity: string = "0";
   magic: string = "0";
   poison: string = "0";
+
+  static types: DefenceType[] = [
+    new DefenceType('DEFENCE_PHYSICAL', 'physical'),
+    new DefenceType('DEFENCE_POISON', 'poison'),
+    new DefenceType('DEFENCE_COLD', 'cold'),
+    new DefenceType('DEFENCE_FIRE', 'fire'),
+    new DefenceType('DEFENCE_ELECTRICITY', 'electricity'),
+    new DefenceType('DEFENCE_MAGIC', 'magic'),
+  ];
 }
 
 export class Damage {
@@ -30,7 +55,7 @@ export class Damage {
   ray?: string = "0";
 }
 export class MonsterData {
-  actions?: MonsterAction[] = [];
+  actions?: Action[] = [];
   defence?: Defence = new Defence();
 }
 
@@ -53,7 +78,7 @@ export class Monster {
 
 }
 
-export class MonsterAction {
+export class Action {
   order?: number;
   count?: number = 1;
   initiative: string = "2";

@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Defence, DefenceType } from 'src/app/services/monsters';
-import { Icon } from "../icon/icon";
+import { DefenceValue } from "../defence-value/defence-value";
 
 @Component({
-  selector: 'app-edit-defence',
-  imports: [Icon],
-  templateUrl: './edit-defence.html',
-  styleUrl: './edit-defence.scss'
+  selector: 'app-defence-values',
+  imports: [DefenceValue],
+  templateUrl: './defence-values.html',
+  styleUrl: './defence-values.scss'
 })
-export class EditDefence {
-
+export class DefenceValues {
   @Input()
   defence?: Defence;
 
@@ -18,4 +17,5 @@ export class EditDefence {
   ngOnInit() {
     this.types = Defence.types;
   }
+
 }

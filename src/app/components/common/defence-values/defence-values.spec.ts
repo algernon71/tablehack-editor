@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditMonsterAction } from './edit-monster-action';
+import { DefenceValues } from './defence-values';
 
-describe('EditMonsterAction', () => {
-  let component: EditMonsterAction;
-  let fixture: ComponentFixture<EditMonsterAction>;
+describe('DefenceValues', () => {
+  let component: DefenceValues;
+  let fixture: ComponentFixture<DefenceValues>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditMonsterAction]
+      imports: [DefenceValues]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditMonsterAction);
+    fixture = TestBed.createComponent(DefenceValues);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

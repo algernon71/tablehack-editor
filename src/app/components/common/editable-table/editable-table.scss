@@ -28,13 +28,15 @@ table {
     width: 20px;
 }
 .column-reference {
-    width: 30px;
+    width: 100px;
 }
 .column-enum {
+    text-align: left;
     width: 120px;
 }
 .column-string {
-    width: 150px;
+    padding-left: 10px;
+    text-align: left;
 }
 
 .column-image {

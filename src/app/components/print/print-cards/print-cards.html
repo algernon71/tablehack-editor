@@ -13,7 +13,7 @@
                       <div [style]="'width:' + page.frontLeftPad + 'mm'"></div>
                       @for (card of row; track card) {
                         <div class="print-card">
-                          <app-print-card [card]="card" [front]="true" [back]="!doubleSided" />
+                          <app-print-card [card]="card" [front]="false" [back]="doubleSided" />
                         </div>
                       }
                       <div [style]="'width:' + page.frontRightPad + 'mm'"></div>
@@ -35,19 +35,20 @@
           <div class="page-side">
             <div class="print-page" [class.back-page]="!page.largeCards">
               <div class="back-page-top-pad"></div>
-              <div class="print-page-content" [class.flip-large]="page.largeCards">
+              <div class="print-page-content" [class.flip-large-back]="page.largeCards">
                 <div class="print-page-cards">
                   @for (row of page.grid; track $index) {
                     <div class="print-row-reverse">
                       @for (card of row; track card) {
                         <div class="print-card">
-                          <app-print-card [card]="card" [front]="false" [back]="true" />
+                          <app-print-card [card]="card" [front]="true" [back]="false" />
                         </div>
                       }
                       <div [style]="'width:' + page.backLeftPad + 'mm'"></div>
                     </div>
                   }
                 </div>
+                <div [style]="'height:' + page.backTopPad + 'mm'"></div>
                 @if (footers) {
                   <div class="footer">
                     {{ title }} / Baksida:{{ page.page + 1 }}/{{ pages.length }} /

@@ -7,15 +7,15 @@ import { MatTableModule } from '@angular/material/table';
 import { ResourceSelect } from '../../resources/resource-select/resource-select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { Monster, MonsterAction, MonstersService } from 'src/app/services/monsters';
+import { Monster, Action, MonstersService } from 'src/app/services/monsters';
 import { MatSelectModule } from '@angular/material/select';
 import { Icon, IconType, IconSize } from "../../common/icon/icon";
 import { Resources } from 'src/app/services/resources';
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 import { EditableField, EditableTable, RowData } from "../../common/editable-table/editable-table";
-import { EditMonsterAction } from "../edit-monster-action/edit-monster-action";
+import { EditAction } from "../../common/edit-action/edit-action";
 import { MonsterCard } from "../monster-card/monster-card";
-import { MonsterActionCard } from "../monster-action-card/monster-action-card";
+import { ActionCard } from "../../common/action-card/action-card";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -42,9 +42,9 @@ import { PrintCard } from "../../print/print-card/print-card";
     Icon,
     ResourceReference,
     EditableTable,
-    EditMonsterAction,
+    EditAction,
     MonsterCard,
-    MonsterActionCard,
+    ActionCard,
     EditCardAttributes,
     RouterLink,
     PrintCardThumbnail,
@@ -126,7 +126,7 @@ export class EditMonster {
 
   addAction() {
     console.info('addAction', this.monster);
-    const action = new MonsterAction();
+    const action = new Action();
     if (!this.monster?.data) {
       this.monster!.data! = {
         actions: []
@@ -141,7 +141,7 @@ export class EditMonster {
     this.monster!.data!.actions!.splice(index, 1);
   }
 
-  addStep(action: MonsterAction) {
+  addStep(action: Action) {
     action.steps.push({
       type: 'MOVE',
       name: '',
@@ -150,7 +150,7 @@ export class EditMonster {
 
     });
   }
-  removeStep(action: MonsterAction, index: number) {
+  removeStep(action: Action, index: number) {
     action.steps.splice(index, 1);
   }
 

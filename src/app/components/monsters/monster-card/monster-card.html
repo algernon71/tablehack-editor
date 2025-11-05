@@ -51,38 +51,7 @@
                   {{ monster?.health }}
                 </div>
               </div>
-              <div class="stats">
-                <app-defence-value
-                  [type]="'DEFENCE_PHYSICAL'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.physical"
-                />
-                <app-defence-value
-                  [type]="'DEFENCE_POISON'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.poison"
-                />
-                <app-defence-value
-                  [type]="'DEFENCE_FIRE'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.fire"
-                />
-                <app-defence-value
-                  [type]="'DEFENCE_COLD'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.cold"
-                />
-                <app-defence-value
-                  [type]="'DEFENCE_ELECTRICITY'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.electricity"
-                />
-                <app-defence-value
-                  [type]="'DEFENCE_MAGIC'"
-                  [size]="statIconSize"
-                  [value]="monster!.data?.defence?.magic"
-                />
-              </div>
+              <app-defence-values [defence]="monster!.data?.defence" />
             </div>
           </div>
         </div>

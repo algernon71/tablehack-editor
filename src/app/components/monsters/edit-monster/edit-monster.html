@@ -1,36 +1,27 @@
 <div class="container">
-  <div class="column">
-    <app-print-card-thumbnail [card]="card" />
+  <div class="row">
     <app-resource-reference [path]="monster!.image" [thumbnail]="false" />
     <mat-form-field>
       <mat-label>Description</mat-label>
       <textarea matInput [(ngModel)]="monster!.description" rows="5" cols="40"> </textarea>
     </mat-form-field>
+    <app-print-card-thumbnail [card]="card" />
   </div>
-  <div class="column">
-    @for (action of monster!.data!.actions!; track action) {
-      <app-edit-monster-action
-        [action]="action"
-        [monster]="monster!"
-        (remove)="deleteAction($index)"
-      />
-    }
-    <button matButton (click)="addAction()">Add action</button>
+  @for (action of monster!.data!.actions!; track action) {
+    <div class="row">
+      <app-edit-action [action]="action" (remove)="deleteAction($index)" />
+    </div>
+  }
+  <button matButton (click)="addAction()">Add action</button>
 
-    <div class="row"></div>
-
-    <button matButton (click)="save()">Save</button>
-    <button matButton (click)="cancel()">Cancel</button>
-
-    <button matButton [routerLink]="'/print/monsters'" [queryParams]="{ ids: monster!.id }">
-      Print
-    </button>
-    <button
-      matButton
-      [routerLink]="'/print/monsters'"
-      [queryParams]="{ ids: monster!.id, actions: true, monsters: false }"
-    >
-      Print actions
-    </button>
-  </div>
+  <button matButton [routerLink]="'/print/monsters'" [queryParams]="{ ids: monster!.id }">
+    Print
+  </button>
+  <button
+    matButton
+    [routerLink]="'/print/monsters'"
+    [queryParams]="{ ids: monster!.id, actions: true, monsters: false }"
+  >
+    Print actions
+  </button>
 </div>

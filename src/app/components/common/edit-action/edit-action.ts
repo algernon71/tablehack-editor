@@ -3,27 +3,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { Monster, MonsterAction } from 'src/app/services/monsters';
+import { Defence, Monster, Action } from 'src/app/services/monsters';
 import { ResourceSelect } from '../../resources/resource-select/resource-select';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { Icon } from '../../common/icon/icon';
+import { Icon } from '../icon/icon';
 import { ResourceReference } from '../../resources/resource-reference/resource-reference';
-import { EditableField } from '../../common/editable-table/editable-table';
-import { MonsterActionCard } from "../monster-action-card/monster-action-card";
+import { EditableField } from '../editable-table/editable-table';
+import { ActionCard } from "../action-card/action-card";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { EditCardAttributes } from "../../common/edit-card-attributes/edit-card-attributes";
-import { EditDamage } from "../../common/edit-damage/edit-damage";
+import { EditCardAttributes } from "../edit-card-attributes/edit-card-attributes";
+import { EditDamage } from "../edit-damage/edit-damage";
 import { CdkTableModule } from "@angular/cdk/table";
 import { MatIconModule } from '@angular/material/icon';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
-import { DefenceValue } from "../../common/defence-value/defence-value";
-import { EditDefence } from "../../common/edit-defence/edit-defence";
+import { DefenceValue } from "../defence-value/defence-value";
+import { EditDefence } from "../edit-defence/edit-defence";
 
 @Component({
-  selector: 'app-edit-monster-action',
+  selector: 'app-edit-action',
   imports: [MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -35,25 +35,33 @@ import { EditDefence } from "../../common/edit-defence/edit-defence";
     FormsModule,
     MatInputModule,
     Icon,
-    ResourceReference, MonsterActionCard, EditCardAttributes, EditDamage, CdkTableModule, PrintCardThumbnail, DefenceValue, EditDefence],
-  templateUrl: './edit-monster-action.html',
-  styleUrl: './edit-monster-action.scss'
+    ResourceReference, ActionCard, EditCardAttributes, EditDamage, CdkTableModule, PrintCardThumbnail, DefenceValue, EditDefence],
+  templateUrl: './edit-action.html',
+  styleUrl: './edit-action.scss'
 })
-export class EditMonsterAction {
+export class EditAction {
 
   remove = output<void>();
   @Input()
-  action!: MonsterAction;
+  action!: Action;
   @Input()
-  monster!: Monster;
+  actorName!: string;
+  @Input()
+  actorReference!: string;
   saved = output<any>();
   closed = output<any>();
 
   card: CardPrintData = new CardPrintData();
 
   ngOnInit() {
-    this.card.monster = this.monster;
-    this.card.monsterAction = this.action;
+    this.card.action = this.action;
+    if (this.action && this.action.steps) {
+      this.action.steps.forEach(step => {
+        if (!step.defence) {
+          step.defence = new Defence();
+        }
+      });
+    }
   }
 
   save() {
@@ -66,9 +74,9 @@ export class EditMonsterAction {
   }
 
 
-  addStep() {
+  addStep(type: string) {
     this.action!.steps.push({
-      type: 'MOVE',
+      type: type,
       name: '',
       attributes: '',
       damage: {},
