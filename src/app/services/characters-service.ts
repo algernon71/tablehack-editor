@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { CardAttributes } from '../components/common/card-attributes/card-attributes';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Backend } from './backend';
-import { Damage } from './monsters';
+import { Action, Damage } from './monsters';
 import { GameCardAttributes } from './encounter-service';
 
 export enum CharacterClass {
@@ -39,7 +38,7 @@ export class Character {
 
 export class CharacterData {
   stats: CharacterStats = new CharacterStats();
-  actions?: CharacterAction[];
+  actions?: Action[];
 
 }
 

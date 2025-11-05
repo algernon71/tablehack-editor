@@ -1,0 +1,7 @@
+<H1>Actions</H1>
+@for (action of actions; track $index) {
+  <div class="row">
+    <app-edit-action [action]="action" (remove)="deleteAction($index)" />
+  </div>
+}
+<button matButton (click)="addAction()">Add action</button>

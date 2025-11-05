@@ -24,6 +24,7 @@ import { RouterLink } from "@angular/router";
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { PrintCard } from "../../print/print-card/print-card";
+import { EditActions } from "../../common/edit-actions/edit-actions";
 
 @Component({
   selector: 'app-edit-monster',
@@ -48,7 +49,8 @@ import { PrintCard } from "../../print/print-card/print-card";
     EditCardAttributes,
     RouterLink,
     PrintCardThumbnail,
-    PrintCard
+    PrintCard,
+    EditActions
   ],
   templateUrl: './edit-monster.html',
   styleUrl: './edit-monster.scss'

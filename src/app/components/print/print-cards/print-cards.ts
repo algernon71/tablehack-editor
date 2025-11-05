@@ -22,6 +22,8 @@ export class PrintPage {
 }
 
 export class CardPrintData {
+  actorName?: string;
+  actorReference?: string;
   largeCard? = false;
   monster?: Monster;
   action?: Action;

@@ -23,6 +23,7 @@ import { ConfirmationData, ConfirmationDialog } from '../../common/confirmation-
 import { MatDialog } from '@angular/material/dialog';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { CardPrintData } from '../../print/print-cards/print-cards';
+import { EditActions } from "../../common/edit-actions/edit-actions";
 
 @Component({
   selector: 'app-edit-character',
@@ -39,7 +40,7 @@ import { CardPrintData } from '../../print/print-cards/print-cards';
     MatInputModule,
     Icon,
     ResourceReference,
-    RouterLink, CharacterCard, EditCharacterAction, PrintCardThumbnail],
+    RouterLink, CharacterCard, EditCharacterAction, PrintCardThumbnail, EditActions],
   templateUrl: './edit-character.html',
   styleUrl: './edit-character.scss'
 })
@@ -105,18 +106,5 @@ export class EditCharacter {
 
   }
 
-  addAction() {
-    console.info('addAction', this.character);
-    const action = new CharacterAction();
-    if (!this.character?.data) {
-    }
-    this.character!.data!.actions!.push(action);
-    console.info('addAction done', this.character);
-  }
-
-  deleteAction(index: number) {
-    console.info('deleteAction', event);
-    this.character!.data!.actions!.splice(index, 1);
-  }
 
 }

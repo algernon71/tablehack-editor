@@ -53,7 +53,8 @@ export class PrintMonsterCards {
               this.cards.push(
                 {
                   action: action,
-                  monster: monster
+                  actorName: monster.name,
+                  actorReference: monster.reference
                 }
               );
 

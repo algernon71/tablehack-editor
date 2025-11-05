@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character, CharacterAction, CharactersService } from 'src/app/services/characters-service';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
+import { Action } from 'src/app/services/monsters';
 
 @Component({
   selector: 'app-print-character-cards',
@@ -82,11 +83,11 @@ export class PrintCharacterCards {
       }
     );
   }
-  addCharacterActionCard(action: CharacterAction, character: Character) {
+  addCharacterActionCard(action: Action, character: Character) {
     this.cards.push(
       {
-        characterAction: action,
-        character: character
+        actorName: character.name,
+        action: action,
       }
     );
   }
