@@ -3,7 +3,7 @@ import { Damage, Defence } from './monsters';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
-import { EntityColumn, EntityDataSource, EntityImportData, EntityInfo, EntityPage } from './entity';
+import { Entity, EntityColumn, EntityDataSource, EntityInfo, EntityPage } from './entity';
 
 export class EntityDataSourceImpl implements EntityDataSource {
 
@@ -32,10 +32,11 @@ export class EntityDataSourceImpl implements EntityDataSource {
   }
 
   saveRow(entity: any): Observable<any> {
+    console.info('saveRow', entity);
     return this.backend.updateEntity(this.info, entity);
   }
 
-  importRow(importData: EntityImportData): Observable<EntityImportData> {
+  importRow(importData: Entity): Observable<Entity> {
     return this.backend.createEntity(this.info, importData);
   }
 
@@ -83,7 +84,9 @@ export class BackendService {
     return 'http://localhost:8090/api';
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+  }
 
   getEntities(entity: EntityInfo, ids?: string): Observable<EntityPage> {
     let params = new HttpParams();
@@ -104,6 +107,7 @@ export class BackendService {
     return this.http.delete<void>(BackendService.getBaseUrl() + info.path + '/' + entity.id);
   }
   updateEntity(info: EntityInfo, entity: any): Observable<any> {
+    console.info('updateEntity', entity, info);
     return this.http.put<any>(BackendService.getBaseUrl() + info.path + '/' + entity.id, entity);
   }
 

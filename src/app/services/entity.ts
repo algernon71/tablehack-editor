@@ -5,7 +5,7 @@ import { CardPrintData } from "../components/print/print-cards/print-cards";
 
 export interface EntityDataSource {
     getColumns(): EntityColumn[];
-    importRow(importData: EntityImportData): Observable<EntityImportData>;
+    importRow(importData: Entity): Observable<Entity>;
     saveRow(row: any): Observable<any>;
     fetchRow(row: any): Observable<any>;
     deleteRow(row: any): Observable<void>;
@@ -25,10 +25,11 @@ export class EntityPage {
     size?: number;
 }
 
-export class EntityImportData {
+export class Entity {
     id?: number;
     name?: string;
     image?: string;
+    updated? = false;
 }
 
 
@@ -103,7 +104,9 @@ export class EntityColumn {
 
         }
         valueRef[parts[i]] = value;
-        row.updated = true;
+        row.wasUpdated = true;
+        row.xyz = true;
+        console.info('setValue', row, value, row.updated);
     }
 }
 

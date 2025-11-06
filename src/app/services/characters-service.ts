@@ -6,6 +6,7 @@ import { Backend } from './backend';
 import { Damage } from './monsters';
 import { Action } from 'src/app/services/backend-service';
 import { GameCardAttributes } from './encounter-service';
+import { Entity } from './entity';
 
 export enum CharacterClass {
   WARRIOR,
@@ -23,15 +24,12 @@ export enum CharacterRace {
   DWARF,
   GNOME
 }
-export class Character {
-  id!: number;
-  name!: string;
+export class Character extends Entity {
   description?: string;
 
 
   characterClass = CharacterClass.WARRIOR;
   race = CharacterRace.HUMAN;;
-  image?: string;
 
   data: CharacterData = new CharacterData();
 

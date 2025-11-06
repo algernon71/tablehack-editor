@@ -13,7 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DragAndDrop } from 'src/app/directives/drag-and-drop';
 import { Resources } from 'src/app/services/resources';
 import { map, Observable } from 'rxjs';
-import { EntityColumn, EntityDataSource, EntityImportData, EntityPage } from 'src/app/services/entity';
+import { EntityColumn, EntityDataSource } from 'src/app/services/entity';
 import { BackendService, EntityDataSourceImpl } from 'src/app/services/backend-service';
 import { monsterEntity } from 'src/app/services/entities';
 
@@ -35,20 +35,6 @@ import { monsterEntity } from 'src/app/services/entities';
   styleUrl: './monsters.scss'
 })
 export class Monsters {
-  columns: EntityColumn[] = [
-    EntityColumn.reference('reference', ''),
-    EntityColumn.card('monster', '', false),
-    EntityColumn.string('name', 'Name'),
-    EntityColumn.enum('type', 'Type', ["Humanoid", "Magic", "Undead"]),
-    EntityColumn.image('image', 'Image'),
-    EntityColumn.number('level', 'Level'),
-    EntityColumn.number('health', 'Health'),
-    EntityColumn.number('data.defence.physical', 'Defence').withIcon('DEFENCE_PHYSICAL'),
-    EntityColumn.number('data.defence.poison', 'Defence').withIcon('DEFENCE_POISON'),
-    EntityColumn.number('data.defence.fire', 'Defence').withIcon('DEFENCE_FIRE'),
-    EntityColumn.number('data.defence.cold', 'Defence').withIcon('DEFENCE_COLD'),
-  ];
-
   dataSource?: EntityDataSource;
   monsters?: Monster[];
 

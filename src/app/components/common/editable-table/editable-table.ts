@@ -16,7 +16,7 @@ import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
-import { EntityColumn, EntityDataSource, EntityImportData } from 'src/app/services/entity';
+import { EntityColumn, EntityDataSource, Entity } from 'src/app/services/entity';
 
 
 
@@ -186,6 +186,7 @@ export class EditableTable {
     this.editMode = true;
   }
   abortEditing() {
+    console.info('abortEditing');
     this.editMode = false;
     const editedRows: any[] = [];
     this.data().forEach(row => {
@@ -206,26 +207,30 @@ export class EditableTable {
     this.editMode = false;
     const editedRows: any[] = [];
     this.data().forEach(row => {
-      if (row.updated) {
-        this.saveRow(row);
-        row.updated = false;
+      console.info('endEditing() row:', row.xyz);
+      if (row.wasUpdated) {
+        row.wasUpdated = false;
+        editedRows.push(row);
       }
     });
 
     console.info('editedRows:', editedRows);
     editedRows.forEach(row => {
-      this.dataSource?.saveRow(row);
+      console.info('saving row:', row);
+      this.dataSource?.saveRow(row).subscribe(result => {
+
+      });
 
     });
   }
 
   dropFiles(files: File[]) {
     console.info('dropFiles', event);
-    const importedRows: EntityImportData[] = [];
+    const importedRows: Entity[] = [];
     files.forEach(file => {
       const files = [file];
       this.resourcesService.upload('image', files).subscribe(result => {
-        const importData: EntityImportData = {
+        const importData: Entity = {
           image: file.name,
           name: this.getNameFromFile(file)
         };

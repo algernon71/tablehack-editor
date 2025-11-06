@@ -15,7 +15,7 @@ import { EditCharacter } from "../edit-character/edit-character";
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Import } from '@angular/cdk/schematics';
-import { EntityColumn, EntityDataSource, EntityImportData, EntityPage } from 'src/app/services/entity';
+import { EntityColumn, EntityDataSource } from 'src/app/services/entity';
 import { BackendService, EntityDataSourceImpl } from 'src/app/services/backend-service';
 import { charactersEntity } from 'src/app/services/entities';
 

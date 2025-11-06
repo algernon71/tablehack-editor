@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Backend } from './backend';
 import { Action } from './backend-service';
+import { Entity } from './entity';
 
 export class DefenceType {
 
@@ -62,14 +63,11 @@ export class MonsterData {
 
 
 
-export class Monster {
-  id?: number;
+export class Monster extends Entity {
   reference: string = '';
 
-  name: string = '';
   level?: number = 1;
   type?: string = 'Humanoid';
-  image?: string;
   description?: string = '';
   health?: number = 1;
 
