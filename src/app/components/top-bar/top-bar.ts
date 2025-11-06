@@ -21,6 +21,10 @@ export class TopBar {
       path: "characters"
     },
     {
+      label: "Standard actions",
+      path: "actions"
+    },
+    {
       label: "Monsters",
       path: "monsters"
     },

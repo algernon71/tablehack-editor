@@ -1,5 +1,11 @@
 import { Injectable } from "@angular/core";
-import { EntityColumn, EntityInfo } from "./entity";
+import { Entity, EntityColumn, EntityInfo } from "./entity";
+import { Action } from "./backend-service";
+
+export class PlayerAction extends Entity {
+    characterClass?: string;
+    action!: Action
+}
 
 export const monsterEntity: EntityInfo = {
     path: '/monsters',
@@ -22,7 +28,7 @@ export const monsterEntity: EntityInfo = {
 export const charactersEntity: EntityInfo = {
     path: '/characters',
     columns: [
-        EntityColumn.card('character', '', true),
+        EntityColumn.card('class', '', true),
         EntityColumn.string('name', 'Name'),
         EntityColumn.enum('characterClass', 'Class', ["Warrior", "Knight", "Barbarian", "Wizard", "Druid", "Bard", "Paladin", "Thief", "Monk", "Ranger"]),
         EntityColumn.image('image', 'Image'),
@@ -31,3 +37,13 @@ export const charactersEntity: EntityInfo = {
 
 };
 
+export const playerActionsEntity: EntityInfo = {
+    path: '/player-actions',
+    columns: [
+        EntityColumn.card('action', '', false),
+        EntityColumn.enum('characterClass', 'Class', ["Warrior", "Knight", "Barbarian", "Wizard", "Druid", "Bard", "Paladin", "Thief", "Monk", "Ranger"]),
+        EntityColumn.string('action.title', 'Title'),
+
+    ]
+
+};

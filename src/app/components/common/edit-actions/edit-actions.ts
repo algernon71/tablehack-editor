@@ -1,14 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { Action } from 'src/app/services/backend-service';
 import { EditAction } from "../edit-action/edit-action";
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-edit-actions',
-  imports: [EditAction],
+  imports: [EditAction, MatButtonModule],
   templateUrl: './edit-actions.html',
   styleUrl: './edit-actions.scss'
 })
 export class EditActions {
+  @Input()
+  characterClass?: string;
 
   @Input()
   actions!: Action[];

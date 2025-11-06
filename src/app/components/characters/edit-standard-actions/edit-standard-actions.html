@@ -1,0 +1,7 @@
+<app-editable-table [dataSource]="dataSource" [(selectedRow)]="action">
+  <div class="edit-action-pane">
+    @if (action) {
+      <app-edit-action [action]="action.action!" (saved)="editClosed()" (closed)="editClosed()" />
+    }
+  </div>
+</app-editable-table>

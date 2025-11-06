@@ -20,7 +20,6 @@ import { monsterEntity } from 'src/app/services/entities';
 @Component({
   selector: 'app-monsters',
   imports: [
-    DragAndDrop,
     MatTableModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -29,8 +28,7 @@ import { monsterEntity } from 'src/app/services/entities';
     FormsModule,
     MatInputModule,
     EditableTable,
-    EditMonster,
-    MonsterCard],
+    EditMonster],
   templateUrl: './monsters.html',
   styleUrl: './monsters.scss'
 })

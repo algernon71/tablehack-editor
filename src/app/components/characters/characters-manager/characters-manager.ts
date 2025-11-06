@@ -9,20 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { EditableTable } from '../../common/editable-table/editable-table';
 import { MatTabsModule } from '@angular/material/tabs';
-import { DragAndDrop } from 'src/app/directives/drag-and-drop';
-import { CharacterCard } from "../character-card/character-card";
 import { EditCharacter } from "../edit-character/edit-character";
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { Import } from '@angular/cdk/schematics';
-import { EntityColumn, EntityDataSource } from 'src/app/services/entity';
+import { EntityDataSource } from 'src/app/services/entity';
 import { BackendService, EntityDataSourceImpl } from 'src/app/services/backend-service';
 import { charactersEntity } from 'src/app/services/entities';
 
 @Component({
   selector: 'app-characters-manager',
   imports: [
-    DragAndDrop,
     MatTableModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -31,7 +26,6 @@ import { charactersEntity } from 'src/app/services/entities';
     FormsModule,
     MatInputModule,
     EditableTable,
-    CharacterCard,
     EditCharacter
   ],
   templateUrl: './characters-manager.html',

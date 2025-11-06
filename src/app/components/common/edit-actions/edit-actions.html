@@ -1,7 +1,11 @@
-<H1>Actions</H1>
+<H1>{{ characterClass }} Actions</H1>
 @for (action of actions; track $index) {
   <div class="row">
-    <app-edit-action [action]="action" (remove)="deleteAction($index)" />
+    <app-edit-action
+      [action]="action"
+      (remove)="deleteAction($index)"
+      [characterClass]="characterClass"
+    />
   </div>
 }
-<button matButton (click)="addAction()">Add action</button>
+<button matButton="filled" (click)="addAction()">Add action</button>

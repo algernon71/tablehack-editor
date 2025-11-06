@@ -1,10 +1,9 @@
 import { Component, Input, output } from '@angular/core';
 import { GameLoot } from 'src/app/services/loot-service';
-import { InitiativeToken } from "../../common/tokens/initiative-token/initiative-token";
 
 @Component({
   selector: 'app-loot-card',
-  imports: [InitiativeToken],
+  imports: [],
   templateUrl: './loot-card.html',
   styleUrl: './loot-card.scss'
 })
@@ -14,12 +13,12 @@ export class LootCard {
 
   @Input()
   print = true;
-  
+
   @Input()
   front = true;
-  
+
   @Input()
   back = true;
 
-    click = output<GameLoot>();
+  click = output<GameLoot>();
 }

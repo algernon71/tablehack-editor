@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character, CharacterAction, CharactersService } from 'src/app/services/characters-service';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
-import { Action } from 'src/app/services/backend-service';
+import { Action, BackendService } from 'src/app/services/backend-service';
 
 @Component({
   selector: 'app-print-character-cards',
@@ -18,6 +18,7 @@ export class PrintCharacterCards {
   characterIds?: string;
 
   constructor(private charactersService: CharactersService,
+    private backendService: BackendService,
     private route: ActivatedRoute
   ) {
     this.route.queryParams.subscribe(params => {
@@ -58,6 +59,19 @@ export class PrintCharacterCards {
 
       if (this.includeActions && this.actionsLast) {
         response.forEach(character => {
+          this.backendService.getStandardActions(character.characterClass).subscribe(standardActions => {
+            standardActions.forEach(standardAction => {
+              const count = !standardAction.action.count ? 1 : standardAction.action.count;
+              for (let i = 0; i < count; ++i) {
+                this.addCharacterActionCard(standardAction.action, character);
+
+              }
+
+            });
+
+          }
+
+          );
           character.data?.actions?.forEach(action => {
             const count = !action.count ? 1 : action.count;
             for (let i = 0; i < count; ++i) {

@@ -1,5 +1,5 @@
 @if (front || back) {
-  <div class="card" [class.preview]="!print" (click)="click.emit(action!)">
+  <div class="card" [class.preview]="!print">
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">

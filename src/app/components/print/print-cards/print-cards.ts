@@ -38,7 +38,7 @@ export class CardPrintData {
 
 @Component({
   selector: 'app-print-cards',
-  imports: [PrintCard, NgClass],
+  imports: [PrintCard],
   templateUrl: './print-cards.html',
   styleUrl: './print-cards.scss'
 })

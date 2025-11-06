@@ -66,7 +66,7 @@ export class EntityColumn {
     }
 
     public static enum(name: string, label: string, values: string[]): EntityColumn {
-        const field = new EntityColumn('string', name, label);
+        const field = new EntityColumn('enum', name, label);
 
         field.values = values;
         return field;
@@ -109,4 +109,5 @@ export class EntityColumn {
         console.info('setValue', row, value, row.updated);
     }
 }
+
 

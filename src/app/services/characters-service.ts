@@ -28,7 +28,7 @@ export class Character extends Entity {
   description?: string;
 
 
-  characterClass = CharacterClass.WARRIOR;
+  characterClass!: string;
   race = CharacterRace.HUMAN;;
 
   data: CharacterData = new CharacterData();

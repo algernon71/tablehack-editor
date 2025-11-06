@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Entity, EntityColumn, EntityDataSource, EntityInfo, EntityPage } from './entity';
+import { PlayerAction } from './entities';
 
 export class EntityDataSourceImpl implements EntityDataSource {
 
@@ -70,12 +71,6 @@ export class MonsterActionStep {
   targettingId?: number;
 }
 
-export class PlayerAction {
-  id!: number;
-  characterClass?: string;
-  data!: Action;
-
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -115,14 +110,12 @@ export class BackendService {
     return this.http.post<any>(BackendService.getBaseUrl() + info.path, entity);
   }
 
-  getActions(characterIds?: string): Observable<PlayerAction[]> {
-    let params = new HttpParams();
-    if (characterIds) {
-      params = params.set('ids', characterIds);
-    }
+  createStandardAction(action: PlayerAction): Observable<any> {
+    console.info('createStandardAction', action);
+    return this.http.post<any>(BackendService.getBaseUrl() + '/player-actions', action);
+  }
 
-    return this.http.get<PlayerAction[]>(BackendService.getBaseUrl() + '/player-actions', {
-      params: params
-    });
+  getStandardActions(characterClass: string): Observable<PlayerAction[]> {
+    return this.http.get<any>(BackendService.getBaseUrl() + '/player-actions/for-class/' + characterClass);
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { EncounterService, GameEncounter } from 'src/app/services/encounter-service';
-import { EditableTable } from '../../common/editable-table/editable-table';
 import { EncounterCard } from "../encounter-card/encounter-card";
 import { MatTabsModule } from '@angular/material/tabs';
 import { EntityColumn } from 'src/app/services/entity';
@@ -8,7 +7,7 @@ import { EntityColumn } from 'src/app/services/entity';
 
 @Component({
   selector: 'app-encounter-manager',
-  imports: [EditableTable, EncounterCard, MatTabsModule],
+  imports: [EncounterCard, MatTabsModule],
   templateUrl: './encounter-manager.html',
   styleUrl: './encounter-manager.scss'
 })

@@ -5,20 +5,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { ResourceSelect } from '../../resources/resource-select/resource-select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { Icon, IconType, IconSize } from "../../common/icon/icon";
 import { Resources } from 'src/app/services/resources';
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { EditCardAttributes } from "../../common/edit-card-attributes/edit-card-attributes";
 import { RouterLink } from "@angular/router";
-import { CharacterCard } from "../character-card/character-card";
-import { ConfirmationData, ConfirmationDialog } from '../../common/confirmation-dialog/confirmation-dialog';
+import { ConfirmationDialog } from '../../common/confirmation-dialog/confirmation-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { CardPrintData } from '../../print/print-cards/print-cards';
@@ -33,13 +29,11 @@ import { EditActions } from "../../common/edit-actions/edit-actions";
     MatTableModule,
     MatTabsModule,
     MatIconModule,
-    ResourceSelect,
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    Icon,
     ResourceReference,
-    RouterLink, CharacterCard, PrintCardThumbnail, EditActions],
+    RouterLink, PrintCardThumbnail, EditActions],
   templateUrl: './edit-character.html',
   styleUrl: './edit-character.scss'
 })

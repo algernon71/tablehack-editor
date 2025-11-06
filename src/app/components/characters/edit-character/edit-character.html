@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    {{ character.characterClass }}
     <app-resource-reference [path]="character!.image" [thumbnail]="false" />
     <mat-form-field>
       <mat-label>Description</mat-label>
@@ -7,8 +8,10 @@
     </mat-form-field>
     <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
   </div>
-  <h1>Actions</h1>
-  <app-edit-actions [actions]="character.data.actions!" />
+  <app-edit-actions
+    [actions]="character.data.actions!"
+    [characterClass]="character.characterClass"
+  />
 
   <button matButton [routerLink]="'/print/chars'" [queryParams]="{ ids: character!.id }">
     Print

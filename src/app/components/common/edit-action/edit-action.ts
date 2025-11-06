@@ -3,15 +3,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { Action } from 'src/app/services/backend-service';
-import { Defence, Monster } from 'src/app/services/monsters';
-import { ResourceSelect } from '../../resources/resource-select/resource-select';
+import { Action, BackendService } from 'src/app/services/backend-service';
+import { Defence } from 'src/app/services/monsters';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { Icon } from '../icon/icon';
-import { ResourceReference } from '../../resources/resource-reference/resource-reference';
-import { ActionCard } from "../action-card/action-card";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { EditCardAttributes } from "../edit-card-attributes/edit-card-attributes";
 import { EditDamage } from "../edit-damage/edit-damage";
@@ -19,7 +15,6 @@ import { CdkTableModule } from "@angular/cdk/table";
 import { MatIconModule } from '@angular/material/icon';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
-import { DefenceValue } from "../defence-value/defence-value";
 import { EditDefence } from "../edit-defence/edit-defence";
 
 @Component({
@@ -28,14 +23,12 @@ import { EditDefence } from "../edit-defence/edit-defence";
     MatCardModule,
     MatFormFieldModule,
     MatTableModule,
-    ResourceSelect,
     MatIconModule,
     MatButtonToggleModule,
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    Icon,
-    ResourceReference, ActionCard, EditCardAttributes, EditDamage, CdkTableModule, PrintCardThumbnail, DefenceValue, EditDefence],
+    EditCardAttributes, EditDamage, CdkTableModule, PrintCardThumbnail, EditDefence],
   templateUrl: './edit-action.html',
   styleUrl: './edit-action.scss'
 })
@@ -48,10 +41,17 @@ export class EditAction {
   actorName!: string;
   @Input()
   actorReference!: string;
+  @Input()
+  characterClass?: string;
+
   saved = output<any>();
   closed = output<any>();
 
   card: CardPrintData = new CardPrintData();
+
+  constructor(private backendService: BackendService) {
+    console.info('EditAction', this.action, this.backendService);
+  }
 
   ngOnInit() {
     this.card.action = this.action;
@@ -90,5 +90,15 @@ export class EditAction {
   removeAction() {
     console.info('removeAction');
     this.remove.emit();
+  }
+
+  makeStandardAction() {
+    console.info('makeStandardAction', this.action, this.characterClass);
+    this.backendService.createStandardAction({
+      characterClass: this.characterClass,
+      action: this.action
+    }).subscribe(() => {
+      this.remove.emit();
+    });
   }
 }

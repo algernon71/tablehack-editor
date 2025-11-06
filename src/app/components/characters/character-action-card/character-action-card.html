@@ -5,13 +5,13 @@
         <div class="card-inner-frame-front">
           <div class="front-top-section">
             <div>
-              <app-initiative-token [value]="action?.initiative" />
+              <app-initiative-token [value]="action.initiative" />
             </div>
           </div>
           <div class="front-bottom-section">
             <img src="/public/images/symbols/actions.svg" class="action-symbol" />
             <div class="front-description">
-              <div>{{ character?.name }}</div>
+              <div>{{ character.name }}</div>
             </div>
           </div>
         </div>
@@ -25,9 +25,9 @@
       <div class="card-side">
         <div class="card-inner-frame-back">
           <div class="back-top-section">
-            <div>{{ character?.name }}</div>
-            <div class="action-title">{{ action?.name }}</div>
-            <div class="action-description">{{ action?.description }}</div>
+            <div>{{ character.name }}</div>
+            <div class="action-title">{{ action.name }}</div>
+            <div class="action-description">{{ action.description }}</div>
           </div>
           <div class="action-steps">
             <div class="action-step">
@@ -59,8 +59,8 @@
             </div>
           </div>
           <div class="back-bottom-section">
-            @if (action?.attributes) {
-              <app-card-attributes [attributes]="action?.attributes!" />
+            @if (action.attributes) {
+              <app-card-attributes [attributes]="action.attributes!" />
             }
           </div>
         </div>

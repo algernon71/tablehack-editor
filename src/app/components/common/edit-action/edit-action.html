@@ -81,4 +81,10 @@
       <button matButton="filled" (click)="addStep('DEFENCE')">+ Defence</button>
     </div>
   </div>
+
+  @if (characterClass) {
+    <button matButton="filled" (click)="makeStandardAction()">
+      Make standard {{ characterClass }} action
+    </button>
+  }
 </div>

@@ -15,6 +15,7 @@ import { EncounterManager } from './components/encounters/encounter-manager/enco
 import { PrintMonsterCards } from './components/monsters/print-monster-cards/print-monster-cards';
 import { CharactersManager } from './components/characters/characters-manager/characters-manager';
 import { PrintCharacterCards } from './components/characters/print-character-cards/print-character-cards';
+import { EditStandardActions } from './components/characters/edit-standard-actions/edit-standard-actions';
 
 export const routes: Routes = [
 	{
@@ -96,6 +97,12 @@ export const routes: Routes = [
 			{
 				path: 'encounters',
 				component: EncounterManager,
+				children: [
+				]
+			},
+			{
+				path: 'actions',
+				component: EditStandardActions,
 				children: [
 				]
 			},

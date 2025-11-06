@@ -4,19 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { ResourceSelect } from '../../resources/resource-select/resource-select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Monster, MonstersService } from 'src/app/services/monsters';
 import { Action } from 'src/app/services/backend-service';
 import { MatSelectModule } from '@angular/material/select';
-import { Icon, IconType, IconSize } from "../../common/icon/icon";
 import { Resources } from 'src/app/services/resources';
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";
-import { EditableTable } from "../../common/editable-table/editable-table";
-import { EditAction } from "../../common/edit-action/edit-action";
-import { MonsterCard } from "../monster-card/monster-card";
-import { ActionCard } from "../../common/action-card/action-card";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -37,20 +31,12 @@ import { EditActions } from "../../common/edit-actions/edit-actions";
     MatTableModule,
     MatTabsModule,
     MatIconModule,
-    ResourceSelect,
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    Icon,
     ResourceReference,
-    EditableTable,
-    EditAction,
-    MonsterCard,
-    ActionCard,
-    EditCardAttributes,
     RouterLink,
     PrintCardThumbnail,
-    PrintCard,
     EditActions
   ],
   templateUrl: './edit-monster.html',

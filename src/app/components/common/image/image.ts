@@ -1,9 +1,9 @@
-import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
+import { provideImgixLoader } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-image',
-  imports: [NgOptimizedImage],
+  imports: [],
   providers: [
     provideImgixLoader("http://localhost:8090/api/resources/"),],
   templateUrl: './image.html',
