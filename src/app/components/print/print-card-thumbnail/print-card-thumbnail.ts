@@ -3,10 +3,11 @@ import { CardPrintData } from '../print-cards/print-cards';
 import { Monster } from 'src/app/services/monsters';
 import { GameEncounter } from 'src/app/services/encounter-service';
 import { PrintCard } from "../print-card/print-card";
+import { Icon } from "../../common/icon/icon";
 
 @Component({
   selector: 'app-print-card-thumbnail',
-  imports: [PrintCard],
+  imports: [PrintCard, Icon],
   templateUrl: './print-card-thumbnail.html',
   styleUrl: './print-card-thumbnail.scss'
 })
@@ -17,6 +18,7 @@ export class PrintCardThumbnail {
   @Input()
   card: CardPrintData = new CardPrintData();
 
-  justIcon = false;
+  @Input()
+  justIcon = true;
   preview = false;
 }

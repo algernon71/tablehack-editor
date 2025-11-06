@@ -18,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { EditCardAttributes } from "../../common/edit-card-attributes/edit-card-attributes";
 import { RouterLink } from "@angular/router";
 import { CharacterCard } from "../character-card/character-card";
-import { EditCharacterAction } from "../edit-character-action/edit-character-action";
 import { ConfirmationData, ConfirmationDialog } from '../../common/confirmation-dialog/confirmation-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
@@ -40,7 +39,7 @@ import { EditActions } from "../../common/edit-actions/edit-actions";
     MatInputModule,
     Icon,
     ResourceReference,
-    RouterLink, CharacterCard, EditCharacterAction, PrintCardThumbnail, EditActions],
+    RouterLink, CharacterCard, PrintCardThumbnail, EditActions],
   templateUrl: './edit-character.html',
   styleUrl: './edit-character.scss'
 })
@@ -78,6 +77,9 @@ export class EditCharacter {
     console.info('Editing character:', this.character);
     this.card.character = this.character;
     this.card.largeCard = true;
+    if (!this.character.data.actions) {
+      this.character.data.actions = [];
+    }
   }
 
   delete() {

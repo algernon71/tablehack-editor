@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Action } from 'src/app/services/monsters';
+import { Action } from 'src/app/services/backend-service';
 import { EditAction } from "../edit-action/edit-action";
 
 @Component({

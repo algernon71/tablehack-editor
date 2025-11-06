@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActionCard } from "../../common/action-card/action-card";
-import { Monster, Action } from 'src/app/services/monsters';
+import { Monster } from 'src/app/services/monsters';
+import { Action } from 'src/app/services/backend-service';
 import { CardPullRule, GameEncounter } from 'src/app/services/encounter-service';
 import { EncounterCard } from "../../encounters/encounter-card/encounter-card";
 import { GameLoot } from 'src/app/services/loot-service';

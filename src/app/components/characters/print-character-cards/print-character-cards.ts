@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character, CharacterAction, CharactersService } from 'src/app/services/characters-service';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
-import { Action } from 'src/app/services/monsters';
+import { Action } from 'src/app/services/backend-service';
 
 @Component({
   selector: 'app-print-character-cards',

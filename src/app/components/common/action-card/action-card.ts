@@ -1,5 +1,5 @@
 import { Component, Input, output } from '@angular/core';
-import { Action } from 'src/app/services/monsters';
+import { Action } from 'src/app/services/backend-service';
 import { Icon } from '../icon/icon';
 import { TokenSymbol } from "../token-symbol/token-symbol";
 import { EncounterToken } from "../tokens/encounter-token/encounter-token";

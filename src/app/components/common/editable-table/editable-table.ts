@@ -14,47 +14,11 @@ import { map, Observable } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { CardPrintData } from '../../print/print-cards/print-cards';
+import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
+import { EntityColumn, EntityDataSource, EntityImportData } from 'src/app/services/entity';
 
 
-export class EditableField {
-  label?: string;
-  icon?: string;
-  description!: string;
-  type!: string;
-  name!: string;
-  editable? = true;
-  values?: any[];
-  width?: string;
-
-
-}
-
-export class RowData {
-  index!: number;
-  row!: any;
-}
-
-export class ImportRowData {
-  id?: number;
-  name?: string;
-  image?: string;
-}
-
-export interface DataSource {
-  importRow(importData: ImportRowData): Observable<ImportRowData>;
-  saveRow(row: any): Observable<any>;
-  fetchRow(row: any): Observable<any>;
-  deleteRow(row: any): Observable<void>;
-  addRow(): Observable<any>;
-
-  fetchRows(page: number, pageSize: number): Observable<DataPage>;
-}
-
-export class DataPage {
-  content?: any[];
-  page?: number;
-  size?: number;
-}
 
 @Component({
   selector: 'app-editable-table',
@@ -69,14 +33,13 @@ export class DataPage {
     MatCheckboxModule,
     Icon,
     ResourceReference,
-    DragAndDrop
+    DragAndDrop,
+    PrintCardThumbnail
   ],
   templateUrl: './editable-table.html',
   styleUrl: './editable-table.scss'
 })
 export class EditableTable {
-
-  fields = input<EditableField[]>([]);
 
   @Input()
   editable = true;
@@ -86,7 +49,7 @@ export class EditableTable {
   data = model<any[]>([]);
 
   @Input()
-  dataSource?: DataSource;
+  dataSource?: EntityDataSource;
 
   selectedRow = model<any>();
 
@@ -116,7 +79,7 @@ export class EditableTable {
       this.data.set(page.content!);
     }));
   }
-  columnWidth(field: EditableField) {
+  columnWidth(field: EntityColumn) {
     if (field.width) {
       return field.width;
     }
@@ -142,41 +105,14 @@ export class EditableTable {
     return false;
   }
 
-  columnValue(field: EditableField, row: any) {
-    const parts = field.name.split('.');
-    let i = 0;
-    let value = row[parts[i]];
-    while (i + 1 < parts.length) {
-      i++;
-      value = value[parts[i]];
-      // console.info('columnValue(' + field.name + ') part[' + i + ']: ', parts[i], value);
-    }
-    // console.info('columnValue(' + field.name + ') = ' + value);
-    return value;
-  }
 
-  columnValueChanged(field: EditableField, row: any, value: any) {
-    const parts = field.name.split('.');
-    let i = 0;
-    let valueRef = row;
-    //    console.info('columnValue(' + field.name + ') valueref: ', valueRef);
-    while (i + 1 < parts.length) {
-      valueRef = valueRef[parts[i]];
-      // console.info('columnValue(' + field.name + ') part[' + i + ']: ', parts[i], valueRef);
-      i++;
-
-    }
-    // console.info('columnValueChanged ' + field.name + ' SET ', valueRef);
-    valueRef[parts[i]] = value;
-    row.updated = true;
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
   }
 
   getDisplayedColumns(): string[] {
-    return this.fields().map(field => field.name);
+    return this.dataSource!.getColumns().map(field => field.name);
   }
 
   setEditing(row: any, editing: boolean) {
@@ -285,11 +221,11 @@ export class EditableTable {
 
   dropFiles(files: File[]) {
     console.info('dropFiles', event);
-    const importedRows: ImportRowData[] = [];
+    const importedRows: EntityImportData[] = [];
     files.forEach(file => {
       const files = [file];
       this.resourcesService.upload('image', files).subscribe(result => {
-        const importData: ImportRowData = {
+        const importData: EntityImportData = {
           image: file.name,
           name: this.getNameFromFile(file)
         };

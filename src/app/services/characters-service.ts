@@ -3,7 +3,8 @@ import { CardAttributes } from '../components/common/card-attributes/card-attrib
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Backend } from './backend';
-import { Action, Damage } from './monsters';
+import { Damage } from './monsters';
+import { Action } from 'src/app/services/backend-service';
 import { GameCardAttributes } from './encounter-service';
 
 export enum CharacterClass {

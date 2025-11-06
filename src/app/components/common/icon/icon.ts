@@ -39,6 +39,8 @@ export class Icon {
 
   filename() {
     switch (this.type) {
+      case "CARD":
+        return "card.svg";
       case "HEALTH":
         return "heart.svg";
       case "MANA":

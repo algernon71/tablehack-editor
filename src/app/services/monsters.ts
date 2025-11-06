@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Backend } from './backend';
+import { Action } from './backend-service';
 
 export class DefenceType {
 
@@ -78,17 +79,6 @@ export class Monster {
 
 }
 
-export class Action {
-  order?: number;
-  count?: number = 1;
-  initiative: string = "2";
-  title?: string;
-  description?: string;
-  targettingId?: number;
-
-  steps: MonsterActionStep[] = [];
-  attributes?: GameCardAttributes = new GameCardAttributes();
-}
 
 export class MonsterActionTarget {
   id!: number;
@@ -96,18 +86,6 @@ export class MonsterActionTarget {
   description!: string;
 }
 
-export class MonsterActionStep {
-  name: string = "Move";
-  type: string = "MOVE";
-  description?: string;
-  subtype?: string = "MOVE_WALK";
-  range?: string;
-  damage?: Damage;
-  defence?: Defence;
-  attributes?: string;
-  body?: string;
-  targettingId?: number;
-}
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,9 @@
 @if (card) {
   <div class="container">
     @if (justIcon) {
-      <div
-        class="thumbnail-icon"
-        (mouseenter)="preview = true"
-        (mouseleave)="preview = false"
-      ></div>
+      <div class="thumbnail-icon" (mouseenter)="preview = true" (mouseleave)="preview = false">
+        <app-icon [type]="'CARD'" [size]="'SMALL'" />
+      </div>
     } @else {
       <div
         class="label"
@@ -17,7 +15,8 @@
         <app-print-card [card]="card" [front]="false" [back]="true" />
       </div>
     }
-
+  </div>
+  <div class="preview-parent">
     @if (preview) {
       <div [class.preview-large]="card.largeCard" [class.preview-small]="!card.largeCard">
         <app-print-card [card]="card" [front]="true" [back]="true" />

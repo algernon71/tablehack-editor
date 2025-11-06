@@ -3,16 +3,21 @@
   flex-direction: row;
 }
 
-.preview-small {
+.preview-parent {
   position: relative;
-  left: 60px;
-  top: 40px;
+}
+
+.preview-small {
+  position: absolute;
+  left: 10px;
+  top: 10px;
   z-index: 100;
 }
 
 .preview-large {
-  position: relative;
-  left: -270px;
+  position: absolute;
+  left: -390px;
+  top: -130px;
   z-index: 100;
   transform: scale(50%, 50%);
 }
@@ -23,10 +28,6 @@
 }
 
 .thumbnail-icon {
-  width: 30px;
-  height: 45px;
-  border-radius: 10px;
-  border: solid black 4px;
 }
 
 .thumbnail-small {

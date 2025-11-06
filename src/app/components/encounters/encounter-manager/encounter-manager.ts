@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { EncounterService, GameEncounter } from 'src/app/services/encounter-service';
-import { EditableField, EditableTable, RowData } from '../../common/editable-table/editable-table';
+import { EditableTable } from '../../common/editable-table/editable-table';
 import { EncounterCard } from "../encounter-card/encounter-card";
 import { MatTabsModule } from '@angular/material/tabs';
+import { EntityColumn } from 'src/app/services/entity';
 
 
 @Component({
@@ -13,30 +14,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 })
 export class EncounterManager {
 
-  encounterFields: EditableField[] = [
-    {
-      name: 'tokenId',
-      label: 'Token',
-      description: '',
-      type: 'number',
-      editable: true
-    },
-    {
-      name: 'title',
-      label: 'Title',
-      description: '',
-      type: 'string',
-      editable: true
-    },
-    {
-      name: 'description',
-      label: 'Description',
-      description: '',
-      type: 'string',
-      editable: true
-    },
-
+  columns: EntityColumn[] = [
+    EntityColumn.number('tokenId', 'Token'),
+    EntityColumn.string('title', 'Title'),
+    EntityColumn.string('description', 'Description'),
   ];
+
 
   encounters?: GameEncounter[];
 
@@ -57,15 +40,4 @@ export class EncounterManager {
 
   encounter?: GameEncounter;
 
-  edit(row: RowData) {
-    this.encounter = row.row
-    console.info('edit', this.encounter);
-  }
-
-  delete(encounter: any) {
-
-  }
-  add() {
-
-  }
 }

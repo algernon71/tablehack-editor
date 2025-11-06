@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { GameEncounter } from 'src/app/services/encounter-service';
 import { GameEvent } from 'src/app/services/events-service';
-import { Monster, Action } from 'src/app/services/monsters';
+import { Monster } from 'src/app/services/monsters';
+import { Action } from 'src/app/services/backend-service';
 import { PrintCard } from "../print-card/print-card";
 import { Character, CharacterAction } from 'src/app/services/characters-service';
 import { NgClass } from '@angular/common';

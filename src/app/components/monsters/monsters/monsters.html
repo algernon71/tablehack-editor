@@ -1,8 +1,7 @@
 <app-editable-table
   [data]="monsters!"
-  [fields]="fields"
   [editable]="true"
-  [dataSource]="this"
+  [dataSource]="dataSource"
   [(selectedRow)]="monster"
 >
   @if (monster) {

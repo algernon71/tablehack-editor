@@ -1,9 +1,4 @@
-<app-editable-table
-  [fields]="fields"
-  [editable]="true"
-  [dataSource]="this"
-  [(selectedRow)]="character"
->
+<app-editable-table [editable]="true" [dataSource]="dataSource" [(selectedRow)]="character">
   <div class="edit-character-pane">
     @if (character) {
       <app-edit-character [character]="character!" (saved)="editClosed()" (closed)="editClosed()" />
