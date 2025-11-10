@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Backend } from './backend';
 import { Action } from './backend-service';
-import { Entity } from './entity';
+import { Entity, EntityPage } from './entity';
 
 export class DefenceType {
 
@@ -93,7 +93,7 @@ export class MonstersService {
   constructor(private http: HttpClient) {
   }
 
-  getMonsters(monsterIds?: string): Observable<Monster[]> {
+  getMonsters(monsterIds?: string): Observable<EntityPage> {
     let params = new HttpParams();
     if (monsterIds) {
       console.info('getMonsters, set params:', monsterIds);
@@ -101,7 +101,7 @@ export class MonstersService {
     }
     console.info('getMonsters, params:', params);
 
-    return this.http.get<Monster[]>(Backend.getBaseUrl() + '/monsters', {
+    return this.http.get<EntityPage>(Backend.getBaseUrl() + '/monsters', {
       params: params
     });
   }

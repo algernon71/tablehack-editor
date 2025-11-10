@@ -12,8 +12,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { EditCharacter } from "../edit-character/edit-character";
 import { ActivatedRoute } from '@angular/router';
 import { EntityDataSource } from 'src/app/services/entity';
-import { BackendService, EntityDataSourceImpl } from 'src/app/services/backend-service';
+import { BackendService } from 'src/app/services/backend-service';
 import { charactersEntity } from 'src/app/services/entities';
+import { EntityDataSourceImpl } from 'src/app/services/entity-service';
 
 @Component({
   selector: 'app-characters-manager',
@@ -46,11 +47,20 @@ export class CharactersManager {
     private route: ActivatedRoute,
     private backendService: BackendService) {
 
+    this.dataSource = new EntityDataSourceImpl(this.backendService, charactersEntity);
+    this.route.paramMap.subscribe(params => {
+      const characterId = params.get('id');
+      console.info('character id :', characterId);
+      this.dataSource?.fetchRow({ id: characterId }).subscribe(result => {
+        this.character = result;
+      });
+    });
+
     this.route.queryParams.subscribe(params => {
 
     });
-    this.dataSource = new EntityDataSourceImpl(this.backendService, charactersEntity);
   }
+
   ngOnInit() {
   }
 

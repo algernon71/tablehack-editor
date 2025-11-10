@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { Icon } from "../icon/icon";
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";
 import { Resources } from 'src/app/services/resources';
@@ -17,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { EntityColumn, EntityDataSource, Entity } from 'src/app/services/entity';
+import { Router } from '@angular/router';
 
 
 
@@ -27,6 +28,7 @@ import { EntityColumn, EntityDataSource, Entity } from 'src/app/services/entity'
     MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
+    MatCheckboxModule,
     FormsModule,
     MatInputModule,
     MatButtonModule,
@@ -47,9 +49,17 @@ export class EditableTable {
 
 
   data = model<any[]>([]);
+  _dataSource?: EntityDataSource;
 
   @Input()
-  dataSource?: EntityDataSource;
+  get dataSource(): EntityDataSource | undefined {
+    return this._dataSource;
+  }
+
+  set dataSource(value: EntityDataSource) {
+    this._dataSource = value;
+    this.refreshList();
+  }
 
   selectedRow = model<any>();
 
@@ -61,12 +71,35 @@ export class EditableTable {
 
   singleEdit = true;
 
-  constructor(private resourcesService: Resources, private dialog: MatDialog) {
+  constructor(private resourcesService: Resources, private dialog: MatDialog,
+    private router: Router) {
 
   }
 
+
   ngOnInit() {
-    this.refreshList();
+  }
+
+  printAll() {
+    if (this.dataSource?.getInfo().printPath) {
+      this.router.navigate(['/print', this.dataSource?.getInfo().printPath]);
+
+    }
+  }
+
+  printSelected() {
+    if (this.dataSource?.getInfo().printPath) {
+      this.router.navigate(['/print', this.dataSource?.getInfo().printPath], {
+        queryParams: {
+          ids: this.selectedRow().id
+        }
+      });
+
+    }
+  }
+  checkRow(row: any, event: MatCheckboxChange) {
+    console.info('checkRow', row, event);
+
   }
 
   refreshList() {
@@ -75,7 +108,7 @@ export class EditableTable {
 
   loadList() {
     return this.dataSource?.fetchRows(0, 20).pipe(map(page => {
-      console.info('fetchRows, response:', page);
+      //      console.info('fetchRows, response:', page);
       this.data.set(page.content!);
     }));
   }
@@ -235,7 +268,8 @@ export class EditableTable {
           name: this.getNameFromFile(file)
         };
         this.dataSource?.importRow(importData).subscribe(row => {
-          importedRows.push(row);
+          this.refreshList();
+
 
         });
       });

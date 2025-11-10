@@ -1,0 +1,17 @@
+@switch (type) {
+  @case ('characters') {
+    <app-edit-character [character]="entity!" />
+  }
+  @case ('monsters') {
+    <app-edit-monster [monster]="entity!" />
+  }
+  @case ('actions') {
+    <app-edit-action [action]="entity.action" />
+  }
+  @case ('items') {
+    <app-edit-equipment-item [item]="entity" />
+  }
+  @default {
+    Unknown type {{ type }} for entity: {{ entity.name }}
+  }
+}

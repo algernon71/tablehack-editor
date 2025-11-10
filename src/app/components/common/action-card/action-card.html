@@ -37,12 +37,17 @@
                 @switch (step.type) {
                   @case ('ATTACK') {
                     <div class="action-step-row">
-                      <div class="attack-name">{{ step.name }}</div>
+                      <div class="step-name">{{ step.name }}</div>
                       @if (step.range) {
                         <app-range-symbol [value]="step.range!" />
                       }
                       <div class="attack-damage">
                         <app-attack-values [damage]="step.damage" />
+                      </div>
+                    </div>
+                    <div class="action-step-row">
+                      <div class="step-description">
+                        {{ step.description }}
                       </div>
                     </div>
                   }

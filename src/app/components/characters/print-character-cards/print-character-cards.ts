@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Character, CharacterAction, CharactersService } from 'src/app/services/characters-service';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
 import { Action, BackendService } from 'src/app/services/backend-service';
+import { charactersEntity, PlayerAction } from 'src/app/services/entities';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-print-character-cards',
@@ -12,6 +14,7 @@ import { Action, BackendService } from 'src/app/services/backend-service';
 })
 export class PrintCharacterCards {
   cards!: CardPrintData[];
+  standardActions?: PlayerAction[];
   includeCharacterCards = true;
   includeActions = true;
   actionsLast = true;
@@ -32,15 +35,22 @@ export class PrintCharacterCards {
     });
   }
   ngOnInit() {
-    this.refreshList();
+    this.reload();
+  }
+  reload() {
+    this.backendService.getAllStandardActions().subscribe(response => {
+      this.standardActions = response;
+      this.populateCards();
+    });
   }
 
-  refreshList() {
-    this.charactersService.getCharacters(this.characterIds).subscribe(response => {
+  populateCards() {
+    this.backendService.getEntities(charactersEntity, this.characterIds).subscribe(response => {
       console.info('refreshList, response:', response);
+      const characters: Character[] = response.content!;
       this.cards = [];
       if (this.includeCharacterCards) {
-        response.forEach(character => {
+        characters.forEach(character => {
           this.addCharacterCard(character);
           if (!this.actionsLast) {
             character.data?.actions?.forEach(action => {
@@ -58,12 +68,14 @@ export class PrintCharacterCards {
       }
 
       if (this.includeActions && this.actionsLast) {
-        response.forEach(character => {
-          this.backendService.getStandardActions(character.characterClass).subscribe(standardActions => {
-            standardActions.forEach(standardAction => {
-              const count = !standardAction.action.count ? 1 : standardAction.action.count;
+        characters.forEach(character => {
+          console.info('character actions:', character.data.actions, character);
+
+          if (character.data.actions) {
+            character.data.actions.forEach(action => {
+              const count = !action.count ? 1 : action.count;
               for (let i = 0; i < count; ++i) {
-                this.addCharacterActionCard(standardAction.action, character);
+                this.addCharacterActionCard(action, character);
 
               }
 
@@ -71,16 +83,23 @@ export class PrintCharacterCards {
 
           }
 
-          );
-          character.data?.actions?.forEach(action => {
-            const count = !action.count ? 1 : action.count;
-            for (let i = 0; i < count; ++i) {
-              this.addCharacterActionCard(action, character);
+
+          console.info('standardActions:', this.standardActions);
+          this.standardActions!.forEach(standardAction => {
+            if (!standardAction.characterClass ||
+              standardAction.characterClass == 'All' ||
+              standardAction.characterClass == character.characterClass) {
+              const action = standardAction.action;
+              console.info('Adding standardAction:', standardAction);
+              const count = !action.count ? 1 : action.count;
+              for (let i = 0; i < count; ++i) {
+                this.addCharacterActionCard(action, character);
+
+              }
 
             }
 
           });
-
 
 
         });
@@ -98,6 +117,7 @@ export class PrintCharacterCards {
     );
   }
   addCharacterActionCard(action: Action, character: Character) {
+    console.info('addCharacterActionCard', action, character);
     this.cards.push(
       {
         actorName: character.name,

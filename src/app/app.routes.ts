@@ -16,6 +16,8 @@ import { PrintMonsterCards } from './components/monsters/print-monster-cards/pri
 import { CharactersManager } from './components/characters/characters-manager/characters-manager';
 import { PrintCharacterCards } from './components/characters/print-character-cards/print-character-cards';
 import { EditStandardActions } from './components/characters/edit-standard-actions/edit-standard-actions';
+import { EquipmentManager } from './components/equipment/equipment-manager/equipment-manager';
+import { EntityManager } from './components/entity/entity-manager/entity-manager';
 
 export const routes: Routes = [
 	{
@@ -79,6 +81,26 @@ export const routes: Routes = [
 		component: PrintCharacterCards
 	},
 	{
+		path: 'entities',
+		component: TopBar,
+		children: [
+			{
+				path: ':type',
+				component: EntityManager,
+				children: [
+				]
+			},
+			{
+				path: ':type/:id',
+				component: EntityManager,
+				children: [
+				]
+			},
+
+		]
+	},
+
+	{
 		path: 'main',
 		component: TopBar,
 		children: [
@@ -88,6 +110,25 @@ export const routes: Routes = [
 				children: [
 				]
 			},
+			{
+				path: 'characters/:id',
+				component: CharactersManager,
+				children: [
+				]
+			},
+			{
+				path: 'equipment/:id',
+				component: EquipmentManager,
+				children: [
+				]
+			},
+			{
+				path: 'equipment',
+				component: EquipmentManager,
+				children: [
+				]
+			},
+
 			{
 				path: 'monsters',
 				component: Monsters,

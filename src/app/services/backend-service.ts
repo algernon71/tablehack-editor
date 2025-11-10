@@ -6,43 +6,6 @@ import { GameCardAttributes } from './encounter-service';
 import { Entity, EntityColumn, EntityDataSource, EntityInfo, EntityPage } from './entity';
 import { PlayerAction } from './entities';
 
-export class EntityDataSourceImpl implements EntityDataSource {
-
-  constructor(private backend: BackendService, private info: EntityInfo) {
-
-  }
-
-  getColumns(): EntityColumn[] {
-    return this.info.columns;
-  }
-
-  fetchRows(page: number, pageSize: number): Observable<EntityPage> {
-    return this.backend.getEntities(this.info);
-  }
-
-  fetchRow(row: any): Observable<any> {
-    return this.backend.getEntity(this.info, row.id);
-  }
-
-  addRow(): Observable<any> {
-    return this.backend.createEntity(this.info, {});
-  }
-
-  deleteRow(entity: any): Observable<void> {
-    return this.backend.deleteEntity(this.info, entity);
-  }
-
-  saveRow(entity: any): Observable<any> {
-    console.info('saveRow', entity);
-    return this.backend.updateEntity(this.info, entity);
-  }
-
-  importRow(importData: Entity): Observable<Entity> {
-    return this.backend.createEntity(this.info, importData);
-  }
-
-
-}
 
 export class Action {
   order?: number;
@@ -117,5 +80,9 @@ export class BackendService {
 
   getStandardActions(characterClass: string): Observable<PlayerAction[]> {
     return this.http.get<any>(BackendService.getBaseUrl() + '/player-actions/for-class/' + characterClass);
+  }
+
+  getAllStandardActions(): Observable<PlayerAction[]> {
+    return this.http.get<PlayerAction[]>(BackendService.getBaseUrl() + '/player-actions/all');
   }
 }

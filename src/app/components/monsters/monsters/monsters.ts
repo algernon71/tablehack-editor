@@ -14,8 +14,9 @@ import { DragAndDrop } from 'src/app/directives/drag-and-drop';
 import { Resources } from 'src/app/services/resources';
 import { map, Observable } from 'rxjs';
 import { EntityColumn, EntityDataSource } from 'src/app/services/entity';
-import { BackendService, EntityDataSourceImpl } from 'src/app/services/backend-service';
+import { BackendService } from 'src/app/services/backend-service';
 import { monsterEntity } from 'src/app/services/entities';
+import { EntityDataSourceImpl } from 'src/app/services/entity-service';
 
 @Component({
   selector: 'app-monsters',

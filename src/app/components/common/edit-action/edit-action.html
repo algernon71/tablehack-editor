@@ -66,8 +66,12 @@
             }
           }
           <mat-form-field class="step-description" appearance="outline">
-            <mat-label>Description</mat-label>
+            <mat-label>Name</mat-label>
             <textarea matInput #input [(ngModel)]="step.name" cols="20" rows="1"></textarea>
+          </mat-form-field>
+          <mat-form-field class="step-description" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput #input [(ngModel)]="step.description" cols="20" rows="1"></textarea>
           </mat-form-field>
           <button matButton (click)="removeStep($index)">
             <mat-icon class="toolbar-icon">delete</mat-icon>

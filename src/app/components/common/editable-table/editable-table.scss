@@ -58,3 +58,20 @@ table {
   75% { transform: translateX(5px) }
   100% { transform: translateX(0) }
 }
+
+.selected-panel {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.selected-actions {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 2px;
+    margin-right: 10px;
+}
+.selected-content {
+    overflow: scroll;
+    width: 100%;
+}

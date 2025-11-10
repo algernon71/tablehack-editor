@@ -1,0 +1,11 @@
+@if (dataSource) {
+  <app-editable-table [dataSource]="dataSource" [(selectedRow)]="selected">
+    <div class="edit-action-pane">
+      @if (selected) {
+        <app-edit-entity [type]="dataSource!.getTypeId()" [entity]="selected" />
+      }
+    </div>
+  </app-editable-table>
+} @else {
+  Unknown entity type!
+}

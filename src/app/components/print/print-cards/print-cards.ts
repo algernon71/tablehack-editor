@@ -43,8 +43,7 @@ export class CardPrintData {
   styleUrl: './print-cards.scss'
 })
 export class PrintCards {
-  @Input()
-  cards!: CardPrintData[];
+  _cards!: CardPrintData[];
 
   @Input()
   cardSize = 'small';
@@ -54,6 +53,14 @@ export class PrintCards {
   pages: PrintPage[] = [];
 
 
+  @Input()
+  get cards(): CardPrintData[] {
+    return this._cards;
+  }
+  set cards(cards: CardPrintData[]) {
+    this._cards = cards;
+    this.preparePrintPages(cards);
+  }
 
   doubleSided = true;
   currentPage = 0;
@@ -63,19 +70,20 @@ export class PrintCards {
 
 
   ngOnInit() {
-    this.preparePrintPages();
+    // this.preparePrintPages(this.cards);
   }
 
 
-  preparePrintPages() {
+  preparePrintPages(cards: CardPrintData[]): PrintPage[] {
     console.info('preparePrintPages, cards:', this.cards);
 
-
-    this.cards.forEach(card => {
+    cards.forEach(card => {
       this.addCardToPrint(card);
     });
     console.info('pages:', this.pages);
     this.pages = this.pages.filter(page => page.grid.length > 0);
+
+    return this.pages;
   }
 
   addCardToPrint(card: CardPrintData) {
@@ -117,7 +125,7 @@ export class PrintCards {
   }
 
   getCurrentPage(card: CardPrintData) {
-    console.info('getCurrentPage', card, this.pages, this.currentColumn, this.pages[this.currentPage]);
+    //     console.info('getCurrentPage', card, this.pages, this.currentColumn, this.pages[this.currentPage]);
     const cardSizeChange = this.changeCardSize(card);
     if (cardSizeChange) {
       console.info('getCurrentPage() increment', cardSizeChange)

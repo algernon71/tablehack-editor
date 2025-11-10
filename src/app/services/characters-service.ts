@@ -37,7 +37,7 @@ export class Character extends Entity {
 
 export class CharacterData {
   stats: CharacterStats = new CharacterStats();
-  actions?: Action[];
+  actions!: Action[];
 
 }
 

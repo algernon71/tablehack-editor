@@ -4,6 +4,8 @@ import { CardPrintData } from "../components/print/print-cards/print-cards";
 
 
 export interface EntityDataSource {
+    getTypeId(): string;
+    getInfo(): EntityInfo;
     getColumns(): EntityColumn[];
     importRow(importData: Entity): Observable<Entity>;
     saveRow(row: any): Observable<any>;
@@ -15,7 +17,10 @@ export interface EntityDataSource {
 }
 
 export class EntityInfo {
+    name!: string;
+    typeId!: string;
     path!: string;
+    printPath?: string;
     columns!: EntityColumn[];
 }
 

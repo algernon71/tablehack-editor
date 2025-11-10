@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardPrintData, PrintCards } from "../../print/print-cards/print-cards";
-import { MonstersService } from 'src/app/services/monsters';
+import { Monster, MonstersService } from 'src/app/services/monsters';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -34,9 +34,10 @@ export class PrintMonsterCards {
 
   refreshList() {
     this.monstersService.getMonsters(this.monsterIds).subscribe(response => {
-      console.info('refreshList, response:', response);
+      console.info('PrintMonsterCards.refreshList, response:', response);
       this.cards = [];
-      response.forEach(monster => {
+      const monsters: Monster[] = response.content!;
+      monsters.forEach(monster => {
         if (this.includeMonsterCards) {
           this.cards.push(
             {
@@ -66,6 +67,7 @@ export class PrintMonsterCards {
 
 
       });
+      console.info('PrintMonsterCards.refreshList, cards:', this.cards);
     });
 
   }

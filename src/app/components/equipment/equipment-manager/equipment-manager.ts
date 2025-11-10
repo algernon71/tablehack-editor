@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from 'src/app/services/backend-service';
-import { PlayerAction, playerActionsEntity } from 'src/app/services/entities';
+import { equipmentEntity, EquipmentItem } from 'src/app/services/entities';
 import { EntityDataSource } from 'src/app/services/entity';
 import { EditableTable } from "../../common/editable-table/editable-table";
-import { EditAction } from "../../common/edit-action/edit-action";
+import { EditEquipmentItem } from "../edit-equipment-item/edit-equipment-item";
 import { EntityDataSourceImpl } from 'src/app/services/entity-service';
 
 @Component({
-  selector: 'app-edit-standard-actions',
-  imports: [EditableTable, EditAction],
-  templateUrl: './edit-standard-actions.html',
-  styleUrl: './edit-standard-actions.scss'
+  selector: 'app-equipment-manager',
+  imports: [EditableTable, EditEquipmentItem],
+  templateUrl: './equipment-manager.html',
+  styleUrl: './equipment-manager.scss'
 })
-export class EditStandardActions {
+export class EquipmentManager {
+
 
   dataSource?: EntityDataSource;
 
 
-  action?: PlayerAction;
+  item?: EquipmentItem;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +28,7 @@ export class EditStandardActions {
     this.route.queryParams.subscribe(params => {
 
     });
-    this.dataSource = new EntityDataSourceImpl(this.backendService, playerActionsEntity);
+    this.dataSource = new EntityDataSourceImpl(this.backendService, equipmentEntity);
   }
   ngOnInit() {
   }
@@ -36,6 +37,6 @@ export class EditStandardActions {
 
   editClosed() {
     console.info('editClosed');
-    this.action = undefined;
+    this.item = undefined;
   }
 }
