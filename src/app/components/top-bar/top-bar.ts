@@ -18,36 +18,6 @@ export class TopBarItem {
 })
 export class TopBar {
 
-  items: TopBarItem[] = [
-    {
-      label: "Characters",
-      path: "characters"
-    },
-    {
-      label: "Standard actions",
-      path: "actions"
-    },
-    {
-      label: "Equipment",
-      path: "equipment"
-    },
-    {
-      label: "Monsters",
-      path: "monsters"
-    },
-    {
-      label: "Encounters",
-      path: "encounters"
-    },
-    {
-      label: "Events",
-      path: "events"
-    },
-    {
-      label: "Loot",
-      path: "loot"
-    },
-  ];
 
   entities?: EntityInfo[];
   activeItem?: TopBarItem;

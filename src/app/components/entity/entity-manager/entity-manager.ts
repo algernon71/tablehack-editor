@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from 'src/app/services/backend-service';
 import { EquipmentItem } from 'src/app/services/entities';
 import { Entity, EntityDataSource } from 'src/app/services/entity';
@@ -17,27 +17,32 @@ export class EntityManager {
 
 
 
+  entityType?: string;
+  @Input()
   dataSource?: EntityDataSource;
 
 
-
+  @Input()
   selected?: Entity;
 
   constructor(
     private route: ActivatedRoute,
-    private entityService: EntityService) {
+    private entityService: EntityService, private router: Router) {
+
 
     this.route.paramMap.subscribe(params => {
-      const entityType = params.get('type')!;
+      this.entityType = params.get('type')!;
       const entityId = params.get('id');
-      // console.info('EntityManager:', entityType, entityId, this.dataSource);
-      this.setDataSource(entityType);
+      console.info('EntityManager:', this.entityType, entityId, this.dataSource);
+      this.setDataSource(this.entityType);
 
       if (entityId) {
         this.dataSource?.fetchRow({ id: entityId }).subscribe(result => {
           this.selected = result;
         });
 
+      } else {
+        this.selected = undefined;
       }
     });
 
@@ -60,6 +65,19 @@ export class EntityManager {
 
   editClosed() {
     console.info('editClosed');
+    this.router.navigate(['entities', this.entityType]);
     this.selected = undefined;
+  }
+
+  selectRow(row: any) {
+    console.info('selectRow()', row);
+    if (row) {
+      this.router.navigate(['entities', this.entityType, row.id]);
+
+    } else {
+      this.router.navigate(['entities', this.entityType]);
+
+    }
+    //     this.selected = row;
   }
 }

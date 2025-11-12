@@ -16,7 +16,7 @@ import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
-import { EntityColumn, EntityDataSource, Entity } from 'src/app/services/entity';
+import { EntityColumn, EntityDataSource, Entity, ArrayDataSource, EntityInfo } from 'src/app/services/entity';
 import { Router } from '@angular/router';
 
 
@@ -47,9 +47,13 @@ export class EditableTable {
   editable = true;
 
 
+  arrayInfo?: EntityInfo;
+  arrayData?: Entity[];
 
   data = model<any[]>([]);
   _dataSource?: EntityDataSource;
+
+
 
   @Input()
   get dataSource(): EntityDataSource | undefined {
@@ -61,6 +65,33 @@ export class EditableTable {
     this.refreshList();
   }
 
+  @Input()
+  get info(): EntityInfo | undefined {
+    return this._dataSource?.getInfo();
+  }
+
+  set info(value: EntityInfo) {
+    this.arrayInfo = value;
+    this.initArrayDataSource();
+  }
+
+  @Input()
+  get array(): Entity[] | undefined {
+    return this.arrayData;
+  }
+
+  set array(value: Entity[]) {
+    this.arrayData = value;
+    this.initArrayDataSource();
+  }
+
+  initArrayDataSource() {
+    if (this.arrayData && this.arrayInfo) {
+      this.dataSource = new ArrayDataSource(this.arrayInfo!, this.arrayData);
+      this.refreshList();
+
+    }
+  }
   selectedRow = model<any>();
 
   addingRow = false;
@@ -209,6 +240,8 @@ export class EditableTable {
   }
 
   selectRow(index: number, row: any) {
+
+    console.info('selectRow', index, row);
     if (!this.editMode) {
       this.selectedRow.set(row);
     }

@@ -1,166 +1,170 @@
-<table class="container" (appDragAndDrop)="dropFiles($event)">
-  <tr class="header-row">
-    @for (field of _dataSource?.getColumns(); track field.name) {
-      @if (field.icon) {
-        <th [className]="'column-' + field.type"><app-icon [type]="field.icon" /></th>
-      } @else {
-        <th [className]="'column-' + field.type">{{ field.label }}</th>
-      }
-    }
-    <th class="buttons-column">
-      @if (editable && !selectedRow()) {
-        @if (editMode) {
-          <button matButton (click)="endEditing()" matTooltip="Edit entries">
-            <mat-icon class="toolbar-icon">check</mat-icon>
-          </button>
-          <button matButton (click)="abortEditing()" matTooltip="Edit entries">
-            <mat-icon class="toolbar-icon">cancel</mat-icon>
-          </button>
+@if (dataSource) {
+  <table class="container" (appDragAndDrop)="dropFiles($event)">
+    <tr class="header-row">
+      @for (field of _dataSource?.getColumns(); track field.name) {
+        @if (field.icon) {
+          <th [className]="'column-' + field.type"><app-icon [type]="field.icon" /></th>
         } @else {
-          @if (dataSource?.getInfo()?.printPath) {
-            <button matButton (click)="printAll()" matTooltip="Print all">
-              <mat-icon class="toolbar-icon">print</mat-icon>
-            </button>
-          }
-          <button matButton (click)="startEditing()" matTooltip="Delete">
-            <mat-icon class="toolbar-icon">edit</mat-icon>
-          </button>
-          <button matButton (click)="new()" matTooltip="Add">
-            <mat-icon class="toolbar-icon">add</mat-icon>
-          </button>
+          <th [className]="'column-' + field.type">{{ field.label }}</th>
         }
       }
-    </th>
-  </tr>
-  @for (row of data(); track row) {
-    @if (!selectedRow() || row == selectedRow()) {
-      <tr
-        class="row"
-        (click)="selectRow($index, row)"
-        [class.selectable-row]="!editing(row)"
-        [class.selected-row]="row == selectedRow()"
-      >
-        @for (field of dataSource?.getColumns(); track field.name) {
-          <td [className]="'column-' + field.type">
-            @switch (field.type) {
-              @case ('reference') {
-                @if (editing(row)) {
-                  <input
-                    type="text"
-                    [value]="field.getValue(row)"
-                    (keyup)="field.setValue(row, $event.target.value)"
-                    (change)="field.setValue(row, $event.target.value)"
-                    size="8"
-                  />
-                } @else {
-                  <div>{{ field.getValue(row) }}</div>
-                }
-              }
-              @case ('string') {
-                @if (editing(row)) {
-                  <input
-                    type="text"
-                    [value]="field.getValue(row)"
-                    (keyup)="field.setValue(row, $event.target.value)"
-                    (change)="field.setValue(row, $event.target.value)"
-                  />
-                } @else {
-                  <div>{{ field.getValue(row) }}</div>
-                }
-              }
-              @case ('text') {
-                @if (editing(row)) {
-                  <textarea
-                    [value]="field.getValue(row)"
-                    (input)="field.setValue(row, $event.target)"
-                    rows="3"
-                    cols="20"
-                  >
-                  </textarea>
-                } @else {
-                  <pre>{{ field.getValue(row) }}</pre>
-                }
-              }
-              @case ('number') {
-                @if (editing(row)) {
-                  <div class="editing-column">
-                    @if (field.icon) {
-                      <app-icon [type]="field.icon" />
-                    }
+      <th class="buttons-column">
+        @if (editable && !selectedRow()) {
+          @if (editMode) {
+            <button matButton (click)="endEditing()" matTooltip="Edit entries">
+              <mat-icon class="toolbar-icon">check</mat-icon>
+            </button>
+            <button matButton (click)="abortEditing()" matTooltip="Edit entries">
+              <mat-icon class="toolbar-icon">cancel</mat-icon>
+            </button>
+          } @else {
+            @if (dataSource?.getInfo()?.printPath) {
+              <button matButton (click)="printAll()" matTooltip="Print all">
+                <mat-icon class="toolbar-icon">print</mat-icon>
+              </button>
+            }
+            <button matButton (click)="startEditing()" matTooltip="Delete">
+              <mat-icon class="toolbar-icon">edit</mat-icon>
+            </button>
+            <button matButton (click)="new()" matTooltip="Add">
+              <mat-icon class="toolbar-icon">add</mat-icon>
+            </button>
+          }
+        }
+      </th>
+    </tr>
+    @for (row of data(); track row) {
+      @if (!selectedRow() || row == selectedRow()) {
+        <tr
+          class="row"
+          (click)="selectRow($index, row)"
+          [class.selectable-row]="!editing(row)"
+          [class.selected-row]="row == selectedRow()"
+        >
+          @for (field of dataSource?.getColumns(); track field.name) {
+            <td [className]="'column-' + field.type">
+              @switch (field.type) {
+                @case ('reference') {
+                  @if (editing(row)) {
                     <input
                       type="text"
                       [value]="field.getValue(row)"
                       (keyup)="field.setValue(row, $event.target.value)"
                       (change)="field.setValue(row, $event.target.value)"
-                      class="number-input"
-                      size="2"
+                      size="8"
                     />
-                  </div>
-                } @else {
-                  <div>{{ field.getValue(row) }}</div>
+                  } @else {
+                    <div>{{ field.getValue(row) }}</div>
+                  }
                 }
-              }
+                @case ('string') {
+                  @if (editing(row)) {
+                    <input
+                      type="text"
+                      [value]="field.getValue(row)"
+                      (keyup)="field.setValue(row, $event.target.value)"
+                      (change)="field.setValue(row, $event.target.value)"
+                    />
+                  } @else {
+                    <div>{{ field.getValue(row) }}</div>
+                  }
+                }
+                @case ('text') {
+                  @if (editing(row)) {
+                    <textarea
+                      [value]="field.getValue(row)"
+                      (input)="field.setValue(row, $event.target)"
+                      rows="3"
+                      cols="20"
+                    >
+                    </textarea>
+                  } @else {
+                    <pre>{{ field.getValue(row) }}</pre>
+                  }
+                }
+                @case ('number') {
+                  @if (editing(row)) {
+                    <div class="editing-column">
+                      @if (field.icon) {
+                        <app-icon [type]="field.icon" />
+                      }
+                      <input
+                        type="text"
+                        [value]="field.getValue(row)"
+                        (keyup)="field.setValue(row, $event.target.value)"
+                        (change)="field.setValue(row, $event.target.value)"
+                        class="number-input"
+                        size="2"
+                      />
+                    </div>
+                  } @else {
+                    <div>{{ field.getValue(row) }}</div>
+                  }
+                }
 
-              @case ('card') {
-                <div>
-                  <app-print-card-thumbnail [justIcon]="true" [card]="field.getCard(row)" />
-                </div>
-              }
-              @case ('enum') {
-                @if (editing(row)) {
-                  <mat-select
-                    [value]="field.getValue(row)"
-                    (valueChange)="field.setValue(row, $event)"
-                  >
-                    @for (value of field.values; track $index) {
-                      <mat-option [value]="value">{{ value }}</mat-option>
-                    }
-                  </mat-select>
-                } @else {
-                  <div>{{ row[field.name] }}</div>
-                }
-              }
-              @case ('image') {
-                @if (editing(row)) {
-                  <app-resource-reference [path]="row[field.name]" />
-                } @else {
+                @case ('card') {
                   <div>
-                    <app-resource-reference [path]="row[field.name]" />
+                    <app-print-card-thumbnail [justIcon]="true" [card]="field.getCard(row)" />
                   </div>
                 }
+                @case ('enum') {
+                  @if (editing(row)) {
+                    <mat-select
+                      [value]="field.getValue(row)"
+                      (valueChange)="field.setValue(row, $event)"
+                    >
+                      @for (value of field.values; track $index) {
+                        <mat-option [value]="value">{{ value }}</mat-option>
+                      }
+                    </mat-select>
+                  } @else {
+                    <div>{{ row[field.name] }}</div>
+                  }
+                }
+                @case ('image') {
+                  @if (editing(row)) {
+                    <app-resource-reference [path]="row[field.name]" />
+                  } @else {
+                    <div>
+                      <app-resource-reference [path]="row[field.name]" />
+                    </div>
+                  }
+                }
+                @case ('boolean') {
+                  <div>
+                    <mat-checkbox
+                      [(ngModel)]="row[field.name]"
+                      [disabled]="!editable || editingRow != row || !field.editable"
+                    ></mat-checkbox>
+                  </div>
+                }
+                @case ('actions') {}
               }
-              @case ('boolean') {
-                <div>
-                  <mat-checkbox
-                    [(ngModel)]="row[field.name]"
-                    [disabled]="!editable || editingRow != row || !field.editable"
-                  ></mat-checkbox>
-                </div>
-              }
-              @case ('actions') {}
-            }
-          </td>
-        }
-      </tr>
-    }
-  }
-</table>
-
-@if (selectedRow()) {
-  <div class="selected-panel">
-    <div class="selected-actions">
-      <button matButton (click)="save()"><mat-icon>save</mat-icon></button>
-      <button matButton (click)="delete()"><mat-icon>delete</mat-icon></button>
-      <button matButton (click)="cancel()"><mat-icon>cancel</mat-icon></button>
-
-      @if (dataSource?.getInfo()?.printPath) {
-        <button matButton (click)="printSelected()" matTooltip="Print all">
-          <mat-icon class="toolbar-icon">print</mat-icon>
-        </button>
+            </td>
+          }
+        </tr>
       }
+    }
+  </table>
+
+  @if (selectedRow()) {
+    <div class="selected-panel">
+      <div class="selected-actions">
+        <button matButton (click)="save()"><mat-icon>save</mat-icon></button>
+        <button matButton (click)="delete()"><mat-icon>delete</mat-icon></button>
+        <button matButton (click)="cancel()"><mat-icon>cancel</mat-icon></button>
+
+        @if (dataSource?.getInfo()?.printPath) {
+          <button matButton (click)="printSelected()" matTooltip="Print all">
+            <mat-icon class="toolbar-icon">print</mat-icon>
+          </button>
+        }
+      </div>
+      <div class="selected-content">
+        <ng-content></ng-content>
+      </div>
     </div>
-    <div class="selected-content">
-      <ng-content></ng-content>
-    </div>
-  </div>
+  }
+} @else {
+  <div class="error">No datasource!</div>
 }

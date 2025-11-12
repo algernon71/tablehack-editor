@@ -1,5 +1,9 @@
 @if (dataSource) {
-  <app-editable-table [dataSource]="dataSource" [(selectedRow)]="selected">
+  <app-editable-table
+    [dataSource]="dataSource"
+    [(selectedRow)]="selected"
+    (selectedRowChange)="selectRow($event)"
+  >
     <div class="edit-action-pane">
       @if (selected) {
         <app-edit-entity [type]="dataSource!.getTypeId()" [entity]="selected" />

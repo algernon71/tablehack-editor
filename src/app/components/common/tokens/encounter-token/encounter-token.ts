@@ -10,7 +10,9 @@ export class EncounterToken {
   @Input()
   value?: string;
 
+  @Input()
   width = "25mm";
+  @Input()
   height = "25mm";
 
 

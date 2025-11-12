@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { CardPrintData } from "../components/print/print-cards/print-cards";
 
 
@@ -14,6 +14,67 @@ export interface EntityDataSource {
     addRow(): Observable<any>;
 
     fetchRows(page: number, pageSize: number): Observable<EntityPage>;
+}
+
+export class ArrayDataSource implements EntityDataSource {
+
+
+
+    constructor(private info: EntityInfo, public data: any[]) {
+
+    }
+
+    getInfo(): EntityInfo {
+        return this.info;
+    }
+
+    getTypeId(): string {
+        return this.info.typeId;
+    }
+
+    addRow(): Observable<any> {
+        const row = {};
+        this.data.push(row);
+        return of(row);
+    }
+
+    deleteRow(row: any): Observable<void> {
+        const idx = this.data.findIndex(r => r == row);
+        if (idx >= 0) {
+            this.data.splice(idx, 1);
+        }
+        return of();
+    }
+
+    fetchRow(row: any): Observable<any> {
+        return of(row);
+    }
+
+    fetchRows(page: number, pageSize: number): Observable<EntityPage> {
+        const result: EntityPage = {
+            content: this.data
+        };
+        return of(result);
+    }
+
+    getColumns(): EntityColumn[] {
+        return this.info.columns;
+    }
+
+    importRow(importData: Entity): Observable<Entity> {
+        this.data.push(importData);
+        return of(importData);
+    }
+
+    saveRow(row: any): Observable<any> {
+        return of(row);
+    }
+
+
+
+
+
+
 }
 
 export class EntityInfo {
@@ -94,7 +155,11 @@ export class EntityColumn {
         let value = row[parts[i]];
         while (i + 1 < parts.length) {
             i++;
-            value = value[parts[i]];
+            if (value) {
+                value = value[parts[i]];
+            } else {
+                console.error('Invalid value path: ' + this.name, row);
+            }
         }
         return value;
     }

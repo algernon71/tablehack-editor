@@ -7,23 +7,13 @@ import { EditCard } from './components/cards/edit-card/edit-card';
 import { DeckList } from './components/decks/deck-list/deck-list';
 import { DeckPrint } from './print/deck-print/deck-print';
 import { EditDeck } from './components/decks/edit-deck/edit-deck';
-import { Monsters } from './components/monsters/monsters/monsters';
 import { TopBar } from './components/top-bar/top-bar';
-import { EventsManager } from './components/events/events-manager/events-manager';
-import { LootManager } from './components/loot/loot-manager/loot-manager';
-import { EncounterManager } from './components/encounters/encounter-manager/encounter-manager';
 import { PrintMonsterCards } from './components/monsters/print-monster-cards/print-monster-cards';
-import { CharactersManager } from './components/characters/characters-manager/characters-manager';
 import { PrintCharacterCards } from './components/characters/print-character-cards/print-character-cards';
 import { EditStandardActions } from './components/characters/edit-standard-actions/edit-standard-actions';
-import { EquipmentManager } from './components/equipment/equipment-manager/equipment-manager';
 import { EntityManager } from './components/entity/entity-manager/entity-manager';
 
 export const routes: Routes = [
-	{
-		path: 'monsters',
-		component: Monsters
-	},
 	{
 		path: 'designer',
 		component: DesignerComponent,
@@ -100,70 +90,10 @@ export const routes: Routes = [
 		]
 	},
 
-	{
-		path: 'main',
-		component: TopBar,
-		children: [
-			{
-				path: 'characters',
-				component: CharactersManager,
-				children: [
-				]
-			},
-			{
-				path: 'characters/:id',
-				component: CharactersManager,
-				children: [
-				]
-			},
-			{
-				path: 'equipment/:id',
-				component: EquipmentManager,
-				children: [
-				]
-			},
-			{
-				path: 'equipment',
-				component: EquipmentManager,
-				children: [
-				]
-			},
 
-			{
-				path: 'monsters',
-				component: Monsters,
-				children: [
-				]
-			},
-			{
-				path: 'encounters',
-				component: EncounterManager,
-				children: [
-				]
-			},
-			{
-				path: 'actions',
-				component: EditStandardActions,
-				children: [
-				]
-			},
-			{
-				path: 'events',
-				component: EventsManager,
-				children: [
-				]
-			},
-			{
-				path: 'loot',
-				component: LootManager,
-				children: [
-				]
-			},
-		]
-	},
 	{
 		path: '',
-		redirectTo: 'main',
+		redirectTo: 'entities/monsters',
 		pathMatch: "full"
 	},
 

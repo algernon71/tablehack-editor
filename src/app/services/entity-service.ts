@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from './backend-service';
-import { charactersEntity, equipmentEntity, monsterEntity, playerActionsEntity } from './entities';
+import { charactersEntity, equipmentEntity, monsterEntity, playerActionsEntity, sceneEntity } from './entities';
 import { Entity, EntityColumn, EntityDataSource, EntityInfo, EntityPage } from './entity';
 import { Observable } from 'rxjs';
 
@@ -74,6 +74,7 @@ export class EntityService {
     this.addDataSource(charactersEntity);
     this.addDataSource(equipmentEntity);
     this.addDataSource(playerActionsEntity);
+    this.addDataSource(sceneEntity);
 
   }
 

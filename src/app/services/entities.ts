@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Entity, EntityColumn, EntityInfo } from "./entity";
 import { Action } from "./backend-service";
 import { Damage, Defence } from "./monsters";
+import { CardAttributes } from "../components/common/card-attributes/card-attributes";
 
 export class PlayerAction extends Entity {
     characterClass?: string;
@@ -23,6 +24,50 @@ export class ItemData {
     damage?: Damage;
 }
 
+export class Scene {
+    reference?: string;
+    name?: string;
+    description?: string;
+    data?: SceneData;
+
+}
+
+
+export class SceneData {
+    encounterTypes?: EncounterType[];
+    eventTypes?: EventType[];
+}
+
+export class EncounterType {
+    tokenId?: string;
+    name?: string;
+    encounters?: Encounter[];
+}
+
+export class Encounter {
+    name?: string;
+    descripton?: string;
+    count?: number;
+    rows?: EncounterRow[];
+    attributes?: CardAttributes;
+}
+
+export class EncounterRow {
+    monsterReference?: string;
+    count?: number;
+}
+
+export class EventType {
+    tokenId?: string;
+    name?: string;
+    events?: Event[];
+}
+
+export class Event {
+    name?: string;
+    descripton?: string;
+    count?: number;
+}
 
 
 export const monsterEntity: EntityInfo = {
@@ -85,6 +130,53 @@ export const playerActionsEntity: EntityInfo = {
         EntityColumn.card('action', '', false),
         EntityColumn.enum('characterClass', 'Class', ["All", "Warrior", "Knight", "Barbarian", "Wizard", "Druid", "Bard", "Paladin", "Thief", "Monk", "Ranger"]),
         EntityColumn.string('action.title', 'Title'),
+
+    ]
+
+};
+
+export const sceneEntity: EntityInfo = {
+    name: 'Scenes',
+    typeId: 'scenes',
+    path: '/scenes',
+    columns: [
+        EntityColumn.reference('reference', 'reference'),
+        EntityColumn.string('name', 'Name'),
+
+    ]
+
+};
+
+export const encounterTypeEntity: EntityInfo = {
+    name: 'Encounter types',
+    typeId: 'encounter-types',
+    path: '/encounter-types',
+    columns: [
+        EntityColumn.reference('tokenId', 'Token'),
+        EntityColumn.string('name', 'Name'),
+    ]
+
+};
+
+export const encounterEntity: EntityInfo = {
+    name: 'Encounter types',
+    typeId: 'encounter-types',
+    path: '/encounter-types',
+    columns: [
+        EntityColumn.number('count', '#'),
+        EntityColumn.string('name', 'Name'),
+        EntityColumn.string('description', 'Description'),
+    ]
+
+};
+
+export const eventTypeEntity: EntityInfo = {
+    name: 'Events types',
+    typeId: 'event-types',
+    path: '/event-types',
+    columns: [
+        EntityColumn.reference('tokenId', ''),
+        EntityColumn.string('name', 'Name'),
 
     ]
 

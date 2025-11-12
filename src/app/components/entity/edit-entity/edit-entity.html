@@ -11,6 +11,9 @@
   @case ('items') {
     <app-edit-equipment-item [item]="entity" />
   }
+  @case ('scenes') {
+    <app-edit-scene [scene]="entity" />
+  }
   @default {
     Unknown type {{ type }} for entity: {{ entity.name }}
   }

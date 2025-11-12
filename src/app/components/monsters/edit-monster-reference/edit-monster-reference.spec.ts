@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharactersManager } from './characters-manager';
+import { EditMonsterReference } from './edit-monster-reference';
 
-describe('CharactersManager', () => {
-  let component: CharactersManager;
-  let fixture: ComponentFixture<CharactersManager>;
+describe('EditMonsterReference', () => {
+  let component: EditMonsterReference;
+  let fixture: ComponentFixture<EditMonsterReference>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CharactersManager]
+      imports: [EditMonsterReference]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CharactersManager);
+    fixture = TestBed.createComponent(EditMonsterReference);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

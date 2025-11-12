@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EquipmentManager } from './equipment-manager';
+import { EditScene } from './edit-scene';
 
-describe('EquipmentManager', () => {
-  let component: EquipmentManager;
-  let fixture: ComponentFixture<EquipmentManager>;
+describe('EditScene', () => {
+  let component: EditScene;
+  let fixture: ComponentFixture<EditScene>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EquipmentManager]
+      imports: [EditScene]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EquipmentManager);
+    fixture = TestBed.createComponent(EditScene);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
