@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-event-token',
+  selector: 'app-time-token',
   imports: [],
-  templateUrl: './event-token.svg',
-  styleUrl: './event-token.scss'
+  templateUrl: './time-token.svg',
+  styleUrl: './time-token.scss'
 })
-export class EventToken {
+export class TimeToken {
   @Input()
   value?: string;
 

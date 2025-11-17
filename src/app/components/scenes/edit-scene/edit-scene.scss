@@ -1,5 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+}
 .general {
     display: flex;
     flex-direction: row;
-    
+
+}
+
+.parts {
+    height: 600px;
+}
+
+
+.encounter-types {
+    display: flex;
+    flex-direction: column;
+}
+.encounters {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+}
+
+
+
+
+.mat-tab-group{
+    height: 100%;
+}
+.mat-tab-body-wrapper {
+    flex-grow: 1;
+}
+
+.mat-tab-body {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.mat-tab-body-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.mat-tab-body-wrapper {
+  flex: 1 1 100%;
 }

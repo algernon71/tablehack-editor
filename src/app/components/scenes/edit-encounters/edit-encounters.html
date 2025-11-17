@@ -1,0 +1,43 @@
+<div class="encounters">
+  <app-editable-table
+    [info]="encounterEntity"
+    [array]="encounters"
+    [(selectedRow)]="selectedEncounter"
+  >
+    @if (selectedEncounter) {
+      <div class="encounter">
+        <div class="encounter-info">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="selectedEncounter!.name" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Alertness</mat-label>
+            <input matInput [(ngModel)]="selectedEncounter!.alertness" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="selectedEncounter!.description" rows="5" cols="40">
+            </textarea>
+          </mat-form-field>
+        </div>
+        <div class="encounter-rows">
+          @for (row of selectedEncounter.rows; track $index) {
+            <div class="encounter-row">
+              <mat-form-field>
+                <mat-label>Count</mat-label>
+                <input matInput [(ngModel)]="row.count" />
+              </mat-form-field>
+
+              <app-edit-monster-reference [(reference)]="row.monsterReference" />
+              <button matButton (click)="removeEncounterRow($index)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+        <button matButton="filled" (click)="addEncounterRow()">Add row</button>
+      </div>
+    }
+  </app-editable-table>
+</div>

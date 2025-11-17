@@ -9,54 +9,55 @@
       <textarea matInput [(ngModel)]="scene!.description" rows="3" cols="40"> </textarea>
     </mat-form-field>
     <button matButton="filled" (click)="addEncounterType()">Add encounter type</button>
+    <button matButton="filled" (click)="addLootType()">Add loot type</button>
   </div>
-  <mat-tab-group>
-    <mat-tab label="Encounters">
-      <mat-tab-group
-        [(selectedIndex)]="selectedEncounterTypeIndex"
-        (selectedTabChange)="selectEncounterTab($event)"
-      >
+  <div class="parts">
+    <mat-tab-group dynamicHeight>
+      <div class="encounter-types">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <app-event-token [value]="'?'" width="25px" height="25px" />
+          </ng-template>
+        </mat-tab>
         @for (encounterType of scene!.data?.encounterTypes; track encounterType.tokenId) {
-          <mat-tab [label]="encounterType.tokenId + ' ' + encounterType.name">
+          <mat-tab>
             <ng-template mat-tab-label>
               <app-encounter-token [value]="encounterType.tokenId" width="25px" height="25px" />
             </ng-template>
 
-            <app-editable-table
-              [info]="encounterEntity"
-              [array]="encounterType.encounters!"
-              [(selectedRow)]="selectedEncounter"
-            >
-              @if (selectedEncounter) {
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input matInput [(ngModel)]="selectedEncounter!.name" />
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Description</mat-label>
-                  <textarea matInput [(ngModel)]="selectedEncounter!.descripton" rows="5" cols="40">
-                  </textarea>
-                </mat-form-field>
-                @for (row of selectedEncounter.rows; track $index) {
-                  <mat-form-field>
-                    <mat-label>Count</mat-label>
-                    <input matInput [(ngModel)]="row.count" />
-                  </mat-form-field>
-                  <mat-form-field>
-                    <mat-label>Monster</mat-label>
-
-                    <app-edit-monster-reference />
-                  </mat-form-field>
-                }
-                <button matButton="filled" (click)="addEncounterRow()">Add row</button>
-              }
-            </app-editable-table>
+            <app-edit-encounters [encounters]="encounterType.encounters!"></app-edit-encounters>
           </mat-tab>
         }
-        <mat-tab [label]="'+'"> </mat-tab>
-      </mat-tab-group>
-    </mat-tab>
-    <mat-tab label="Location events"> </mat-tab>
-    <mat-tab label="Events"> </mat-tab>
-  </mat-tab-group>
+        @for (lootType of scene!.data?.lootTypes; track lootType.tokenId) {
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <app-loot-token [value]="lootType.tokenId" />
+            </ng-template>
+
+            <app-edit-loot [loot]="lootType.loot!" />
+          </mat-tab>
+        }
+      </div>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <app-time-token [value]="'A'" width="40px" height="40px" />
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <app-icon [type]="'SACK'" />
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <app-icon [type]="'BARREL'" />
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <app-icon [type]="'CRATE'" />
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>

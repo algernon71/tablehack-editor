@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ConfirmDialog } from 'src/app/common/confirm-dialog/confirm-dialog';
+import { ConfirmDialog } from 'src/app/components/common/confirm-dialog/confirm-dialog';
 import { Card, Cards, CardType } from 'src/app/services/cards';
 import { Deck, DeckEntry } from 'src/app/services/decks';
 import { CardFieldEdit } from '../card-field-edit/card-field-edit';
@@ -16,10 +16,10 @@ export class EditData {
 	card!: Card;
 }
 @Component({
-  selector: 'app-card-edit-dialog',
-  imports: [CardFieldEdit, ViewCard, FormsModule, MatButtonModule, MatFormFieldModule, MatInputModule],
-  templateUrl: './card-edit-dialog.html',
-  styleUrl: './card-edit-dialog.scss'
+	selector: 'app-card-edit-dialog',
+	imports: [CardFieldEdit, ViewCard, FormsModule, MatButtonModule, MatFormFieldModule, MatInputModule],
+	templateUrl: './card-edit-dialog.html',
+	styleUrl: './card-edit-dialog.scss'
 })
 export class CardEditDialog {
 	cardType?: CardType;
@@ -41,7 +41,7 @@ export class CardEditDialog {
 		console.info('card edit dialog init, card:', this.data.card);
 		this.cardType = this.cardsService.getCardType(this.data.card.type);
 		console.info('card edit dialog init, card type:', this.cardType);
-		
+
 		if (!this.data.card.id) {
 			this.newCard(this.data.card!.type);
 		}

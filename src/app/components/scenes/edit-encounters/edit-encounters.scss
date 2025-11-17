@@ -1,0 +1,20 @@
+.encounter {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    height: 100%;
+}
+
+.encounter-info {
+    display: flex;
+    flex-direction: column;
+}
+.encounter-rows {
+    display: flex;
+    flex-direction: column;
+}
+.encounter-row {
+    display: flex;
+    flex-direction: row;
+}

@@ -21,6 +21,12 @@ import { EditableTable } from "../../common/editable-table/editable-table";
 import { EncounterToken } from "../../common/tokens/encounter-token/encounter-token";
 import { AnyARecord } from 'dns';
 import { EditMonsterReference } from "../../monsters/edit-monster-reference/edit-monster-reference";
+import { CardPrintData } from '../../print/print-cards/print-cards';
+import { EventToken } from "../../common/tokens/event-token/event-token";
+import { TimeToken } from "../../common/tokens/time-token/time-token";
+import { LootToken } from "../../common/tokens/loot-token/loot-token";
+import { EditEncounters } from "../edit-encounters/edit-encounters";
+import { EditLoot } from "../edit-loot/edit-loot";
 
 @Component({
   selector: 'app-edit-scene',
@@ -33,7 +39,7 @@ import { EditMonsterReference } from "../../monsters/edit-monster-reference/edit
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    PrintCardThumbnail, Icon, EditEntities, EditableTable, EncounterToken, EditMonsterReference],
+    PrintCardThumbnail, Icon, EditEntities, EditableTable, EncounterToken, EditMonsterReference, EventToken, TimeToken, LootToken, EditEncounters, EditLoot],
   templateUrl: './edit-scene.html',
   styleUrl: './edit-scene.scss'
 })
@@ -51,7 +57,14 @@ export class EditScene {
   }
 
   ngOnInit() {
+    if (this.scene) {
+      this.scene.data?.encounterTypes?.forEach(type => {
+        type.encounters?.forEach(enc => {
+          enc.tokenId = type.tokenId;
+        });
+      });
 
+    }
   }
 
   selectEncounterTab(event: any) {
@@ -60,11 +73,21 @@ export class EditScene {
       this.addEncounterType();
     }
   }
+
   addEncounterRow() {
     this.selectedEncounter?.rows?.push({
       count: 1,
       monsterReference: ''
     });
+  }
+
+  removeEncounterRow(index: number) {
+    this.selectedEncounter?.rows?.splice(index, 1);
+  }
+  getEncounterCard(type: EncounterType, encounter: Encounter): CardPrintData {
+    return {
+      encounter: encounter
+    }
   }
 
   addEncounterType() {
@@ -74,6 +97,13 @@ export class EditScene {
         encounters: []
       }
     );
-    this.selectedEncounterTypeIndex = this.scene.data?.encounterTypes!.length! - 1;
+  }
+  addLootType() {
+    this.scene.data?.lootTypes?.push(
+      {
+        tokenId: '' + (this.scene.data?.lootTypes.length + 1),
+        loot: []
+      }
+    );
   }
 }

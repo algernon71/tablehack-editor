@@ -6,6 +6,7 @@ import { Action } from 'src/app/services/backend-service';
 import { PrintCard } from "../print-card/print-card";
 import { Character, CharacterAction } from 'src/app/services/characters-service';
 import { NgClass } from '@angular/common';
+import { Encounter, Loot } from 'src/app/services/entities';
 
 
 export class PrintPage {
@@ -28,7 +29,8 @@ export class CardPrintData {
   largeCard? = false;
   monster?: Monster;
   action?: Action;
-  encounter?: GameEncounter;
+  encounter?: Encounter;
+  loot?: Loot;
   event?: GameEvent;
   character?: Character;
   characterAction?: CharacterAction;

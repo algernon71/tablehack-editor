@@ -12,6 +12,7 @@ import { PrintMonsterCards } from './components/monsters/print-monster-cards/pri
 import { PrintCharacterCards } from './components/characters/print-character-cards/print-character-cards';
 import { EditStandardActions } from './components/characters/edit-standard-actions/edit-standard-actions';
 import { EntityManager } from './components/entity/entity-manager/entity-manager';
+import { PrintSceneCards } from './components/scenes/print-scene-cards/print-scene-cards';
 
 export const routes: Routes = [
 	{
@@ -69,6 +70,10 @@ export const routes: Routes = [
 	{
 		path: 'print/chars',
 		component: PrintCharacterCards
+	},
+	{
+		path: 'print/scenes',
+		component: PrintSceneCards
 	},
 	{
 		path: 'entities',

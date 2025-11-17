@@ -3,6 +3,7 @@ import { Entity, EntityColumn, EntityInfo } from "./entity";
 import { Action } from "./backend-service";
 import { Damage, Defence } from "./monsters";
 import { CardAttributes } from "../components/common/card-attributes/card-attributes";
+import { GameCardAttributes } from "./encounter-service";
 
 export class PlayerAction extends Entity {
     characterClass?: string;
@@ -35,6 +36,7 @@ export class Scene {
 
 export class SceneData {
     encounterTypes?: EncounterType[];
+    lootTypes?: LootType[];
     eventTypes?: EventType[];
 }
 
@@ -45,15 +47,43 @@ export class EncounterType {
 }
 
 export class Encounter {
+    scene?: string;
+    tokenId?: string;
+    alertness?: string;
     name?: string;
-    descripton?: string;
+    description?: string;
     count?: number;
     rows?: EncounterRow[];
-    attributes?: CardAttributes;
+    attributes?: GameCardAttributes;
 }
 
 export class EncounterRow {
     monsterReference?: string;
+    count?: number;
+}
+
+
+export class LootType {
+    tokenId?: string;
+    name?: string;
+    image?: string;
+    loot?: Loot[];
+}
+
+export class Loot {
+    scene?: string;
+    tokenId?: string;
+    name?: string;
+    description?: string;
+    goldSum?: number;
+    count?: number;
+    rows?: LootRow[];
+    attributes?: GameCardAttributes;
+}
+
+export class LootRow {
+    type?: string;
+    itemReference?: string;
     count?: number;
 }
 
@@ -69,6 +99,17 @@ export class Event {
     count?: number;
 }
 
+export class LocationEvent {
+    id?: string;
+    name?: string;
+    descripton?: string;
+    pullCards?: CardPull[];
+}
+
+export class CardPull {
+    type!: string;
+    value!: string;
+}
 
 export const monsterEntity: EntityInfo = {
     name: 'Monster',
@@ -113,7 +154,7 @@ export const equipmentEntity: EntityInfo = {
     path: '/items',
     printPath: 'equipment',
     columns: [
-        EntityColumn.card('equipment', '', true),
+        EntityColumn.card('equipment', '', false),
         EntityColumn.reference('reference', ''),
         EntityColumn.enum('type', 'Type', ["Warrior", "Knight", "Barbarian", "Wizard", "Druid", "Bard", "Paladin", "Thief", "Monk", "Ranger"]),
         EntityColumn.string('name', 'Name'),
@@ -139,6 +180,7 @@ export const sceneEntity: EntityInfo = {
     name: 'Scenes',
     typeId: 'scenes',
     path: '/scenes',
+    printPath: 'scenes',
     columns: [
         EntityColumn.reference('reference', 'reference'),
         EntityColumn.string('name', 'Name'),
@@ -163,6 +205,20 @@ export const encounterEntity: EntityInfo = {
     typeId: 'encounter-types',
     path: '/encounter-types',
     columns: [
+        EntityColumn.card('encounter', '', false),
+        EntityColumn.number('count', '#'),
+        EntityColumn.string('name', 'Name'),
+        EntityColumn.string('description', 'Description'),
+    ]
+
+};
+
+export const lootEntity: EntityInfo = {
+    name: 'Loot',
+    typeId: 'loot',
+    path: '/loot',
+    columns: [
+        EntityColumn.card('loot', '', false),
         EntityColumn.number('count', '#'),
         EntityColumn.string('name', 'Name'),
         EntityColumn.string('description', 'Description'),

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Event } from 'src/app/services/entities';
 
 @Component({
   selector: 'app-event-card',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './event-card.scss'
 })
 export class EventCard {
-
+  event?: Event;
 }

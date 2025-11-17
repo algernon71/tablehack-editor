@@ -20,6 +20,9 @@
 
 }
 
+.alertness {
+  background-color: green($color: #000000);
+}
 
 
 
@@ -97,7 +100,7 @@
 }
 
 .back-title {
-    padding-top: 3mm;
+    padding-top: 5mm;
     font-size: 8mm;
 }
 .back-description {
@@ -107,17 +110,10 @@
 }
 .rows {
     border-top: dashed black 0.4mm;
-    padding-top: 3mm;
-    margin-top: 3mm;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     font-size: 4mm;
-    padding-left: 2mm;
-    padding-right: 2mm;
 }
 
 .back-bottom-section {

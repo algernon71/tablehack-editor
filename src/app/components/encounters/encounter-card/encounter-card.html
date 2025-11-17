@@ -1,5 +1,5 @@
 @if (front || back) {
-  <div class="card" [class.preview]="!print" (click)="click.emit(encounter!)">
+  <div class="card" [class.preview]="!print">
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
@@ -19,23 +19,27 @@
       <div class="card-side">
         <div class="card-inner-frame-back">
           <div class="back-title">
-            {{ encounter?.title }}
+            {{ encounter?.name }}
           </div>
+          <div class="alertness">
+            @if (encounter?.alertness) {
+              <app-alertness-token [value]="encounter?.alertness" />
+            }
+          </div>
+
           <div class="back-description">{{ encounter?.description }}</div>
           @if (encounter?.rows) {
-            <div class="rows">
+            <table class="rows">
               @for (row of encounter!.rows; track row) {
-                <div class="row">
-                  <div class="row-count">
-                    {{ row.count }}
-                  </div>
-                  <div class="row-count">x</div>
-                  <div class="row-reference">
+                <tr class="row">
+                  <td class="row-count" align="left">{{ row.count }}</td>
+                  <td class="row-mul" align="center">x</td>
+                  <td class="row-reference" align="left">
                     <app-monster-card-reference [reference]="row.monsterReference!" />
-                  </div>
-                </div>
+                  </td>
+                </tr>
               }
-            </div>
+            </table>
           }
           <div class="back-bottom-section">
             @if (encounter?.attributes) {

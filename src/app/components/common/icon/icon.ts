@@ -97,6 +97,12 @@ export class Icon {
         return "wings.svg";
       case "MOVE_TELEPORT":
         return "teleport.svg";
+      case "SACK":
+        return "sack.svg";
+      case "CRATE":
+        return "crate.svg";
+      case "BARREL":
+        return "barrel.svg";
 
       default:
         return "questionmark.svg";

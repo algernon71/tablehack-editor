@@ -1,0 +1,47 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+   [attr.width]="width"
+   [attr.height]="width"
+viewBox="0 0 100 100">
+
+<style>
+
+.svg-text {
+    font-style:normal;
+    font-weight:bold;
+    font-size: 30px;
+    font-family:'Arial';
+    text-align:center;
+    alignment-baseline: middle;
+    dominant-baseline: central;
+    writing-mode:lr-tb;
+    direction:ltr;
+    text-anchor:middle;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+    stroke-dasharray:none;
+    stroke-opacity:1;
+    paint-order:markers fill stroke    
+}
+.symbol-line {
+    fill: none;
+    stroke:currentColor;
+    stroke-width:3;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+    stroke-dasharray:none;
+    stroke-opacity:1
+}
+
+</style>
+  <polygon points="30,30 50,20 90,20 90,57 70,70 30,70" class="symbol-line"/>
+
+    <text
+       x="58"
+       y="47" 
+       class="svg-text" >
+         {{value}}
+      </text>
+
+</svg>
+

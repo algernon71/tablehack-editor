@@ -2,7 +2,7 @@ import { Component, Input, model, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Expressionview } from 'src/app/common/expressionview/expressionview';
+import { Expressionview } from 'src/app/components/common/common/expressionview/expressionview';
 import { EventEmitter } from 'stream';
 
 @Component({
@@ -13,12 +13,12 @@ import { EventEmitter } from 'stream';
 })
 export class ExpressionFieldEdit {
   expression = model<string>("");
-  
-	@Input()
-	name?: string;
+
+  @Input()
+  name?: string;
 
 
-	ngOnChanges(event: any) {
-	}
+  ngOnChanges(event: any) {
+  }
 
 }

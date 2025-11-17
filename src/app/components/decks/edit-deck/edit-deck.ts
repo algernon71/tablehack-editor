@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Deck, DeckEntry, Decks } from 'src/app/services/decks';
 import { Card, Cards, CardType } from 'src/app/services/cards';
 import { CardEditDialog } from '../../cards/card-edit-dialog/card-edit-dialog';
-import { ConfirmDialog } from 'src/app/common/confirm-dialog/confirm-dialog';
+import { ConfirmDialog } from 'src/app/components/common/confirm-dialog/confirm-dialog';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ResourceSelect } from '../../resources/resource-select/resource-select';
@@ -21,10 +21,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-edit-deck',
-  imports: [MatButtonModule, MatCardModule, MatFormFieldModule, MatTableModule, ResourceSelect, FormsModule, ReactiveFormsModule, ViewCard, CardInfo, MatInputModule],
-  templateUrl: './edit-deck.html',
-  styleUrl: './edit-deck.scss'
+	selector: 'app-edit-deck',
+	imports: [MatButtonModule, MatCardModule, MatFormFieldModule, MatTableModule, ResourceSelect, FormsModule, ReactiveFormsModule, ViewCard, CardInfo, MatInputModule],
+	templateUrl: './edit-deck.html',
+	styleUrl: './edit-deck.scss'
 })
 export class EditDeck {
 	cardSearchControl = new FormControl('');
@@ -33,7 +33,7 @@ export class EditDeck {
 
 	@Input()
 	deck?: Deck;
-	
+
 	type?: CardType;
 
 	@Output()
@@ -68,7 +68,7 @@ export class EditDeck {
 			if (id && id != 'add') {
 				this.decksService.getDeck(id).subscribe(response => this.setDeck(response));
 			} else {
-        this.type = this.cardsService.getCardType(this.typeId!);
+				this.type = this.cardsService.getCardType(this.typeId!);
 				this.newDeck(this.typeId!);
 			}
 		});
@@ -78,7 +78,7 @@ export class EditDeck {
 		this.deck = deck;
 		this.type = this.cardsService.getCardType(this.deck.type!);
 		this.displayedColumns = ['name', 'cardCount'];
-		
+
 		this.type?.columns!.forEach(column => {
 			this.displayedColumns.push(column.id);
 		});
@@ -88,7 +88,7 @@ export class EditDeck {
 				entry.card = card;
 			});
 		});
-		
+
 	}
 	inlineEdit(idx: number, entry: DeckEntry) {
 		if (this.inlineIdx === idx) {
@@ -111,7 +111,7 @@ export class EditDeck {
 		this.cardsService.getCard(entry.cardId!).subscribe(card => {
 			console.info('Edit card:', card);
 			const dialogRef = this.dialog.open(CardEditDialog, {
-				data: {card: card, deck: this.deck, entry: entry }
+				data: { card: card, deck: this.deck, entry: entry }
 			});
 
 			dialogRef.afterClosed().subscribe(result => {
@@ -133,14 +133,14 @@ export class EditDeck {
 		let card: Card = {
 			name: '',
 			type: this.typeId!,
-			horizontal: false, 
+			horizontal: false,
 			description: '',
-			data: { 
+			data: {
 				mstats: {}
 			}
 		};
 		const dialogRef = this.dialog.open(CardEditDialog, {
-			data: {card: card, deck: this.deck }
+			data: { card: card, deck: this.deck }
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
