@@ -69,10 +69,10 @@ export class PrintCharacterCards {
 
       if (this.includeActions && this.actionsLast) {
         characters.forEach(character => {
-          console.info('character actions:', character.data.actions, character);
+          console.info('character actions:', character.data!.actions, character);
 
-          if (character.data.actions) {
-            character.data.actions.forEach(action => {
+          if (character.data!.actions) {
+            character.data!.actions.forEach(action => {
               const count = !action.count ? 1 : action.count;
               for (let i = 0; i < count; ++i) {
                 this.addCharacterActionCard(action, character);

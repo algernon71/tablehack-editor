@@ -43,6 +43,29 @@ export class PrintSceneCards {
       const scenes: Scene[] = response.content!;
       scenes.forEach(scene => {
 
+        scene.data?.locationEvents.forEach(locationEvent => {
+          this.cards.push(
+            {
+              locationEvent: locationEvent
+            }
+          );
+
+        });
+        scene.data?.lootTypes?.forEach(type => {
+          type.loot?.forEach(l => {
+            const count = !l.count ? 1 : l.count;
+            for (let i = 0; i < count; ++i) {
+              this.cards.push(
+                {
+                  loot: l
+                }
+              );
+
+            }
+
+          });
+
+        });
         scene.data?.encounterTypes?.forEach(type => {
 
           type.encounters?.forEach(encounter => {

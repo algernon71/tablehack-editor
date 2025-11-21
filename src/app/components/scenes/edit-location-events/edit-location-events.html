@@ -1,0 +1,22 @@
+<div class=",kks">
+  <app-editable-table
+    [info]="locationEventEntity"
+    [array]="locationEvents"
+    [(selectedRow)]="selected"
+  >
+    @if (selected) {
+      <div class="loot">
+        <div class="loot-info">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="selected!.name" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="selected!.description" rows="5" cols="40"> </textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    }
+  </app-editable-table>
+</div>

@@ -1,74 +1,11 @@
-.card {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
 
-.preview {
-  transform: scale(50%, 50%);
-}
 
-.card-side {
-  background-color: white;
-  border-radius: 5mm;
-  border: 1mm solid black;
-  height: 150mm;
-  width: 210mm;
-}
 
-.card-inner-frame-front {
-  margin: 1mm;
-  border-radius: 5mm;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
 
 .horizontal {
   height: 58mm;
   width: 88mm;
   transform: rotate(-90deg) translate(-136mm, 10mm);
-}
-
-.card-inner-frame-back {
-
-}
-
-.front-top {
-  font-size: 8mm;
-  font-family: Helvetica, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 7mm;
-}
-
-.back-top {
-  font-size: 8mm;
-  font-weight: bold;
-  line-height: 9mm;
-  font-family: Helvetica, sans-serif;
-  text-align: center;
-  padding-top: 7mm;
-  flex-grow: 1;
-  word-wrap: break-word;
-
-}
-
-.back-description {
-  font-size: 4mm;
-  text-align: center;
-  flex-grow: 1;
-
-}
-
-.vfold {
-  width: 1mm;
-  background-color: black;
-}
-.vcut {
-  width: 1mm;
-  background-color: black;
 }
 
 
@@ -96,6 +33,7 @@
     font-size: 15mm;
     font-weight: bold;
     padding-bottom: 3mm;
+    text-align: center;
 }
 
 
@@ -105,21 +43,24 @@
     max-height: 100mm;
 }
 
-.front-image-frame {
+.front-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
     padding: 1mm;
     margin: 2mm;
-    max-width: 100mm;
-    max-height: 100mm;
-//     border-radius: 3mm;
-//     background-color: darkgray;
 }
 
 .front-description {
   display: block;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4mm;
-  width: 150mm;
+  max-width: 50mm;
   padding-bottom: 5mm;
+  text-align: center;
 }
 
 .back-image {

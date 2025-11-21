@@ -62,17 +62,15 @@ export class EditCharacter {
     console.info('file:', file);
     this.resourcesService.upload('image', files).subscribe(result => {
       this.character!.image = file.name;
-      console.info('upload:', result);
     });
   }
-
 
   ngOnInit() {
     console.info('Editing character:', this.character);
     this.card.character = this.character;
     this.card.largeCard = true;
-    if (!this.character.data.actions) {
-      this.character.data.actions = [];
+    if (!this.character.data!.actions) {
+      this.character.data!.actions! = [];
     }
   }
 

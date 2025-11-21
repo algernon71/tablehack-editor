@@ -8,7 +8,7 @@
    viewBox="0 0 442.01109 386.84374"
    preserveAspectRatio="none"
    id="svg2"
-   sodipodi:docname="lightning_damage.svg"
+   sodipodi:docname="damage_electricity.svg"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
    inkscape:export-filename="/Users/kent/Documents/workspace/tablehack-tools/src/main/resources/images/symbols/warning_sign.png"
    inkscape:export-xdpi="74.061569"
@@ -37,8 +37,8 @@
      inkscape:zoom="0.49677485"
      inkscape:cx="209.35037"
      inkscape:cy="11.071414"
-     inkscape:window-x="795"
-     inkscape:window-y="1528"
+     inkscape:window-x="175"
+     inkscape:window-y="143"
      inkscape:window-maximized="0"
      inkscape:current-layer="g8553"
      inkscape:document-units="mm"
@@ -678,7 +678,7 @@
        inkscape:transform-center-y="0.5921002"
        transform="matrix(1.0247414,0,0,1.0247414,24.459949,-5.352421)" />
     <path
-       style="fill:#00ff00;stroke-width:0.413491;fill-opacity:1"
+       style="fill:#eeffcd;stroke-width:0.413491;fill-opacity:1"
        d="m -68.568236,131.70565 c 0.490898,-1.30766 4.088866,-11.21591 7.99548,-22.01834 l 7.102943,-19.640764 -13.376661,-0.109021 c -7.357172,-0.05996 -13.375607,-0.246038 -13.374317,-0.41349 0.0011,-0.16746 3.86227,-5.142302 8.579944,-11.055206 4.717681,-5.912903 15.533279,-19.496043 24.034666,-30.184754 8.501394,-10.688713 15.715372,-19.710239 16.031067,-20.047833 0.554428,-0.592878 -0.251862,2.04997 -2.268713,7.436393 -2.689451,7.182736 -12.886602,35.665547 -12.886602,35.995018 0,0.238977 5.18418,0.392085 13.275927,0.392085 11.289324,0 13.242261,0.08773 13.050949,0.586291 -0.12374,0.322455 -5.758206,7.532683 -12.521036,16.02273 -30.229289,37.949791 -36.206717,45.414451 -36.366188,45.414451 -0.0935,0 0.231638,-1.0699 0.722541,-2.37756 z"
        id="path16" />
   </g>

@@ -14,4 +14,8 @@ export class AttackValues {
 
   @Input()
   damage?: Damage;
+
+  isUsed(value?: any) {
+    return value && value != "" && value != 0;
+  }
 }

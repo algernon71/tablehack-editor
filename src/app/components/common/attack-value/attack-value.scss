@@ -1,5 +1,11 @@
 .attack-value {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
+    gap: 1mm;
+}
+
+.value {
+    text-align: center;
+    vertical-align: middle;
 }

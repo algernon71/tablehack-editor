@@ -13,13 +13,13 @@ export class Image {
   @Input()
   name!: string;
 
+
   @Input()
   className!: string;
 
   @Input()
-  width!: number;
-  @Input()
-  height!: number;
+  size: string = 'LARGE';
+
 
   url(): string {
     return 'http://localhost:8090/api/resources/' + this.name;

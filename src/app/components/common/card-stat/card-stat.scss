@@ -1,0 +1,26 @@
+.card-stat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    gap: 1mm;
+}
+
+.stat-icon {
+    height: 3mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.stat-icon-img {
+    height: 100%;
+}
+
+.stat-value {
+    height: 100%;
+    dominant-baseline: central;
+}

@@ -1,6 +1,10 @@
 @if (value && value != '0') {
   <div class="attack-value">
-    {{ value }}
-    <app-icon [type]="type" [size]="size" />
+    <div class="type">
+      <app-icon [type]="type" [size]="size" />
+    </div>
+    <div class="value">
+      {{ value }}
+    </div>
   </div>
 }

@@ -1,0 +1,7 @@
+<div class="container">
+  @for (t of types; track t) {
+    <div (click)="type.set(t)" class="icon-type" [class.selected]="t == type()">
+      <app-icon [type]="t" [size]="'SELECT'" />
+    </div>
+  }
+</div>

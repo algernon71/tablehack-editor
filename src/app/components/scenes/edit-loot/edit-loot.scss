@@ -1,0 +1,25 @@
+.loot {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+
+.loot-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.loot-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.loot-rows {
+    display: flex;
+    flex-direction: column;
+}
+.add-buttons {
+    display: flex;
+    flex-direction: row;
+}

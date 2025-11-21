@@ -1,23 +1,23 @@
 <div class="attack-values">
-  @if (damage!.physical) {
+  @if (isUsed(damage?.physical)) {
     <app-attack-value [type]="'ATTACK_PHYSICAL'" [size]="size" [value]="damage!.physical" />
   }
-  @if (damage!.poison) {
+  @if (isUsed(damage?.poison)) {
     <app-attack-value [type]="'ATTACK_POISON'" [size]="size" [value]="damage!.poison" />
   }
-  @if (damage!.fire) {
+  @if (isUsed(damage?.fire)) {
     <app-attack-value [type]="'ATTACK_FIRE'" [size]="size" [value]="damage!.fire" />
   }
-  @if (damage!.cold) {
+  @if (isUsed(damage?.cold)) {
     <app-attack-value [type]="'ATTACK_COLD'" [size]="size" [value]="damage!.cold" />
   }
-  @if (damage!.electricity) {
+  @if (isUsed(damage?.electricity)) {
     <app-attack-value [type]="'ATTACK_ELECTRICITY'" [size]="size" [value]="damage!.electricity" />
   }
-  @if (damage!.fear) {
+  @if (isUsed(damage!.fear)) {
     <app-attack-value [type]="'ATTACK_FEAR'" [size]="size" [value]="damage!.fear" />
   }
-  @if (damage!.life) {
+  @if (isUsed(damage!.life)) {
     <app-attack-value [type]="'ATTACK_LIFE'" [size]="size" [value]="damage!.life" />
   }
   @if (damage!.energy) {

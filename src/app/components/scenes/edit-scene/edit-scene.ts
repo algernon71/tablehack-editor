@@ -27,6 +27,7 @@ import { TimeToken } from "../../common/tokens/time-token/time-token";
 import { LootToken } from "../../common/tokens/loot-token/loot-token";
 import { EditEncounters } from "../edit-encounters/edit-encounters";
 import { EditLoot } from "../edit-loot/edit-loot";
+import { EditLocationEvents } from "../edit-location-events/edit-location-events";
 
 @Component({
   selector: 'app-edit-scene',
@@ -39,7 +40,7 @@ import { EditLoot } from "../edit-loot/edit-loot";
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    PrintCardThumbnail, Icon, EditEntities, EditableTable, EncounterToken, EditMonsterReference, EventToken, TimeToken, LootToken, EditEncounters, EditLoot],
+    PrintCardThumbnail, Icon, EditEntities, EditableTable, EncounterToken, EditMonsterReference, EventToken, TimeToken, LootToken, EditEncounters, EditLoot, EditLocationEvents],
   templateUrl: './edit-scene.html',
   styleUrl: './edit-scene.scss'
 })
@@ -61,6 +62,11 @@ export class EditScene {
       this.scene.data?.encounterTypes?.forEach(type => {
         type.encounters?.forEach(enc => {
           enc.tokenId = type.tokenId;
+        });
+      });
+      this.scene.data?.lootTypes?.forEach(type => {
+        type.loot?.forEach(l => {
+          l.tokenId = type.tokenId;
         });
       });
 

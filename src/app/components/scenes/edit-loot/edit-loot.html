@@ -1,35 +1,46 @@
-<div class=",kks">
-  <app-editable-table [info]="lootEntity" [array]="loot" [(selectedRow)]="selectedLoot">
-    @if (selectedLoot) {
-      <div class="loot">
-        <div class="loot-info">
-          <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput [(ngModel)]="selectedLoot!.name" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Description</mat-label>
-            <textarea matInput [(ngModel)]="selectedLoot!.description" rows="5" cols="40">
-            </textarea>
-          </mat-form-field>
-        </div>
-        <div class="loot-rows">
-          @for (row of selectedLoot.rows; track $index) {
-            <div class="loot-row">
-              <mat-form-field>
-                <mat-label>Count</mat-label>
-                <input matInput [(ngModel)]="row.count" />
-              </mat-form-field>
+<app-editable-table [info]="lootEntity" [array]="loot" [(selectedRow)]="selectedLoot">
+  @if (selectedLoot) {
+    <div class="loot">
+      <div class="loot-info">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="selectedLoot!.name" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="selectedLoot!.description" rows="5" cols="40"> </textarea>
+        </mat-form-field>
 
-              <app-edit-monster-reference [(reference)]="row.itemReference" />
-              <button matButton (click)="removeRow($index)">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </div>
+        <app-edit-card-attributes [attributes]="selectedLoot!.attributes!" />
+      </div>
+      <div class="loot-rows">
+        @for (row of selectedLoot.rows; track $index) {
+          <div class="loot-row">
+            <app-edit-image [(image)]="row.image" />
+
+            <button matButton (click)="removeRow($index)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button matButton="filled" (click)="cloneRow(row)">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+          </div>
+        }
+        <div class="add-buttons">
+          @for (image of lootImages; track image) {
+            <button matButton="filled" (click)="addRow(image)">
+              <app-image [name]="image" [size]="'SMALL'" />
+            </button>
           }
         </div>
-        <button matButton="filled" (click)="addRow()">Add row</button>
+        <input
+          type="file"
+          id="imageUpload"
+          accept=".png, .jpg, .jpeg"
+          (change)="dropFiles($event)"
+        />
       </div>
-    }
-  </app-editable-table>
-</div>
+      <button matButton="filled" (click)="cloneEntry()"><mat-icon>content_copy</mat-icon></button>
+    </div>
+  }
+</app-editable-table>

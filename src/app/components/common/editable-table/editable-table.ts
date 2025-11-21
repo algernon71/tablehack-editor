@@ -46,9 +46,16 @@ export class EditableTable {
   @Input()
   editable = true;
 
+  @Input()
+  clonable = true;
+
+  @Input()
+  autoIncrementId = false;
 
   arrayInfo?: EntityInfo;
   arrayData?: Entity[];
+
+
 
   data = model<any[]>([]);
   _dataSource?: EntityDataSource;
@@ -113,14 +120,14 @@ export class EditableTable {
 
   printAll() {
     if (this.dataSource?.getInfo().printPath) {
-      this.router.navigate(['/print', this.dataSource?.getInfo().printPath]);
+      this.router.navigate(['/print-entities', this.dataSource?.getInfo().printPath]);
 
     }
   }
 
   printSelected() {
     if (this.dataSource?.getInfo().printPath) {
-      this.router.navigate(['/print', this.dataSource?.getInfo().printPath], {
+      this.router.navigate(['/print-entities', this.dataSource?.getInfo().printPath], {
         queryParams: {
           ids: this.selectedRow().id
         }
@@ -203,6 +210,13 @@ export class EditableTable {
       });
     });
   }
+  clone(event: any, row: any) {
+    this.dataSource?.importRow(row).subscribe((row) => {
+      this.loadList()?.subscribe(() => {
+
+      });
+    });
+  }
 
   save() {
     this.saveRow(this.selectedRow()).subscribe(() => {
@@ -220,6 +234,18 @@ export class EditableTable {
       this.addingRow = false;
     }
     this.selectedRow.set(undefined);
+  }
+
+  deleteRow(event: any, row: any) {
+    event.stopPropagation();
+    ConfirmationDialog.confirm(this.dialog, 'Delete?', 'Are you sure?', (confirmed) => {
+      if (confirmed) {
+        this.dataSource?.deleteRow(row).subscribe(() => {
+          this.refreshList();
+        });
+      }
+    });
+
   }
 
   delete() {

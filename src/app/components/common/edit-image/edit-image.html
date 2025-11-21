@@ -1,0 +1,7 @@
+<div class="container" (appDragAndDrop)="dropFiles($event)">
+  @if (image()) {
+    <app-image [name]="image()!" [className]="'image'" />
+  } @else {
+    Drop image
+  }
+</div>

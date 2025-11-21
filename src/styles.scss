@@ -2,6 +2,7 @@
 
 
 @use '@angular/material' as mat;
+@import 'card-styles.scss';
 
 
 
@@ -54,4 +55,7 @@ $card-font-size-text: 3mm;
 	height: 8mm;
 	paqdding: 1mm;
 }
+
+
+
 

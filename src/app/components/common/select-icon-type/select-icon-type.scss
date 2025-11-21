@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.icon-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4px;
+    border-radius: 5px;
+    margin: 5px;
+    max-height: 50px;
+
+}
+
+.selected {
+    background-color: lightgray;
+
+}

@@ -13,6 +13,8 @@ import { PrintCharacterCards } from './components/characters/print-character-car
 import { EditStandardActions } from './components/characters/edit-standard-actions/edit-standard-actions';
 import { EntityManager } from './components/entity/entity-manager/entity-manager';
 import { PrintSceneCards } from './components/scenes/print-scene-cards/print-scene-cards';
+import { PrintEquipmentCards } from './components/equipment/print-equipment-cards/print-equipment-cards';
+import { PrintEntities } from './components/entity/print-entities/print-entities';
 
 export const routes: Routes = [
 	{
@@ -68,12 +70,16 @@ export const routes: Routes = [
 		component: PrintMonsterCards
 	},
 	{
-		path: 'print/chars',
+		path: 'print/characters',
 		component: PrintCharacterCards
 	},
 	{
 		path: 'print/scenes',
 		component: PrintSceneCards
+	},
+	{
+		path: 'print/items',
+		component: PrintEquipmentCards
 	},
 	{
 		path: 'entities',
@@ -93,6 +99,10 @@ export const routes: Routes = [
 			},
 
 		]
+	},
+	{
+		path: 'print-entities/:entityId',
+		component: PrintEntities
 	},
 
 

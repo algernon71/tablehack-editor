@@ -1,1 +1,77 @@
-<p>edit-equipment-item works!</p>
+<div class="row">
+  <div class="column">
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="item.category">
+        @for (category of itemCategories; track category.id) {
+          <mat-option [value]="category.id">{{ category.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="item.type">
+        @for (type of itemTypes; track type.id) {
+          <mat-option [value]="type.id" (onSelectionChange)="typeChanged(type.id, $event)">{{
+            type.name
+          }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    @if (itemType?.subtypes) {
+      <mat-form-field>
+        <mat-select [(ngModel)]="item.subType">
+          @for (subType of itemType?.subtypes; track subType.id) {
+            <mat-option
+              [value]="subType.id"
+              (onSelectionChange)="subTypeChanged(subType.id, $event)"
+              >{{ subType.name }}</mat-option
+            >
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="item.name" />
+    </mat-form-field>
+  </div>
+  <div class="column">
+    <app-edit-image [(image)]="item.image" />
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="item.description" rows="5" cols="40"> </textarea>
+    </mat-form-field>
+  </div>
+  <div class="column">
+    <div class="column">
+      @if (itemType?.damage) {
+        <app-edit-damage [damage]="item.data.damage!" />
+      }
+      @if (itemType?.defence) {
+        <app-edit-defence [defence]="item.data.defence" />
+      }
+    </div>
+    <mat-form-field>
+      <mat-label>Weight</mat-label>
+      <input matInput [(ngModel)]="item.data.weight" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Min Strength</mat-label>
+      <input matInput [(ngModel)]="item.data.minStrength" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Min Agility</mat-label>
+      <input matInput [(ngModel)]="item.data.minAgility" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Durability</mat-label>
+      <input matInput [(ngModel)]="item.data.durability" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Value</mat-label>
+      <input matInput [(ngModel)]="item.data.value" />
+    </mat-form-field>
+  </div>
+</div>

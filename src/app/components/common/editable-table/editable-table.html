@@ -9,28 +9,30 @@
         }
       }
       <th class="buttons-column">
-        @if (editable && !selectedRow()) {
-          @if (editMode) {
-            <button matButton (click)="endEditing()" matTooltip="Edit entries">
-              <mat-icon class="toolbar-icon">check</mat-icon>
-            </button>
-            <button matButton (click)="abortEditing()" matTooltip="Edit entries">
-              <mat-icon class="toolbar-icon">cancel</mat-icon>
-            </button>
-          } @else {
-            @if (dataSource?.getInfo()?.printPath) {
-              <button matButton (click)="printAll()" matTooltip="Print all">
-                <mat-icon class="toolbar-icon">print</mat-icon>
+        <div class="row-buttons">
+          @if (editable && !selectedRow()) {
+            @if (editMode) {
+              <button matButton (click)="endEditing()" matTooltip="Edit entries">
+                <mat-icon class="toolbar-icon">check</mat-icon>
+              </button>
+              <button matButton (click)="abortEditing()" matTooltip="Edit entries">
+                <mat-icon class="toolbar-icon">cancel</mat-icon>
+              </button>
+            } @else {
+              @if (dataSource?.getInfo()?.printPath) {
+                <button matButton (click)="printAll()" matTooltip="Print all">
+                  <mat-icon class="toolbar-icon">print</mat-icon>
+                </button>
+              }
+              <button matButton (click)="startEditing()" matTooltip="Delete">
+                <mat-icon class="toolbar-icon">edit</mat-icon>
+              </button>
+              <button matButton (click)="new()" matTooltip="Add">
+                <mat-icon class="toolbar-icon">add</mat-icon>
               </button>
             }
-            <button matButton (click)="startEditing()" matTooltip="Delete">
-              <mat-icon class="toolbar-icon">edit</mat-icon>
-            </button>
-            <button matButton (click)="new()" matTooltip="Add">
-              <mat-icon class="toolbar-icon">add</mat-icon>
-            </button>
           }
-        }
+        </div>
       </th>
     </tr>
     @for (row of data(); track row) {
@@ -113,12 +115,12 @@
                       [value]="field.getValue(row)"
                       (valueChange)="field.setValue(row, $event)"
                     >
-                      @for (value of field.values; track $index) {
-                        <mat-option [value]="value">{{ value }}</mat-option>
+                      @for (value of field.values; track value.id) {
+                        <mat-option [value]="value.id">{{ value.name }}</mat-option>
                       }
                     </mat-select>
                   } @else {
-                    <div>{{ row[field.name] }}</div>
+                    <div>{{ field.getShownValue(row) }}</div>
                   }
                 }
                 @case ('image') {
@@ -142,6 +144,24 @@
               }
             </td>
           }
+          <td>
+            <div class="row-buttons">
+              <button
+                matButton
+                (click)="$event.stopPropagation(); deleteRow($event, row)"
+                matTooltip="Delete"
+              >
+                <mat-icon class="toolbar-icon">delete</mat-icon>
+              </button>
+              <button
+                matButton
+                (click)="$event.stopPropagation(); clone($event, row)"
+                matTooltip="Clone"
+              >
+                <mat-icon class="toolbar-icon">content_copy</mat-icon>
+              </button>
+            </div>
+          </td>
         </tr>
       }
     }

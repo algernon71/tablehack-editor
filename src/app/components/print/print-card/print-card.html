@@ -13,6 +13,10 @@
   />
 }
 
+@if (card.equipment) {
+  <app-equipment-item-card [item]="card.equipment" [front]="front" [back]="back" [print]="true" />
+}
+
 @if (card.encounter) {
   <app-encounter-card [encounter]="card.encounter" [front]="front" [back]="back" [print]="true" />
 }
@@ -25,6 +29,18 @@
   <app-character-action-card
     [character]="card.character!"
     [action]="card.characterAction"
+    [front]="front"
+    [back]="back"
+    [print]="true"
+  />
+}
+@if (card.loot) {
+  <app-loot-card [loot]="card.loot" [front]="front" [back]="back" [print]="true" />
+}
+
+@if (card.locationEvent) {
+  <app-location-event-card
+    [locationEvent]="card.locationEvent!"
     [front]="front"
     [back]="back"
     [print]="true"

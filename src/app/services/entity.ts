@@ -33,7 +33,15 @@ export class ArrayDataSource implements EntityDataSource {
     }
 
     addRow(): Observable<any> {
-        const row = {};
+
+        const row: Entity = {
+            id: "" + (this.data.length + 1),
+            name: '',
+            image: ''
+
+
+        };
+
         this.data.push(row);
         return of(row);
     }
@@ -78,11 +86,62 @@ export class ArrayDataSource implements EntityDataSource {
 }
 
 export class EntityInfo {
-    name!: string;
-    typeId!: string;
-    path!: string;
+
+    columns: EntityColumn[] = [];
     printPath?: string;
-    columns!: EntityColumn[];
+    printField?: string;
+    printCards?: (entity: Entity) => CardPrintData[];
+
+    constructor(
+        public name: string,
+        public typeId: string,
+        columns?: EntityColumn[]) {
+
+        this.printPath = typeId;
+        if (columns) {
+            this.columns = columns;
+
+        }
+    }
+
+
+    column(column: EntityColumn): EntityInfo {
+        this.columns.push(column);
+
+        return this;
+    }
+    nonPrintable(): EntityInfo {
+        this.printPath = undefined;
+
+        return this;
+    }
+
+    printable(field: string): EntityInfo {
+        this.printField = field;
+
+        return this;
+    }
+
+    print(printCards?: (entity: Entity) => CardPrintData[]): EntityInfo {
+        this.printCards = printCards;
+        return this;
+    }
+
+
+    buildPrintCards(entity: Entity): CardPrintData[] {
+        if (!this.printCards) {
+            const cards: CardPrintData[] = [];
+
+            const card: any = {};
+            card[this.printField!] = entity;
+            cards.push(card);
+
+            return cards;
+
+        } else {
+            return this.printCards(entity);
+        }
+    }
 }
 
 export class EntityPage {
@@ -92,10 +151,11 @@ export class EntityPage {
 }
 
 export class Entity {
-    id?: number;
+    id?: any;
     name?: string;
     image?: string;
     updated? = false;
+
 }
 
 
@@ -107,7 +167,6 @@ export class EntityColumn {
     width?: string;
     largeCard = false;
     constructor(public type: string, public name: string, public label: string) {
-
     }
 
     public withIcon(icon: string): EntityColumn {
@@ -131,7 +190,7 @@ export class EntityColumn {
         return field;
     }
 
-    public static enum(name: string, label: string, values: string[]): EntityColumn {
+    public static enum(name: string, label: string, values: any[]): EntityColumn {
         const field = new EntityColumn('enum', name, label);
 
         field.values = values;
@@ -147,6 +206,20 @@ export class EntityColumn {
         card.largeCard = this.largeCard;
         card[this.name] = row;
         return card;
+    }
+    getShownValue(row: any) {
+        const value = this.getValue(row);
+        switch (this.type) {
+            case 'enum':
+                const valueEntry = this.values?.find(v => v.id == value);
+                if (valueEntry) {
+                    return valueEntry.name;
+                } else {
+                    return '?' + value + '?';
+                }
+            default:
+                return value;
+        }
     }
 
     getValue(row: any) {

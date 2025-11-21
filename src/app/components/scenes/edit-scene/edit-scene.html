@@ -18,6 +18,7 @@
           <ng-template mat-tab-label>
             <app-event-token [value]="'?'" width="25px" height="25px" />
           </ng-template>
+          <app-edit-location-events [locationEvents]="scene!.data?.locationEvents!" />
         </mat-tab>
         @for (encounterType of scene!.data?.encounterTypes; track encounterType.tokenId) {
           <mat-tab>

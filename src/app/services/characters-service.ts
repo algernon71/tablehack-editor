@@ -7,6 +7,7 @@ import { Damage } from './monsters';
 import { Action } from 'src/app/services/backend-service';
 import { GameCardAttributes } from './encounter-service';
 import { Entity } from './entity';
+import { PlayerAction } from './entities';
 
 export enum CharacterClass {
   WARRIOR,
@@ -26,13 +27,10 @@ export enum CharacterRace {
 }
 export class Character extends Entity {
   description?: string;
+  characterClass?: string;
 
-
-  characterClass!: string;
-  race = CharacterRace.HUMAN;;
-
-  data: CharacterData = new CharacterData();
-
+  standardActions?: PlayerAction[];
+  data?: CharacterData = new CharacterData();
 }
 
 export class CharacterData {

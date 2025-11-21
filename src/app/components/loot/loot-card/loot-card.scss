@@ -17,11 +17,12 @@
 }
 
 .top-section {
-  display: flex;
-  flex-direction: column;
 
 }
 
+.alertness {
+  background-color: green($color: #000000);
+}
 
 
 
@@ -31,7 +32,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   align-items: center;
   height: 100%;
 }
@@ -51,65 +51,34 @@
 
   align-items: center;
   height: 100%;
-
 }
 
-.loot-symbol {
-  height: 28mm;
-}
-.front-top-section {
-  padding-top: 3mm;
-}
-.front-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size:7mm;
-  font-weight: bold;
-}
 
-.front-bottom-section {
-  padding-bottom: 10mm;
-}
-
-.back-top-section {
-  padding-top: 2mm;
-  font-size: 6mm;
+.front-top {
+  font-size: 8mm;
+  font-family: Helvetica, sans-serif;
   font-weight: bold;
   text-align: center;
-
+  padding-top: 7mm;
 }
 
-.action-title {
+.back-top {
   font-size: 8mm;
   font-weight: bold;
+  line-height: 9mm;
+  font-family: Helvetica, sans-serif;
   text-align: center;
-  padding-top: 2mm;
+  padding-top: 7mm;
+  flex-grow: 1;
+  word-wrap: break-word;
 
 }
+
 .back-description {
   font-size: 4mm;
   text-align: center;
   flex-grow: 1;
 
-}
-
-.action-steps {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 5mm;
-  width: 100%;
-}
-.action-step {
-  border-top: dashed 0.5mm black;
-  margin-top: 3mm;
-  padding-top: 1mm;
-  font-size: 6mm;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 2mm;
-  padding-right: 2mm;
 }
 
 .vfold {
@@ -121,47 +90,44 @@
   background-color: black;
 }
 
-.back-logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
 
 .back-symbol {
   height: 20mm;
   padding-bottom: 10mm;
 }
-.back-logo {
-  height: 7mm;
+.back-top {
+  
+}
+
+.back-title {
+    padding-top: 3mm;
+    font-size: 6mm;
+}
+.back-description {
+    margin: 2mm;
+    padding: 2mm;
+    white-space: pre-wrap;
+    padding-top: 3mm;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+    border-radius: 2mm;
+    font-size: 4mm;
+    font-style: italic;
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 5mm;
+  padding-right: 5mm;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 2mm;
-    width: 100%;
+    font-size: 4mm;
 }
 
-.summary-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-right: solid 0.3mm black;
-    padding-right: 4mm;
-    padding-left: 2mm;
-    padding-top: 4mm;
-}
-.data-column {
-  padding-top: 5mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    gap: 5mm;
-    overflow: hidden;
-
+.back-bottom-section {
+  padding-bottom: 4mm;
 }

@@ -1,0 +1,65 @@
+@if (front || back) {
+  <div class="card" [class.preview]="!print">
+    @if (front) {
+      <div class="card-side">
+        <div class="card item-card">
+          <div class="card-inner-frame-front">
+            <div class="back-description">Equipment</div>
+            <div class="back-reference">{{ item.reference }}</div>
+            <div class="back-symbol-section">
+              <img src="/public/images/symbols/equipment2.png" class="back-symbol" />
+            </div>
+            <div class="back-logo">
+              <img src="/public/images/symbols/tablehack_logo_hz.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (front && back) {
+      <div class="vfold"></div>
+    }
+    @if (back) {
+      <div class="card-side">
+        <div class="card-inner-frame-back">
+          <div class="card item-card">
+            <div class="card-header">
+              <div class="item-name">{{ item.reference }} - {{ item.name }}</div>
+              <div class="item-type">
+                {{ item.type }} /
+                @if (item.subType) {
+                  {{ item.subType }} /
+                }
+                {{ item.category }}
+              </div>
+            </div>
+
+            <div class="card-image">
+              <app-image [name]="item.image!" size="CARD_LARGE"></app-image>
+            </div>
+
+            <div class="card-footer">
+              <div class="stats-row main-stats">
+                @if (hasAttackValues()) {
+                  <app-attack-values [damage]="item.data.damage"></app-attack-values>
+                }
+                @if (hasDefenceValues()) {
+                  <app-defence-values [defence]="item.data.defence"></app-defence-values>
+                }
+              </div>
+              <div class="stats-row extra-stats">
+                <app-card-stat icon="weight.svg" [value]="item.data.weight!"></app-card-stat>
+                <app-card-stat
+                  icon="breaking-glass.svg"
+                  [value]="item.data.durability"
+                ></app-card-stat>
+                <app-card-stat icon="coin.svg" [value]="item.data.value"></app-card-stat>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

@@ -39,7 +39,7 @@
                 <div class="print-page-cards">
                   @for (row of page.grid; track $index) {
                     <div class="print-row-reverse">
-                      @for (card of row; track card) {
+                      @for (card of row.reverse(); track card) {
                         <div class="print-card">
                           <app-print-card [card]="card" [front]="true" [back]="false" />
                         </div>

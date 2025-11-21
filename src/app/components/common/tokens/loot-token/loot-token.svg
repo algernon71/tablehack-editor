@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" 
    [attr.width]="width"
    [attr.height]="width"
-viewBox="0 0 100 100">
+viewBox="10 10 100 50">
 
 <style>
 
@@ -26,7 +26,7 @@ viewBox="0 0 100 100">
 .symbol-line {
     fill: none;
     stroke:currentColor;
-    stroke-width:3;
+    stroke-width:6;
     stroke-linejoin:round;
     stroke-miterlimit:10;
     stroke-dasharray:none;

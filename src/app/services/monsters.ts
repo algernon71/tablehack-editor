@@ -11,6 +11,9 @@ export class DefenceType {
   constructor(public iconType: string, public fieldName: string) { }
 
   getValue(defence: any): any {
+    if (!defence) {
+      return undefined;
+    }
     return defence[this.fieldName];
   }
   setValue(defence: any, value: any): any {
