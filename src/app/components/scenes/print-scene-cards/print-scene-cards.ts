@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
 import { EntityService } from 'src/app/services/entity-service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Scene, sceneEntity } from 'src/app/services/entities';
+import { Scene, sceneEntity } from 'src/app/entities';
 import { EntityDataSource } from 'src/app/services/entity';
 
 @Component({

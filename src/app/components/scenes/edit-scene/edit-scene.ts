@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Encounter, encounterEntity, EncounterType, encounterTypeEntity, Scene } from 'src/app/services/entities';
+import { Encounter, encounterEntity, EncounterType, encounterTypeEntity, Scene } from 'src/app/entities';
 import { ResourceReference } from '../../resources/resource-reference/resource-reference';
 import { RouterLink } from '@angular/router';
 import { PrintCardThumbnail } from '../../print/print-card-thumbnail/print-card-thumbnail';

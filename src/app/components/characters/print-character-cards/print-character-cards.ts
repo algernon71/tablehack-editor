@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character, CharacterAction, CharactersService } from 'src/app/services/characters-service';
 import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
-import { Action, BackendService } from 'src/app/services/backend-service';
-import { charactersEntity, PlayerAction } from 'src/app/services/entities';
+import { BackendService } from 'src/app/services/backend-service';
+import { charactersEntity, PlayerAction } from 'src/app/entities';
 import { lastValueFrom } from 'rxjs';
+import { Action } from 'src/app/models/action';
 
 @Component({
   selector: 'app-print-character-cards',

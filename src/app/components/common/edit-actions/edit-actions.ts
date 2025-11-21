@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Action } from 'src/app/services/backend-service';
+import { Action } from 'src/app/models/action';
 import { EditAction } from "../edit-action/edit-action";
 import { MatButtonModule } from '@angular/material/button';
 

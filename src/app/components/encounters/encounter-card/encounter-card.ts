@@ -4,7 +4,7 @@ import { EncounterToken } from "../../common/tokens/encounter-token/encounter-to
 import { MonsterCardReference } from "../../monsters/monster-card-reference/monster-card-reference";
 import { CardAttributes } from "../../common/card-attributes/card-attributes";
 import { AlertnessToken } from "../../common/tokens/alertness-token/alertness-token";
-import { Encounter } from 'src/app/services/entities';
+import { Encounter } from 'src/app/entities';
 
 @Component({
   selector: 'app-encounter-card',

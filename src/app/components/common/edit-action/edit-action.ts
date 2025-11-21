@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { Action, BackendService } from 'src/app/services/backend-service';
+import { BackendService } from 'src/app/services/backend-service';
 import { Defence } from 'src/app/services/monsters';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { EditDamage } from "../edit-damage/edit-damage";
 import { CdkTableModule } from "@angular/cdk/table";
 import { MatIconModule } from '@angular/material/icon';
 import { CardPrintData } from '../../print/print-cards/print-cards';
+import { Action } from 'src/app/models/action';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { EditDefence } from "../edit-defence/edit-defence";
 

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { EquipmentItem, itemCategories, ItemType, itemTypes } from 'src/app/services/entities';
+import { EquipmentItem, itemCategories, ItemType, itemTypes } from 'src/app/entities';
 import { EditDamage } from "../../common/edit-damage/edit-damage";
 import { EditDefence } from "../../common/edit-defence/edit-defence";
 import { EditAction } from "../../common/edit-action/edit-action";

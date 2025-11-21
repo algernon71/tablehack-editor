@@ -1,5 +1,5 @@
 import { Component, Input, output } from '@angular/core';
-import { Action } from 'src/app/services/backend-service';
+import { Action } from 'src/app/models/action';
 import { Icon } from '../icon/icon';
 import { InitiativeToken } from "../tokens/initiative-token/initiative-token";
 import { DialogModule } from "@angular/cdk/dialog";

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Encounter, encounterEntity } from 'src/app/services/entities';
+import { Encounter, encounterEntity } from 'src/app/entities';
 import { EditableTable } from "../../common/editable-table/editable-table";
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { EditMonsterReference } from "../../monsters/edit-monster-reference/edit-monster-reference";

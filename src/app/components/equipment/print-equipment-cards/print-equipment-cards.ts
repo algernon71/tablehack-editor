@@ -3,7 +3,7 @@ import { CardPrintData, PrintCards } from '../../print/print-cards/print-cards';
 import { EntityDataSource } from 'src/app/services/entity';
 import { EntityService } from 'src/app/services/entity-service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { equipmentEntity, EquipmentItem } from 'src/app/services/entities';
+import { equipmentEntity, EquipmentItem } from 'src/app/entities';
 
 @Component({
   selector: 'app-print-equipment-cards',

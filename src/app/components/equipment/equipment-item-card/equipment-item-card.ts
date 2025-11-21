@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EquipmentItem } from 'src/app/services/entities';
+import { EquipmentItem } from 'src/app/entities';
 import { LootToken } from "../../common/tokens/loot-token/loot-token";
 import { AttackValues } from "../../common/attack-values/attack-values";
 import { DefenceValues } from "../../common/defence-values/defence-values";

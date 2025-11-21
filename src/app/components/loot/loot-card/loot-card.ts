@@ -1,5 +1,5 @@
 import { Component, Input, output } from '@angular/core';
-import { Loot } from 'src/app/services/entities';
+import { Loot } from 'src/app/entities';
 import { GameLoot } from 'src/app/services/loot-service';
 import { LootToken } from "../../common/tokens/loot-token/loot-token";
 import { Image } from "../../common/image/image";

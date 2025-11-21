@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LocationEvent } from 'src/app/services/entities';
+import { LocationEvent } from 'src/app/entities';
 import { EventToken } from "../../common/tokens/event-token/event-token";
 
 @Component({

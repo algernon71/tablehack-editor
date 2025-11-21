@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { encounterTypeEntity } from 'src/app/services/entities';
+import { encounterTypeEntity } from 'src/app/entities';
 import { ArrayDataSource, Entity, EntityDataSource } from 'src/app/services/entity';
 import { EntityService } from 'src/app/services/entity-service';
 import { EditableTable } from "../../common/editable-table/editable-table";

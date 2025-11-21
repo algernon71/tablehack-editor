@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameCardAttributes } from './encounter-service';
 import { Backend } from './backend';
-import { Action } from './backend-service';
+import { Action } from '../models/action';
 import { Entity, EntityPage } from './entity';
 
 export class DefenceType {

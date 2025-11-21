@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from 'src/app/services/backend-service';
-import { EquipmentItem } from 'src/app/services/entities';
+import { EquipmentItem } from 'src/app/entities';
 import { Entity, EntityDataSource } from 'src/app/services/entity';
 import { EntityService } from 'src/app/services/entity-service';
 import { EditableTable } from "../../common/editable-table/editable-table";

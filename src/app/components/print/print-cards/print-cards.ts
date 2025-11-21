@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { GameEncounter } from 'src/app/services/encounter-service';
 import { GameEvent } from 'src/app/services/events-service';
 import { Monster } from 'src/app/services/monsters';
-import { Action } from 'src/app/services/backend-service';
+import { Action } from 'src/app/models/action';
 import { PrintCard } from "../print-card/print-card";
 import { Character, CharacterAction } from 'src/app/services/characters-service';
 import { NgClass } from '@angular/common';
-import { Encounter, EquipmentItem, LocationEvent, Loot } from 'src/app/services/entities';
+import { Encounter, EquipmentItem, LocationEvent, Loot } from 'src/app/entities';
 
 
 export class PrintPage {

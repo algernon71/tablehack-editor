@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from 'src/app/services/backend-service';
-import { PlayerAction, playerActionsEntity } from 'src/app/services/entities';
+import { PlayerAction, playerActionsEntity } from 'src/app/entities';
 import { EntityDataSource } from 'src/app/services/entity';
 import { EditableTable } from "../../common/editable-table/editable-table";
 import { EditAction } from "../../common/edit-action/edit-action";

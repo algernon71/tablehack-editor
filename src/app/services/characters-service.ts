@@ -4,10 +4,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Backend } from './backend';
 import { Damage } from './monsters';
-import { Action } from 'src/app/services/backend-service';
+import { Action } from 'src/app/models/action';
 import { GameCardAttributes } from './encounter-service';
 import { Entity } from './entity';
-import { PlayerAction } from './entities';
+import { PlayerAction } from '../entities';
 
 export enum CharacterClass {
   WARRIOR,

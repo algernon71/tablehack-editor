@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Monster, MonstersService } from 'src/app/services/monsters';
-import { Action } from 'src/app/services/backend-service';
+import { Action } from 'src/app/models/action';
 import { MatSelectModule } from '@angular/material/select';
 import { Resources } from 'src/app/services/resources';
 import { ResourceReference } from "../../resources/resource-reference/resource-reference";

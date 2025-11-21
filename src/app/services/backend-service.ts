@@ -1,38 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Damage, Defence } from './monsters';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GameCardAttributes } from './encounter-service';
-import { Entity, EntityColumn, EntityDataSource, EntityInfo, EntityPage } from './entity';
-import { PlayerAction } from './entities';
-
-
-export class Action {
-  order?: number;
-  count?: number = 1;
-  initiative: string = "2";
-  level?: string;
-  title?: string;
-  description?: string;
-  targettingId?: number;
-
-  steps: MonsterActionStep[] = [];
-  attributes?: GameCardAttributes = new GameCardAttributes();
-}
-
-
-export class MonsterActionStep {
-  name: string = "Move";
-  type: string = "MOVE";
-  description?: string;
-  subtype?: string = "MOVE_WALK";
-  range?: string;
-  damage?: Damage;
-  defence?: Defence;
-  attributes?: string;
-  body?: string;
-  targettingId?: number;
-}
+import { EntityInfo, EntityPage } from './entity';
+import { PlayerAction } from '../entities';
+import { Action } from '../models/action';
 
 @Injectable({
   providedIn: 'root'

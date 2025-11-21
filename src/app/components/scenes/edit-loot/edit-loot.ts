@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LootCard } from '../../loot/loot-card/loot-card';
-import { encounterEntity, Loot, lootEntity } from 'src/app/services/entities';
+import { encounterEntity, Loot, lootEntity } from 'src/app/entities';
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
