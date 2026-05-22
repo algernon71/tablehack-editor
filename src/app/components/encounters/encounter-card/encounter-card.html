@@ -3,11 +3,13 @@
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
-          <div class="top-section"></div>
-          <div class="middle-section">
-            <app-encounter-token [value]="encounter!.tokenId" />
+          <div class="card-surface card-surface--front card-surface--encounter">
+            <div class="top-section"></div>
+            <div class="middle-section">
+              <app-encounter-token [value]="encounter!.tokenId" />
+            </div>
+            <div class="bottom-section"></div>
           </div>
-          <div class="bottom-section"></div>
         </div>
       </div>
     }
@@ -18,33 +20,35 @@
     @if (back) {
       <div class="card-side">
         <div class="card-inner-frame-back">
-          <div class="back-title">
-            {{ encounter?.name }}
-          </div>
-          <div class="alertness">
-            @if (encounter?.alertness) {
-              <app-alertness-token [value]="encounter?.alertness" />
-            }
-          </div>
-
-          <div class="back-description">{{ encounter?.description }}</div>
-          @if (encounter?.rows) {
-            <table class="rows">
-              @for (row of encounter!.rows; track row) {
-                <tr class="row">
-                  <td class="row-count" align="left">{{ row.count }}</td>
-                  <td class="row-mul" align="center">x</td>
-                  <td class="row-reference" align="left">
-                    <app-monster-card-reference [reference]="row.monsterReference!" />
-                  </td>
-                </tr>
+          <div class="card-surface card-surface--back card-surface--encounter">
+            <div class="back-title">
+              {{ encounter?.name }}
+            </div>
+            <div class="alertness">
+              @if (encounter?.alertness) {
+                <app-alertness-token [value]="encounter?.alertness" />
               }
-            </table>
-          }
-          <div class="back-bottom-section">
-            @if (encounter?.attributes) {
-              <app-card-attributes [attributes]="encounter!.attributes!" />
+            </div>
+
+            <div class="back-description">{{ encounter?.description }}</div>
+            @if (encounter?.rows) {
+              <table class="rows">
+                @for (row of encounter!.rows; track row) {
+                  <tr class="row">
+                    <td class="row-count" align="left">{{ row.count }}</td>
+                    <td class="row-mul" align="center">x</td>
+                    <td class="row-reference" align="left">
+                      <app-monster-card-reference [reference]="row.monsterReference!" />
+                    </td>
+                  </tr>
+                }
+              </table>
             }
+            <div class="back-bottom-section">
+              @if (encounter?.attributes) {
+                <app-card-attributes [attributes]="encounter!.attributes!" />
+              }
+            </div>
           </div>
         </div>
       </div>

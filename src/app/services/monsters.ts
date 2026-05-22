@@ -67,7 +67,7 @@ export class MonsterData {
 
 
 export class Monster extends Entity {
-  reference: string = '';
+  reference?: string = '';
 
   level?: number = 1;
   type?: string = 'Humanoid';

@@ -1,5 +1,11 @@
 .defence-value {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 1mm;
+
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+
 }

@@ -3,18 +3,21 @@
     @if (front) {
       <div class="card-side-large">
         <div class="card-inner-frame-front">
-          <div class="front-name">
-            {{ character?.name }}
+          <div class="front-left">
+            <div>
+              <img
+                [src]="'http://localhost:8090/api/resources/' + character?.image"
+                class="front-image"
+              />'
+            </div>
           </div>
-          <div class="front-middle">
-            <img
-              [src]="'http://localhost:8090/api/resources/' + character?.image"
-              class="front-image"
-            />'
-            <pre class="front-description">
-            {{ character?.description }}
-          </pre
-            >
+          <div class="front-main">
+            <div class="front-name">
+              {{ character?.name }}
+            </div>
+            <pre class="character-front-description">
+              {{ character?.description }}
+            </pre>
           </div>
         </div>
       </div>

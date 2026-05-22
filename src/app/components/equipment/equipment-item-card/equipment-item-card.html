@@ -2,8 +2,8 @@
   <div class="card" [class.preview]="!print">
     @if (front) {
       <div class="card-side">
-        <div class="card item-card">
-          <div class="card-inner-frame-front">
+        <div class="card-inner-frame-front">
+          <div class="card-surface card-surface--front card-surface--equipment">
             <div class="back-description">Equipment</div>
             <div class="back-reference">{{ item.reference }}</div>
             <div class="back-symbol-section">
@@ -23,7 +23,7 @@
     @if (back) {
       <div class="card-side">
         <div class="card-inner-frame-back">
-          <div class="card item-card">
+          <div class="card-surface card-surface--back card-surface--equipment">
             <div class="card-header">
               <div class="item-name">{{ item.reference }} - {{ item.name }}</div>
               <div class="item-type">

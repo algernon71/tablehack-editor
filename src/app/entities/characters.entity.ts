@@ -11,10 +11,13 @@ export class CharacterClass {
 export const characterClasses: CharacterClass[] = [
   { id: 'WARRIOR', name: 'Warrior' },
   { id: 'KNIGHT', name: 'Knight' },
+  { id: 'PALADIN', name: 'Paladin' },
   { id: 'BARBARIAN', name: 'Barbarian' },
   { id: 'WIZARD', name: 'Wizard' },
   { id: 'DRUID', name: 'Druid' },
-  { id: 'THIEF', name: 'Thied' },
+  { id: 'MONK', name: 'Monk' },
+  { id: 'BARD', name: 'Bard' },
+  { id: 'THIEF', name: 'Thief' },
   { id: 'RANGER', name: 'Ranger' },
 ];
 
@@ -23,6 +26,11 @@ export const charactersEntity: EntityInfo = new EntityInfo('Characters', 'charac
   .column(EntityColumn.string('name', 'Name'))
   .column(EntityColumn.enum('characterClass', 'Class', characterClasses))
   .column(EntityColumn.image('image', 'Image'))
+  .column(EntityColumn.number('data.stats.health.startValue', 'HP').withIcon("STAT_HEALTH"))
+  .column(EntityColumn.number('data.stats.strength.startValue', 'STR').withIcon("STAT_STRENGTH"))
+  .column(EntityColumn.number('data.stats.agility.startValue', 'AGI').withIcon("STAT_AGILITY"))
+  .column(EntityColumn.number('data.stats.mana.startValue', 'MANA').withIcon("STAT_MANA"))
+  .column(EntityColumn.number('data.stats.luck.startValue', 'AGI').withIcon("STAT_LUCK"))
   .printable('character')
   .print((entity) => {
     const cards: CardPrintData[] = [];

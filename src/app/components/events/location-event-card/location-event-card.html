@@ -3,11 +3,13 @@
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
-          <div class="top-section"></div>
-          <div class="middle-section">
-            <app-event-token [value]="locationEvent!.id" />
+          <div class="card-surface card-surface--front card-surface--event">
+            <div class="top-section"></div>
+            <div class="middle-section">
+              <app-event-token [value]="locationEvent!.id" />
+            </div>
+            <div class="bottom-section"></div>
           </div>
-          <div class="bottom-section"></div>
         </div>
       </div>
     }
@@ -18,12 +20,14 @@
     @if (back) {
       <div class="card-side">
         <div class="card-inner-frame-back">
-          <div class="back-title">
-            {{ locationEvent.name }}
-          </div>
+          <div class="card-surface card-surface--back card-surface--event">
+            <div class="back-title">
+              {{ locationEvent.name }}
+            </div>
 
-          <div class="back-description">{{ locationEvent.description }}</div>
-          <div class="back-bottom-section"></div>
+            <div class="back-description">{{ locationEvent.description }}</div>
+            <div class="back-bottom-section"></div>
+          </div>
         </div>
       </div>
     }

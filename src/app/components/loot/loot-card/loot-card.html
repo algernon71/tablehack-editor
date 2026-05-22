@@ -3,13 +3,15 @@
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
-          <div class="front-top-section"></div>
-          <div class="front-middle-section">
-            <app-loot-token [value]="loot?.tokenId" [width]="'35mm'" [height]="'35mm'" />
-          </div>
-          <div class="front-bottom-section">
-            <div class="front-description">
-              <div></div>
+          <div class="card-surface card-surface--front card-surface--loot">
+            <div class="front-top-section"></div>
+            <div class="front-middle-section">
+              <app-loot-token [value]="loot?.tokenId" [width]="'35mm'" [height]="'35mm'" />
+            </div>
+            <div class="front-bottom-section">
+              <div class="front-description">
+                <div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -22,25 +24,27 @@
     @if (back) {
       <div class="card-side">
         <div class="card-inner-frame-back">
-          <div class="back-top-section">
-            <div class="back-title">
-              {{ loot?.name }}
+          <div class="card-surface card-surface--back card-surface--loot">
+            <div class="back-top-section">
+              <div class="back-title">
+                {{ loot?.name }}
+              </div>
+              @if (loot?.description) {
+                <div class="back-description">
+                  {{ loot?.description }}
+                </div>
+              }
             </div>
-            @if (loot?.description) {
-              <div class="back-description">
-                {{ loot?.description }}
-              </div>
-            }
-          </div>
-          <div class="rows">
-            @for (row of loot!.rows; track row) {
-              <div class="row">
-                <app-image [name]="row.image!" [size]="imageSize" />
-              </div>
-            }
-          </div>
-          <div class="back-bottom-section">
-            <app-card-attributes [attributes]="loot?.attributes!" />
+            <div class="rows">
+              @for (row of loot!.rows; track row) {
+                <div class="row">
+                  <app-image [name]="row.image!" [size]="imageSize" />
+                </div>
+              }
+            </div>
+            <div class="back-bottom-section">
+              <app-card-attributes [attributes]="loot?.attributes!" />
+            </div>
           </div>
         </div>
       </div>

@@ -1,12 +1,45 @@
 <div class="container">
   <div class="row">
+    <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
     <app-resource-reference [path]="character!.image" [thumbnail]="false" />
     <mat-form-field>
       <mat-label>Description</mat-label>
       <textarea matInput [(ngModel)]="character!.description" rows="5" cols="40"> </textarea>
     </mat-form-field>
-    <app-print-card-thumbnail [card]="card"></app-print-card-thumbnail>
+    <div class="column">
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.strength"
+        [icon]="'stat_str.svg'"
+        [name]="'STR'"
+      />
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.agility"
+        [icon]="'stat_agility.svg'"
+        [name]="'AGI'"
+      />
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.perception"
+        [icon]="'stat_uoo.svg'"
+        [name]="'PER'"
+      />
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.health"
+        [icon]="'stat_health.svg'"
+        [name]="'HP'"
+      />
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.mana"
+        [icon]="'stat_mana.svg'"
+        [name]="'MANA'"
+      />
+      <app-edit-character-stat
+        [stat]="character!.data!.stats.luck"
+        [icon]="'stat_luck.svg'"
+        [name]="'LUCK'"
+      />
+    </div>
   </div>
+
   <app-edit-actions
     [actions]="character.data!.actions!"
     [characterClass]="character.characterClass"

@@ -45,14 +45,14 @@
     </mat-form-field>
   </div>
   <div class="column">
-    <div class="column">
-      @if (itemType?.damage) {
-        <app-edit-damage [damage]="item.data.damage!" />
-      }
-      @if (itemType?.defence) {
-        <app-edit-defence [defence]="item.data.defence" />
-      }
-    </div>
+    @if (itemType?.damage) {
+      <app-edit-damage [damage]="item.data.damage!" />
+    }
+    @if (itemType?.defence) {
+      <app-edit-defence [defence]="item.data.defence" />
+    }
+  </div>
+  <div class="column">
     <mat-form-field>
       <mat-label>Weight</mat-label>
       <input matInput [(ngModel)]="item.data.weight" />

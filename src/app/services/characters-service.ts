@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CardAttributes } from '../components/common/card-attributes/card-attributes';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { max, Observable } from 'rxjs';
 import { Backend } from './backend';
 import { Damage } from './monsters';
 import { Action } from 'src/app/models/action';
@@ -48,8 +48,45 @@ export class CharacterStats {
   luck: CharacterStatEntry = new CharacterStatEntry();
 
 }
+
+export class ProgressionType {
+  constructor(public type: string, public name: string, private startCost: number, private startStride: number, private ramp: number) {
+
+  }
+
+  buildCosts(startValue: number, maxValue: number): number[] {
+    const costs: number[] = [];
+    let value = 0;
+    let nextCostIncrease = startValue + this.startStride;
+    let currentCost = this.startCost;
+    for (let i = 0; i < startValue!; ++i) {
+      costs.push(0);
+      value++;
+    }
+
+    while (value < maxValue) {
+      if (value >= nextCostIncrease) {
+        currentCost += 1;
+        let nextIncreaseDelta = this.startStride - this.ramp * (currentCost - this.startCost);
+        if (nextIncreaseDelta < 1) {
+          nextIncreaseDelta = 1;
+        }
+        nextCostIncrease += nextIncreaseDelta;
+      }
+      costs.push(currentCost);
+      value++;
+    }
+
+    return costs;
+  }
+}
+
 export class CharacterStatEntry {
+  startValue?: number = 2;
+  maxValue?: number = 10;
+  progression?: string = "MEDIUM";
   upgradeCosts: number[] = [0, 0, 1, 2, 3];
+
 }
 
 export enum ActionType {
@@ -75,7 +112,27 @@ export class CharacterAction {
   providedIn: 'root'
 })
 export class CharactersService {
-  constructor(private http: HttpClient) { }
+  progressionMap = new Map<string, ProgressionType>();
+
+  constructor(private http: HttpClient) {
+    this.initProgressionMap();
+  }
+
+  initProgressionMap() {
+    this.progressionMap.set("VERY_EASY", new ProgressionType("VERY_EASY", "Very easy", 1, 4, 1))
+    this.progressionMap.set("EASY", new ProgressionType("EASY", "Easy", 1, 4, 1))
+    this.progressionMap.set("NORMAL", new ProgressionType("NORMAL", "Normal", 1, 2, 0))
+    this.progressionMap.set("HARD", new ProgressionType("HARD", "Hard", 2, 1, 1))
+    this.progressionMap.set("VERY_HARD", new ProgressionType("VERY_HARD", "Very hard", 3, 1, 1))
+  }
+
+  getProgression(progression: string): ProgressionType | undefined {
+    return this.progressionMap.get(progression);
+  }
+
+  getProgressionTypes(): ProgressionType[] {
+    return Array.from(this.progressionMap.values());
+  }
 
   getCharacters(characterIds?: string): Observable<Character[]> {
     let params = new HttpParams();

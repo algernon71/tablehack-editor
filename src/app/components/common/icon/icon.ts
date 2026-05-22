@@ -45,6 +45,19 @@ export class Icon {
         return "heart.svg";
       case "MANA":
         return "mana.svg";
+      case "STAT_STRENGTH":
+        return "stat_str.svg";
+      case "STAT_AGILITY":
+        return "stat_agility.svg";
+      case "STAT_HEALTH":
+        return "stat_health.svg";
+      case "STAT_PERCEPTION":
+        return "stat_uoo.svg";
+      case "STAT_MANA":
+        return "stat_mana.svg";
+      case "STAT_LUCK":
+        return "stat_luck.svg";
+
       case "DEFENCE_PHYSICAL":
         return "defence_physical.svg";
       case "DEFENCE_FIRE":

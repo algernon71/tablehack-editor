@@ -57,6 +57,7 @@ export class PrintCards {
   title?: string;
   pages: PrintPage[] = [];
 
+  editFilter = false;
 
   @Input()
   get cards(): CardPrintData[] {

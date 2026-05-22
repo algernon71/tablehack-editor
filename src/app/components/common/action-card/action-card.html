@@ -3,18 +3,16 @@
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
-          <div class="front-top-section">
-            <div>
+          <div class="card-surface card-surface--front card-surface--action">
+            <div class="front-top-section">
               <app-initiative-token [value]="action?.initiative" />
             </div>
-          </div>
-          <div class="front-bottom-section">
-            <img src="/public/images/symbols/actions.svg" class="action-symbol" />
-            <div class="front-description">
-              <div>
-                {{ actorReference }}
+            <div class="front-bottom-section">
+              <img src="/public/images/symbols/actions.svg" class="action-symbol" />
+              <div class="front-description">
+                <div>{{ actorReference }}</div>
+                <div>{{ actorName }}</div>
               </div>
-              <div>{{ actorName }}</div>
             </div>
           </div>
         </div>
@@ -27,58 +25,60 @@
     @if (back) {
       <div class="card-side">
         <div class="card-inner-frame-back">
-          <div class="back-top-section">
-            <div class="action-title">{{ action?.title }}</div>
-            <div class="action-description">{{ action?.description }}</div>
-          </div>
-          <div class="action-steps">
-            @for (step of action!.steps; track step) {
-              <div class="action-step">
-                @switch (step.type) {
-                  @case ('ATTACK') {
-                    <div class="action-step-row">
-                      <div class="step-name">{{ step.name }}</div>
-                      @if (step.range) {
+          <div class="card-surface card-surface--back card-surface--action">
+            <div class="back-top-section">
+              <div class="action-title">{{ action?.title }}</div>
+              <div class="action-description">{{ action?.description }}</div>
+            </div>
+            <div class="action-steps">
+              @for (step of action!.steps; track step) {
+                <div class="action-step">
+                  @switch (step.type) {
+                    @case ('ATTACK') {
+                      <div class="action-step-row">
+                        <div class="step-name">{{ step.name }}</div>
+                        @if (step.range) {
+                          <app-range-symbol [value]="step.range!" />
+                        }
+                        <div class="attack-damage">
+                          <app-attack-values [damage]="step.damage" />
+                        </div>
+                      </div>
+                      <div class="action-step-row">
+                        <div class="step-description">
+                          {{ step.description }}
+                        </div>
+                      </div>
+                    }
+                    @case ('DEFENCE') {
+                      <div class="action-step-row">
+                        <app-defence-values [defence]="step.defence" />
+                      </div>
+                    }
+                    @case ('MOVE') {
+                      <div class="action-step-row">
+                        <div class="move-type">
+                          <app-icon [type]="step.subtype!" />
+                        </div>
                         <app-range-symbol [value]="step.range!" />
-                      }
-                      <div class="attack-damage">
-                        <app-attack-values [damage]="step.damage" />
                       </div>
-                    </div>
-                    <div class="action-step-row">
-                      <div class="step-description">
-                        {{ step.description }}
+                    }
+                    @default {
+                      <div class="action-step-row">
+                        <div class="move-range">
+                          {{ step.range }}
+                        </div>
                       </div>
-                    </div>
+                    }
                   }
-                  @case ('DEFENCE') {
-                    <div class="action-step-row">
-                      <app-defence-values [defence]="step.defence" />
-                    </div>
-                  }
-                  @case ('MOVE') {
-                    <div class="action-step-row">
-                      <div class="move-type">
-                        <app-icon [type]="step.subtype!" />
-                      </div>
-                      <app-range-symbol [value]="step.range!" />
-                    </div>
-                  }
-                  @default {
-                    <div class="action-step-row">
-                      <div class="move-range">
-                        {{ step.range }}
-                      </div>
-                    </div>
-                  }
-                }
-              </div>
-            }
-          </div>
-          <div class="back-bottom-section">
-            @if (action?.attributes) {
-              <app-card-attributes [attributes]="action?.attributes!" />
-            }
+                </div>
+              }
+            </div>
+            <div class="back-bottom-section">
+              @if (action?.attributes) {
+                <app-card-attributes [attributes]="action?.attributes!" />
+              }
+            </div>
           </div>
         </div>
       </div>

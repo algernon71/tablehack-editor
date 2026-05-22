@@ -66,6 +66,7 @@ export class EquipmentItem extends Entity {
   reference?: string;
   type!: string;
   subType?: string;
+  attribute?: string;
   category?: string;
   description?: string;
   data!: ItemData;

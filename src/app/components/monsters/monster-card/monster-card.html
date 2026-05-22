@@ -3,20 +3,19 @@
     @if (front) {
       <div class="card-side">
         <div class="card-inner-frame-front">
-          <div class="front-reference">
-            {{ monster?.reference }}
-          </div>
-          <div class="front-name">
-            {{ monster?.name }}
-          </div>
-          <div class="front-image-frame">
-            <img
-              [src]="'http://localhost:8090/api/resources/' + monster?.image"
-              class="front-image"
-            />
-          </div>
-          <div class="front-description">
-            {{ monster?.description }}
+          <div class="card-surface card-surface--front card-surface--monster">
+            <div class="front-reference">
+              {{ monster?.reference }}
+            </div>
+            <div class="front-name">
+              {{ monster?.name }}
+            </div>
+            <div class="front-image-frame">
+              <img
+                [src]="'http://localhost:8090/api/resources/' + monster?.image"
+                class="front-image"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -27,34 +26,27 @@
     }
     @if (back) {
       <div class="card-side">
-        <div class="card-inner-frame-back horizontal">
-          <div class="row">
-            <div class="summary-column">
-              <div class="back-reference">
-                {{ monster?.reference }}
-              </div>
-              <div class="back-name">
-                {{ monster?.name }}
-              </div>
-              <div class="back-image-frame">
-                <img
-                  [src]="'http://localhost:8090/api/resources/' + monster?.image"
-                  class="back-image"
-                />
-              </div>
+        <div class="card-inner-frame-back">
+          <div class="card-surface card-surface--back card-surface--monster">
+            <div class="card-header">
+              <div class="item-name">{{ monster?.reference }} - {{ monster?.name }}</div>
             </div>
-            <div class="data-column">
+            <div class="card-image">
+              <img
+                [src]="'http://localhost:8090/api/resources/' + monster?.image"
+                class="back-image"
+              />
+            </div>
+            <div class="card-footer">
               <div class="main-stats">
-                <div class="stat">
-                  <app-icon [type]="'LEVEL'" [size]="mainStatIconSize" />
-                  {{ monster?.level }}
-                </div>
-                <div class="stat">
-                  <app-icon [type]="'HEALTH'" [size]="mainStatIconSize" />
-                  {{ monster?.health }}
+                <div class="stats-row">
+                  <app-card-stat icon="star.svg" [value]="'x' + monster?.level"></app-card-stat>
+                  <app-card-stat icon="heart.svg" [value]="monster?.health"></app-card-stat>
                 </div>
               </div>
-              <app-defence-values [defence]="monster!.data?.defence" />
+              <div class="stats-row extra-stats">
+                <app-defence-values [defence]="monster!.data?.defence" />
+              </div>
             </div>
           </div>
         </div>

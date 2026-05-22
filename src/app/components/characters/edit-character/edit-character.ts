@@ -19,6 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PrintCardThumbnail } from "../../print/print-card-thumbnail/print-card-thumbnail";
 import { CardPrintData } from '../../print/print-cards/print-cards';
 import { EditActions } from "../../common/edit-actions/edit-actions";
+import { EditCharacterStat } from "../edit-character-stat/edit-character-stat";
 
 @Component({
   selector: 'app-edit-character',
@@ -33,7 +34,7 @@ import { EditActions } from "../../common/edit-actions/edit-actions";
     FormsModule,
     MatInputModule,
     ResourceReference,
-    RouterLink, PrintCardThumbnail, EditActions],
+    RouterLink, PrintCardThumbnail, EditActions, EditCharacterStat],
   templateUrl: './edit-character.html',
   styleUrl: './edit-character.scss'
 })
@@ -48,8 +49,10 @@ export class EditCharacter {
 
   saved = output<any>();
   closed = output<any>();
+
   constructor(private dialog: MatDialog, private charactersService: CharactersService,
     public resourcesService: Resources) {
+    console.info('EditCharacter', this.charactersService);
 
   }
 

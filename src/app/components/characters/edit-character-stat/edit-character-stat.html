@@ -1,0 +1,26 @@
+@if (stat) {
+  <div class="stat-entry">
+    <div class="stat-header">
+      @if (icon) {
+        <img [src]="'/public/images/symbols/' + icon" class="stat-icon" />
+      } @else {
+        {{ name }}
+      }
+    </div>
+
+    <mat-form-field class="value-field" appearance="outline">
+      <input matInput #input [(ngModel)]="stat.startValue" [size]="2" />
+    </mat-form-field>
+
+    <mat-form-field class="value-field" appearance="outline">
+      <input matInput #input [(ngModel)]="stat.maxValue" size="2" />
+    </mat-form-field>
+    <mat-form-field class="progression-field" appearance="outline">
+      <mat-select [(ngModel)]="stat.progression">
+        @for (type of progressionTypes; track type) {
+          <mat-option [value]="type.type"> {{ type.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+}

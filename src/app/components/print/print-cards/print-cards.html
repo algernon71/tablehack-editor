@@ -1,3 +1,6 @@
+@if (editFilter) {
+  Editing filters
+}
 @if (pages) {
   <div>
     @for (page of pages; track page) {
@@ -22,6 +25,10 @@
                 </div>
                 @if (footers) {
                   <div class="footer">
+                    <button mat-raised-button color="primary" (click)="editFilter = !editFilter">
+                      Edit
+                    </button>
+
                     {{ title }} / Sida:{{ page.page + 1 }}/{{ pages.length }} /
                     {{ page.cardCount }} kort
                   </div>
